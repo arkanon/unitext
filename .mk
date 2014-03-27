@@ -3,9 +3,10 @@
 # UniText Unicode Character Style Replacer Firefox Extension
 #
 # Arkanon <arkanon@lsd.org.br>
-# 2014/03/27 (Thu) 10:13:37 (BRS)
-# 2014/03/25 (Tue) 06:37:14 (BRS)
-# 2014/03/25 (Tue) 02:49:55 (BRS)
+# 0.0.2 - 2014/03/27 (Thu) 12:23:27 (BRS)
+# 0.0.1 - 2014/03/27 (Thu) 10:13:37 (BRS)
+#         2014/03/25 (Tue) 06:37:14 (BRS)
+#         2014/03/25 (Tue) 02:49:55 (BRS)
 
 # <http://blog.mozilla.org/addons/2009/01/28/how-to-develop-a-firefox-extension/>
 # <http://robertnyman.com/2009/01/24/how-to-develop-a-firefox-extension/#comment-521990>
@@ -26,10 +27,10 @@
 
 EXT="unitext"
 
-EXT_id="unitext@lsd.org.br"
+EXT_id="$EXT@lsd.org.br"
 EXT_name="UniText"
 EXT_key="U"
-EXT_version="0.0.1"
+EXT_version="0.0.2"
 EXT_type="2"
 EXT_creator="Arkanon"
 EXT_descr="Unicode Character Style Replacer"
@@ -42,10 +43,9 @@ EXT_tgtApp_maxVersion="100.*"
 
 
 
-echo "$HOME/git/$EXT/" >| ~/.mozilla/firefox/devel/extensions/$EXT_id
+echo "$HOME/git/$EXT/$EXT/" >| ~/.mozilla/firefox/devel/extensions/$EXT_id
 
 mkdir -p content/
-mkdir -p defaults/preferences/
 mkdir -p locale/$EXT_locale/
 mkdir -p skin/
 
@@ -84,7 +84,8 @@ cat << EOT >| install.rdf
     <em:creator     >$EXT_creator</em:creator>
     <em:description >$EXT_descr</em:description>
     <em:homepageURL >$EXT_home</em:homepageURL>
-    <em:optionsURL  >chrome://$EXT/content/options.xul</em:optionsURL>
+    <em:iconURL     >chrome://$EXT/skin/icon-48x48.png</em:iconURL>
+    <em:icon64URL   >chrome://$EXT/skin/icon-64x64.png</em:icon64URL>
 
     <!-- Mozilla Firefox -->
     <em:targetApplication>
@@ -112,7 +113,7 @@ cat << EOT >| content/browser.xul
 
 <overlay id="$EXT-browser-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-  <script type="application/x-javascript" src="chrome://$EXT/content/extension.js" />
+  <script type="application/x-javascript" src="chrome://$EXT/content/engine.js" />
   <script type="application/x-javascript" src="chrome://$EXT/content/charmap.json" />
 
   <stringbundleset id="stringbundleset">
@@ -121,35 +122,41 @@ cat << EOT >| content/browser.xul
 
   <popup id="contentAreaContextMenu">
 
-    <menuitem id="$EXT.27" accesskey="&$EXT.27.key;" label="&$EXT.27.label;" oncommand="$EXT.run('27')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.26" accesskey="&$EXT.26.key;" label="&$EXT.26.label;" oncommand="$EXT.run('26')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.25" accesskey="&$EXT.25.key;" label="&$EXT.25.label;" oncommand="$EXT.run('25')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.24" accesskey="&$EXT.24.key;" label="&$EXT.24.label;" oncommand="$EXT.run('24')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.23" accesskey="&$EXT.23.key;" label="&$EXT.23.label;" oncommand="$EXT.run('23')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.22" accesskey="&$EXT.22.key;" label="&$EXT.22.label;" oncommand="$EXT.run('22')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.21" accesskey="&$EXT.21.key;" label="&$EXT.21.label;" oncommand="$EXT.run('21')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.20" accesskey="&$EXT.20.key;" label="&$EXT.20.label;" oncommand="$EXT.run('20')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.19" accesskey="&$EXT.19.key;" label="&$EXT.19.label;" oncommand="$EXT.run('19')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.18" accesskey="&$EXT.18.key;" label="&$EXT.18.label;" oncommand="$EXT.run('18')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.17" accesskey="&$EXT.17.key;" label="&$EXT.17.label;" oncommand="$EXT.run('17')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.16" accesskey="&$EXT.16.key;" label="&$EXT.16.label;" oncommand="$EXT.run('16')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.15" accesskey="&$EXT.15.key;" label="&$EXT.15.label;" oncommand="$EXT.run('15')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.14" accesskey="&$EXT.14.key;" label="&$EXT.14.label;" oncommand="$EXT.run('14')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.13" accesskey="&$EXT.13.key;" label="&$EXT.13.label;" oncommand="$EXT.run('13')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.12" accesskey="&$EXT.12.key;" label="&$EXT.12.label;" oncommand="$EXT.run('12')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.11" accesskey="&$EXT.11.key;" label="&$EXT.11.label;" oncommand="$EXT.run('11')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.10" accesskey="&$EXT.10.key;" label="&$EXT.10.label;" oncommand="$EXT.run('10')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.09" accesskey="&$EXT.09.key;" label="&$EXT.09.label;" oncommand="$EXT.run('09')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.08" accesskey="&$EXT.08.key;" label="&$EXT.08.label;" oncommand="$EXT.run('08')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.07" accesskey="&$EXT.07.key;" label="&$EXT.07.label;" oncommand="$EXT.run('07')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.06" accesskey="&$EXT.06.key;" label="&$EXT.06.label;" oncommand="$EXT.run('06')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.05" accesskey="&$EXT.05.key;" label="&$EXT.05.label;" oncommand="$EXT.run('05')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.04" accesskey="&$EXT.04.key;" label="&$EXT.04.label;" oncommand="$EXT.run('04')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.03" accesskey="&$EXT.03.key;" label="&$EXT.03.label;" oncommand="$EXT.run('03')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-
-    <menuitem id="$EXT.02" accesskey="&$EXT.02.key;" label="&$EXT.02.label;" oncommand="$EXT.run('02')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.01" accesskey="&$EXT.01.key;" label="&$EXT.01.label;" oncommand="$EXT.run('01')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
-    <menuitem id="$EXT.00" accesskey="&$EXT.00.key;" label="&$EXT.00.label;" oncommand="$EXT.run('00')" insertafter="context-selectall" class="$EXT menuitem-iconic" />
+    <menu id="$EXT" label="&$EXT.label;" insertafter="context-selectall" class="menu-iconic">
+      <menupopup>
+        <menuitem id="$EXT.00" label="&$EXT.00.label;" oncommand="$EXT.run('00')" />
+        <menuitem id="$EXT.01" label="&$EXT.01.label;" oncommand="$EXT.run('01')" />
+        <menuitem id="$EXT.02" label="&$EXT.02.label;" oncommand="$EXT.run('02')" />
+        <menuseparator/>
+        <menuseparator/>
+        <menuseparator/>
+    <!-- menuitem id="$EXT.03" label="&$EXT.03.label;" oncommand="$EXT.run('03')" / -->
+        <menuitem id="$EXT.04" label="&$EXT.04.label;" oncommand="$EXT.run('04')" />
+        <menuitem id="$EXT.05" label="&$EXT.05.label;" oncommand="$EXT.run('05')" />
+        <menuitem id="$EXT.06" label="&$EXT.06.label;" oncommand="$EXT.run('06')" />
+        <menuitem id="$EXT.07" label="&$EXT.07.label;" oncommand="$EXT.run('07')" />
+        <menuitem id="$EXT.08" label="&$EXT.08.label;" oncommand="$EXT.run('08')" />
+        <menuitem id="$EXT.09" label="&$EXT.09.label;" oncommand="$EXT.run('09')" />
+        <menuitem id="$EXT.10" label="&$EXT.10.label;" oncommand="$EXT.run('10')" />
+        <menuitem id="$EXT.11" label="&$EXT.11.label;" oncommand="$EXT.run('11')" />
+        <menuitem id="$EXT.12" label="&$EXT.12.label;" oncommand="$EXT.run('12')" />
+        <menuitem id="$EXT.13" label="&$EXT.13.label;" oncommand="$EXT.run('13')" />
+        <menuitem id="$EXT.14" label="&$EXT.14.label;" oncommand="$EXT.run('14')" />
+        <menuitem id="$EXT.15" label="&$EXT.15.label;" oncommand="$EXT.run('15')" />
+        <menuitem id="$EXT.16" label="&$EXT.16.label;" oncommand="$EXT.run('16')" />
+        <menuitem id="$EXT.17" label="&$EXT.17.label;" oncommand="$EXT.run('17')" />
+        <menuitem id="$EXT.18" label="&$EXT.18.label;" oncommand="$EXT.run('18')" />
+        <menuitem id="$EXT.19" label="&$EXT.19.label;" oncommand="$EXT.run('19')" />
+        <menuitem id="$EXT.20" label="&$EXT.20.label;" oncommand="$EXT.run('20')" />
+        <menuitem id="$EXT.21" label="&$EXT.21.label;" oncommand="$EXT.run('21')" />
+        <menuitem id="$EXT.22" label="&$EXT.22.label;" oncommand="$EXT.run('22')" />
+        <menuitem id="$EXT.23" label="&$EXT.23.label;" oncommand="$EXT.run('23')" />
+        <menuitem id="$EXT.24" label="&$EXT.24.label;" oncommand="$EXT.run('24')" />
+        <menuitem id="$EXT.25" label="&$EXT.25.label;" oncommand="$EXT.run('25')" />
+        <menuitem id="$EXT.26" label="&$EXT.26.label;" oncommand="$EXT.run('26')" />
+        <menuitem id="$EXT.27" label="&$EXT.27.label;" oncommand="$EXT.run('27')" />
+      </menupopup>
+    </menu>
 
   </popup>
 
@@ -158,48 +165,7 @@ EOT
 
 
 
-cat << EOT >| content/options.xul
-<?xml version="1.0"?>
-
-<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-
-<prefwindow
-  title="$EXT_name Preferences"
-  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-
-  <prefpane label="$EXT_name Preferences">
-
-    <preferences>
-      <preference id="$EXT-autorun" name="extensions.$EXT.autorun" type="bool"/>
-    </preferences>
-
-    <groupbox>
-      <caption label="Settings"/>
-      <grid>
-
-        <columns>
-          <column flex="4"/>
-          <column flex="1"/>
-        </columns>
-
-        <rows>
-          <row>
-            <label control="autorun" value="Autorun"/>
-            <checkbox id="autorun" preference="$EXT-autorun"/>
-          </row>
-        </rows>
-
-      </grid>
-    </groupbox>
-
-  </prefpane>
-
-</prefwindow>
-EOT
-
-
-
-cat << EOT >| content/extension.js
+cat << EOT >| content/engine.js
 
 // $EXT_name namespace
 if ("undefined" == typeof($EXT_name))
@@ -207,11 +173,14 @@ if ("undefined" == typeof($EXT_name))
   var $EXT = {};
 };
 
-
-
 // Controls the browser overlay for the extension
 $EXT =
 {
+
+  toTitleCase : function(str)
+  {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+  },
 
   change : function(action, str)
   {
@@ -249,14 +218,21 @@ $EXT =
       '27' : 'sublinhado'
     }
 
-    var char;
     var newstr = '';
-    var i = str.length;
-    while (i--)
+
+         if (action=='00') newstr = str.toUpperCase();
+    else if (action=='01') newstr = str.toLowerCase();
+    else if (action=='02') newstr = $EXT.toTitleCase(str);
+    else
     {
-      style  = charmap[ 'letras' ][ styles[action] ];
-      char   = typeof  style[ str[i] ] != "undefined" ? style[ str[i] ][ 0 ] : str[i];
-      newstr = char + newstr;
+      var style, char;
+      var i = str.length;
+      while (i--)
+      {
+        style  = charmap[ 'letras' ][ styles[action] ];
+        char   = typeof  style[ str[i] ] != "undefined" ? style[ str[i] ][ 0 ] : str[i];
+        newstr = char + newstr;
+      }
     }
 
     return newstr;
@@ -295,43 +271,39 @@ EOT
 
 
 
-cat << EOT >| defaults/preferences/pref.js
-pref("extensions.$EXT.autorun", false);
-EOT
-
-
-
 cat << EOT >| locale/$EXT_locale/translations.dtd
 
-<!ENTITY $EXT.00.label "$EXT_name: MAIÚSCULO"                        > <!ENTITY $EXT.00.key "m" >
-<!ENTITY $EXT.01.label "$EXT_name: minúsculo"                        > <!ENTITY $EXT.01.key "m" >
-<!ENTITY $EXT.02.label "$EXT_name: Capital"                          > <!ENTITY $EXT.02.key "m" >
+<!ENTITY $EXT.label    "$EXT_name"                        >
 
-<!ENTITY $EXT.03.label "$EXT_name: latin"                            > <!ENTITY $EXT.03.key "m" >
-<!ENTITY $EXT.04.label "$EXT_name: sem serifa"                       > <!ENTITY $EXT.04.key "m" >
-<!ENTITY $EXT.05.label "$EXT_name: sem serifa negrito"               > <!ENTITY $EXT.05.key "m" >
-<!ENTITY $EXT.06.label "$EXT_name: sem serifa italico"               > <!ENTITY $EXT.06.key "m" >
-<!ENTITY $EXT.07.label "$EXT_name: sem serifa negrito italico"       > <!ENTITY $EXT.07.key "m" >
-<!ENTITY $EXT.08.label "$EXT_name: com serifa negrito"               > <!ENTITY $EXT.08.key "m" >
-<!ENTITY $EXT.09.label "$EXT_name: com serifa italico"               > <!ENTITY $EXT.09.key "m" >
-<!ENTITY $EXT.10.label "$EXT_name: com serifa negrito italico"       > <!ENTITY $EXT.10.key "m" >
-<!ENTITY $EXT.11.label "$EXT_name: grego sem serifa"                 > <!ENTITY $EXT.11.key "m" >
-<!ENTITY $EXT.12.label "$EXT_name: grego sem serifa negrito"         > <!ENTITY $EXT.12.key "m" >
-<!ENTITY $EXT.13.label "$EXT_name: grego sem serifa negrito italico" > <!ENTITY $EXT.13.key "m" >
-<!ENTITY $EXT.14.label "$EXT_name: grego com serifa negrito"         > <!ENTITY $EXT.14.key "m" >
-<!ENTITY $EXT.15.label "$EXT_name: grego com serifa italico"         > <!ENTITY $EXT.15.key "m" >
-<!ENTITY $EXT.16.label "$EXT_name: grego com serifa negrito italico" > <!ENTITY $EXT.16.key "m" >
-<!ENTITY $EXT.17.label "$EXT_name: gotico"                           > <!ENTITY $EXT.17.key "m" >
-<!ENTITY $EXT.18.label "$EXT_name: gotico negrito"                   > <!ENTITY $EXT.18.key "m" >
-<!ENTITY $EXT.19.label "$EXT_name: script"                           > <!ENTITY $EXT.19.key "m" >
-<!ENTITY $EXT.20.label "$EXT_name: script negrito"                   > <!ENTITY $EXT.20.key "m" >
-<!ENTITY $EXT.21.label "$EXT_name: virado"                           > <!ENTITY $EXT.21.key "m" >
-<!ENTITY $EXT.22.label "$EXT_name: duplo"                            > <!ENTITY $EXT.22.key "m" >
-<!ENTITY $EXT.23.label "$EXT_name: monoespacada"                     > <!ENTITY $EXT.23.key "m" >
-<!ENTITY $EXT.24.label "$EXT_name: superescrito"                     > <!ENTITY $EXT.24.key "m" >
-<!ENTITY $EXT.25.label "$EXT_name: subscrito"                        > <!ENTITY $EXT.25.key "m" >
-<!ENTITY $EXT.26.label "$EXT_name: small caps"                       > <!ENTITY $EXT.26.key "m" >
-<!ENTITY $EXT.27.label "$EXT_name: sublinhado"                       > <!ENTITY $EXT.27.key "m" >
+<!ENTITY $EXT.00.label "MAIÚSCULO"                        >
+<!ENTITY $EXT.01.label "minúsculo"                        >
+<!ENTITY $EXT.02.label "Capital"                          >
+
+<!ENTITY $EXT.03.label "Latin"                            >
+<!ENTITY $EXT.04.label "𝖲𝖾𝗆 𝖲𝖾𝗋𝗂𝖿𝖺"                       >
+<!ENTITY $EXT.05.label "𝗦𝗲𝗺 𝗦𝗲𝗿𝗶𝗳𝗮 𝗡𝗲𝗴𝗿𝗶𝘁𝗼"               >
+<!ENTITY $EXT.06.label "𝘚𝘦𝘮 𝘚𝘦𝘳𝘪𝘧𝘢 𝘐𝘵𝘢𝘭𝘪𝘤𝘰"               >
+<!ENTITY $EXT.07.label "𝙎𝙚𝙢 𝙎𝙚𝙧𝙞𝙛𝙖 𝙉𝙚𝙜𝙧𝙞𝙩𝙤 𝙄𝙩𝙖𝙡𝙞𝙘𝙤"       >
+<!ENTITY $EXT.08.label "𝐂𝐨𝐦 𝐒𝐞𝐫𝐢𝐟𝐚 𝐍𝐞𝐠𝐫𝐢𝐭𝐨"               >
+<!ENTITY $EXT.09.label "𝐶𝑜𝑚 𝑆𝑒𝑟𝑖𝑓𝑎 𝐼𝑡𝑎𝑙𝑖𝑐𝑜"               >
+<!ENTITY $EXT.10.label "𝑪𝒐𝒎 𝑺𝒆𝒓𝒊𝒇𝒂 𝑵𝒆𝒈𝒓𝒊𝒕𝒐 𝑰𝒕𝒂𝒍𝒊𝒄𝒐"       >
+<!ENTITY $EXT.11.label "Γρεγο Sem Serifa"                 >
+<!ENTITY $EXT.12.label "𝝘𝞀𝝴𝝲𝝾 Sem Serifa Negrito"         >
+<!ENTITY $EXT.13.label "𝞒𝞺𝞮𝞬𝞸 Sem Serifa Negrito Italico" >
+<!ENTITY $EXT.14.label "𝚪𝛒𝛆𝛄𝛐 Com Serifa Negrito"         >
+<!ENTITY $EXT.15.label "𝛤𝜌𝜀𝛾𝜊 Com Serifa Italico"         >
+<!ENTITY $EXT.16.label "𝜞𝝆𝜺𝜸𝝄 Com Serifa Negrito Italico" >
+<!ENTITY $EXT.17.label "𝔊𝔬𝔱𝔦𝔠𝔬"                           >
+<!ENTITY $EXT.18.label "𝕲𝖔𝖙𝖎𝖈𝖔 𝕹𝖊𝖌𝖗𝖎𝖙𝖔"                   >
+<!ENTITY $EXT.19.label "𝒮𝒸𝓇𝒾𝓅𝓉"                           >
+<!ENTITY $EXT.20.label "𝓢𝓬𝓻𝓲𝓹𝓽 𝓝𝓮𝓰𝓻𝓲𝓽𝓸"                   >
+<!ENTITY $EXT.21.label "Ʌᴉɹɐpo"                           >
+<!ENTITY $EXT.22.label "𝔻𝕦𝕡𝕝𝕠"                            >
+<!ENTITY $EXT.23.label "𝙼𝚘𝚗𝚘𝚎𝚜𝚙𝚊𝚌𝚊𝚍𝚊"                     >
+<!ENTITY $EXT.24.label "ˢᵘᵖᵉʳᵉˢᶜʳⁱᵗᵒ"                     >
+<!ENTITY $EXT.25.label "Sᵤ ₛ ᵣᵢₜₒ"                        >
+<!ENTITY $EXT.26.label "Sᴍᴀʟʟ Cᴀᴘꜱ"                       >
+<!ENTITY $EXT.27.label "Suḇḻiṉẖaḏo"                       >
 
 EOT
 
@@ -345,16 +317,17 @@ EOT
 
 cat << EOT >| skin/skin.css
 
-.$EXT
+#$EXT
 {
-  list-style-image: URL("chrome://$EXT/skin/unicode-16x16.png");
+  list-style-image: URL("chrome://$EXT/skin/icon-16x16.png");
 }
 
 EOT
 
 
 
-# zip -r ../$EXT_name-$EXT_version.xpi *
+rm     ../$EXT_name-$EXT_version.xpi
+zip -r ../$EXT_name-$EXT_version.xpi *
 
 
 

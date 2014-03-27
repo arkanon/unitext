@@ -5,11 +5,14 @@ if ("undefined" == typeof(UniText))
   var unitext = {};
 };
 
-
-
 // Controls the browser overlay for the extension
 unitext =
 {
+
+  toTitleCase : function(str)
+  {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+  },
 
   change : function(action, str)
   {
@@ -47,14 +50,21 @@ unitext =
       '27' : 'sublinhado'
     }
 
-    var char;
     var newstr = '';
-    var i = str.length;
-    while (i--)
+
+         if (action=='00') newstr = str.toUpperCase();
+    else if (action=='01') newstr = str.toLowerCase();
+    else if (action=='02') newstr = unitext.toTitleCase(str);
+    else
     {
-      style  = charmap[ 'letras' ][ styles[action] ];
-      char   = typeof  style[ str[i] ] != "undefined" ? style[ str[i] ][ 0 ] : str[i];
-      newstr = char + newstr;
+      var style, char;
+      var i = str.length;
+      while (i--)
+      {
+        style  = charmap[ 'letras' ][ styles[action] ];
+        char   = typeof  style[ str[i] ] != "undefined" ? style[ str[i] ][ 0 ] : str[i];
+        newstr = char + newstr;
+      }
     }
 
     return newstr;

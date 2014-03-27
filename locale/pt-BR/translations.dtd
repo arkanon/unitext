@@ -1,31 +1,33 @@
 
-<!ENTITY unitext.00.label "UniText: MAIÚSCULO"                        > <!ENTITY unitext.00.key "m" >
-<!ENTITY unitext.01.label "UniText: minúsculo"                        > <!ENTITY unitext.01.key "m" >
-<!ENTITY unitext.02.label "UniText: Capital"                          > <!ENTITY unitext.02.key "m" >
+<!ENTITY unitext.label    "UniText"                        >
 
-<!ENTITY unitext.03.label "UniText: latin"                            > <!ENTITY unitext.03.key "m" >
-<!ENTITY unitext.04.label "UniText: sem serifa"                       > <!ENTITY unitext.04.key "m" >
-<!ENTITY unitext.05.label "UniText: sem serifa negrito"               > <!ENTITY unitext.05.key "m" >
-<!ENTITY unitext.06.label "UniText: sem serifa italico"               > <!ENTITY unitext.06.key "m" >
-<!ENTITY unitext.07.label "UniText: sem serifa negrito italico"       > <!ENTITY unitext.07.key "m" >
-<!ENTITY unitext.08.label "UniText: com serifa negrito"               > <!ENTITY unitext.08.key "m" >
-<!ENTITY unitext.09.label "UniText: com serifa italico"               > <!ENTITY unitext.09.key "m" >
-<!ENTITY unitext.10.label "UniText: com serifa negrito italico"       > <!ENTITY unitext.10.key "m" >
-<!ENTITY unitext.11.label "UniText: grego sem serifa"                 > <!ENTITY unitext.11.key "m" >
-<!ENTITY unitext.12.label "UniText: grego sem serifa negrito"         > <!ENTITY unitext.12.key "m" >
-<!ENTITY unitext.13.label "UniText: grego sem serifa negrito italico" > <!ENTITY unitext.13.key "m" >
-<!ENTITY unitext.14.label "UniText: grego com serifa negrito"         > <!ENTITY unitext.14.key "m" >
-<!ENTITY unitext.15.label "UniText: grego com serifa italico"         > <!ENTITY unitext.15.key "m" >
-<!ENTITY unitext.16.label "UniText: grego com serifa negrito italico" > <!ENTITY unitext.16.key "m" >
-<!ENTITY unitext.17.label "UniText: gotico"                           > <!ENTITY unitext.17.key "m" >
-<!ENTITY unitext.18.label "UniText: gotico negrito"                   > <!ENTITY unitext.18.key "m" >
-<!ENTITY unitext.19.label "UniText: script"                           > <!ENTITY unitext.19.key "m" >
-<!ENTITY unitext.20.label "UniText: script negrito"                   > <!ENTITY unitext.20.key "m" >
-<!ENTITY unitext.21.label "UniText: virado"                           > <!ENTITY unitext.21.key "m" >
-<!ENTITY unitext.22.label "UniText: duplo"                            > <!ENTITY unitext.22.key "m" >
-<!ENTITY unitext.23.label "UniText: monoespacada"                     > <!ENTITY unitext.23.key "m" >
-<!ENTITY unitext.24.label "UniText: superescrito"                     > <!ENTITY unitext.24.key "m" >
-<!ENTITY unitext.25.label "UniText: subscrito"                        > <!ENTITY unitext.25.key "m" >
-<!ENTITY unitext.26.label "UniText: small caps"                       > <!ENTITY unitext.26.key "m" >
-<!ENTITY unitext.27.label "UniText: sublinhado"                       > <!ENTITY unitext.27.key "m" >
+<!ENTITY unitext.00.label "MAIÚSCULO"                        >
+<!ENTITY unitext.01.label "minúsculo"                        >
+<!ENTITY unitext.02.label "Capital"                          >
+
+<!ENTITY unitext.03.label "Latin"                            >
+<!ENTITY unitext.04.label "𝖲𝖾𝗆 𝖲𝖾𝗋𝗂𝖿𝖺"                       >
+<!ENTITY unitext.05.label "𝗦𝗲𝗺 𝗦𝗲𝗿𝗶𝗳𝗮 𝗡𝗲𝗴𝗿𝗶𝘁𝗼"               >
+<!ENTITY unitext.06.label "𝘚𝘦𝘮 𝘚𝘦𝘳𝘪𝘧𝘢 𝘐𝘵𝘢𝘭𝘪𝘤𝘰"               >
+<!ENTITY unitext.07.label "𝙎𝙚𝙢 𝙎𝙚𝙧𝙞𝙛𝙖 𝙉𝙚𝙜𝙧𝙞𝙩𝙤 𝙄𝙩𝙖𝙡𝙞𝙘𝙤"       >
+<!ENTITY unitext.08.label "𝐂𝐨𝐦 𝐒𝐞𝐫𝐢𝐟𝐚 𝐍𝐞𝐠𝐫𝐢𝐭𝐨"               >
+<!ENTITY unitext.09.label "𝐶𝑜𝑚 𝑆𝑒𝑟𝑖𝑓𝑎 𝐼𝑡𝑎𝑙𝑖𝑐𝑜"               >
+<!ENTITY unitext.10.label "𝑪𝒐𝒎 𝑺𝒆𝒓𝒊𝒇𝒂 𝑵𝒆𝒈𝒓𝒊𝒕𝒐 𝑰𝒕𝒂𝒍𝒊𝒄𝒐"       >
+<!ENTITY unitext.11.label "Γρεγο Sem Serifa"                 >
+<!ENTITY unitext.12.label "𝝘𝞀𝝴𝝲𝝾 Sem Serifa Negrito"         >
+<!ENTITY unitext.13.label "𝞒𝞺𝞮𝞬𝞸 Sem Serifa Negrito Italico" >
+<!ENTITY unitext.14.label "𝚪𝛒𝛆𝛄𝛐 Com Serifa Negrito"         >
+<!ENTITY unitext.15.label "𝛤𝜌𝜀𝛾𝜊 Com Serifa Italico"         >
+<!ENTITY unitext.16.label "𝜞𝝆𝜺𝜸𝝄 Com Serifa Negrito Italico" >
+<!ENTITY unitext.17.label "𝔊𝔬𝔱𝔦𝔠𝔬"                           >
+<!ENTITY unitext.18.label "𝕲𝖔𝖙𝖎𝖈𝖔 𝕹𝖊𝖌𝖗𝖎𝖙𝖔"                   >
+<!ENTITY unitext.19.label "𝒮𝒸𝓇𝒾𝓅𝓉"                           >
+<!ENTITY unitext.20.label "𝓢𝓬𝓻𝓲𝓹𝓽 𝓝𝓮𝓰𝓻𝓲𝓽𝓸"                   >
+<!ENTITY unitext.21.label "Ʌᴉɹɐpo"                           >
+<!ENTITY unitext.22.label "𝔻𝕦𝕡𝕝𝕠"                            >
+<!ENTITY unitext.23.label "𝙼𝚘𝚗𝚘𝚎𝚜𝚙𝚊𝚌𝚊𝚍𝚊"                     >
+<!ENTITY unitext.24.label "ˢᵘᵖᵉʳᵉˢᶜʳⁱᵗᵒ"                     >
+<!ENTITY unitext.25.label "Sᵤ ₛ ᵣᵢₜₒ"                        >
+<!ENTITY unitext.26.label "Sᴍᴀʟʟ Cᴀᴘꜱ"                       >
+<!ENTITY unitext.27.label "Suḇḻiṉẖaḏo"                       >
 

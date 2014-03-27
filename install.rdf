@@ -7,12 +7,13 @@
 
     <em:id          >unitext@lsd.org.br</em:id>
     <em:name        >UniText</em:name>
-    <em:version     >0.0.1</em:version>
+    <em:version     >0.0.2</em:version>
     <em:type        >2</em:type>
     <em:creator     >Arkanon</em:creator>
     <em:description >Unicode Character Style Replacer</em:description>
     <em:homepageURL >http://www.lsd.org.br/</em:homepageURL>
-    <em:optionsURL  >chrome://unitext/content/options.xul</em:optionsURL>
+    <em:iconURL     >chrome://unitext/skin/icon-48x48.png</em:iconURL>
+    <em:icon64URL   >chrome://unitext/skin/icon-64x64.png</em:icon64URL>
 
     <!-- Mozilla Firefox -->
     <em:targetApplication>

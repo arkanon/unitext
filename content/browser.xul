@@ -7,7 +7,7 @@
 
 <overlay id="unitext-browser-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-  <script type="application/x-javascript" src="chrome://unitext/content/extension.js" />
+  <script type="application/x-javascript" src="chrome://unitext/content/engine.js" />
   <script type="application/x-javascript" src="chrome://unitext/content/charmap.json" />
 
   <stringbundleset id="stringbundleset">
@@ -16,35 +16,41 @@
 
   <popup id="contentAreaContextMenu">
 
-    <menuitem id="unitext.27" accesskey="&unitext.27.key;" label="&unitext.27.label;" oncommand="unitext.run('27')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.26" accesskey="&unitext.26.key;" label="&unitext.26.label;" oncommand="unitext.run('26')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.25" accesskey="&unitext.25.key;" label="&unitext.25.label;" oncommand="unitext.run('25')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.24" accesskey="&unitext.24.key;" label="&unitext.24.label;" oncommand="unitext.run('24')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.23" accesskey="&unitext.23.key;" label="&unitext.23.label;" oncommand="unitext.run('23')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.22" accesskey="&unitext.22.key;" label="&unitext.22.label;" oncommand="unitext.run('22')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.21" accesskey="&unitext.21.key;" label="&unitext.21.label;" oncommand="unitext.run('21')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.20" accesskey="&unitext.20.key;" label="&unitext.20.label;" oncommand="unitext.run('20')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.19" accesskey="&unitext.19.key;" label="&unitext.19.label;" oncommand="unitext.run('19')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.18" accesskey="&unitext.18.key;" label="&unitext.18.label;" oncommand="unitext.run('18')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.17" accesskey="&unitext.17.key;" label="&unitext.17.label;" oncommand="unitext.run('17')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.16" accesskey="&unitext.16.key;" label="&unitext.16.label;" oncommand="unitext.run('16')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.15" accesskey="&unitext.15.key;" label="&unitext.15.label;" oncommand="unitext.run('15')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.14" accesskey="&unitext.14.key;" label="&unitext.14.label;" oncommand="unitext.run('14')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.13" accesskey="&unitext.13.key;" label="&unitext.13.label;" oncommand="unitext.run('13')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.12" accesskey="&unitext.12.key;" label="&unitext.12.label;" oncommand="unitext.run('12')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.11" accesskey="&unitext.11.key;" label="&unitext.11.label;" oncommand="unitext.run('11')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.10" accesskey="&unitext.10.key;" label="&unitext.10.label;" oncommand="unitext.run('10')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.09" accesskey="&unitext.09.key;" label="&unitext.09.label;" oncommand="unitext.run('09')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.08" accesskey="&unitext.08.key;" label="&unitext.08.label;" oncommand="unitext.run('08')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.07" accesskey="&unitext.07.key;" label="&unitext.07.label;" oncommand="unitext.run('07')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.06" accesskey="&unitext.06.key;" label="&unitext.06.label;" oncommand="unitext.run('06')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.05" accesskey="&unitext.05.key;" label="&unitext.05.label;" oncommand="unitext.run('05')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.04" accesskey="&unitext.04.key;" label="&unitext.04.label;" oncommand="unitext.run('04')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.03" accesskey="&unitext.03.key;" label="&unitext.03.label;" oncommand="unitext.run('03')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-
-    <menuitem id="unitext.02" accesskey="&unitext.02.key;" label="&unitext.02.label;" oncommand="unitext.run('02')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.01" accesskey="&unitext.01.key;" label="&unitext.01.label;" oncommand="unitext.run('01')" insertafter="context-selectall" class="unitext menuitem-iconic" />
-    <menuitem id="unitext.00" accesskey="&unitext.00.key;" label="&unitext.00.label;" oncommand="unitext.run('00')" insertafter="context-selectall" class="unitext menuitem-iconic" />
+    <menu id="unitext" label="&unitext.label;" insertafter="context-selectall" class="menu-iconic">
+      <menupopup>
+        <menuitem id="unitext.00" label="&unitext.00.label;" oncommand="unitext.run('00')" />
+        <menuitem id="unitext.01" label="&unitext.01.label;" oncommand="unitext.run('01')" />
+        <menuitem id="unitext.02" label="&unitext.02.label;" oncommand="unitext.run('02')" />
+        <menuseparator/>
+        <menuseparator/>
+        <menuseparator/>
+    <!-- menuitem id="unitext.03" label="&unitext.03.label;" oncommand="unitext.run('03')" / -->
+        <menuitem id="unitext.04" label="&unitext.04.label;" oncommand="unitext.run('04')" />
+        <menuitem id="unitext.05" label="&unitext.05.label;" oncommand="unitext.run('05')" />
+        <menuitem id="unitext.06" label="&unitext.06.label;" oncommand="unitext.run('06')" />
+        <menuitem id="unitext.07" label="&unitext.07.label;" oncommand="unitext.run('07')" />
+        <menuitem id="unitext.08" label="&unitext.08.label;" oncommand="unitext.run('08')" />
+        <menuitem id="unitext.09" label="&unitext.09.label;" oncommand="unitext.run('09')" />
+        <menuitem id="unitext.10" label="&unitext.10.label;" oncommand="unitext.run('10')" />
+        <menuitem id="unitext.11" label="&unitext.11.label;" oncommand="unitext.run('11')" />
+        <menuitem id="unitext.12" label="&unitext.12.label;" oncommand="unitext.run('12')" />
+        <menuitem id="unitext.13" label="&unitext.13.label;" oncommand="unitext.run('13')" />
+        <menuitem id="unitext.14" label="&unitext.14.label;" oncommand="unitext.run('14')" />
+        <menuitem id="unitext.15" label="&unitext.15.label;" oncommand="unitext.run('15')" />
+        <menuitem id="unitext.16" label="&unitext.16.label;" oncommand="unitext.run('16')" />
+        <menuitem id="unitext.17" label="&unitext.17.label;" oncommand="unitext.run('17')" />
+        <menuitem id="unitext.18" label="&unitext.18.label;" oncommand="unitext.run('18')" />
+        <menuitem id="unitext.19" label="&unitext.19.label;" oncommand="unitext.run('19')" />
+        <menuitem id="unitext.20" label="&unitext.20.label;" oncommand="unitext.run('20')" />
+        <menuitem id="unitext.21" label="&unitext.21.label;" oncommand="unitext.run('21')" />
+        <menuitem id="unitext.22" label="&unitext.22.label;" oncommand="unitext.run('22')" />
+        <menuitem id="unitext.23" label="&unitext.23.label;" oncommand="unitext.run('23')" />
+        <menuitem id="unitext.24" label="&unitext.24.label;" oncommand="unitext.run('24')" />
+        <menuitem id="unitext.25" label="&unitext.25.label;" oncommand="unitext.run('25')" />
+        <menuitem id="unitext.26" label="&unitext.26.label;" oncommand="unitext.run('26')" />
+        <menuitem id="unitext.27" label="&unitext.27.label;" oncommand="unitext.run('27')" />
+      </menupopup>
+    </menu>
 
   </popup>
 
