@@ -326,8 +326,8 @@ EOT
 
 
 
-rm     ../$EXT_name-$EXT_version.xpi
-zip -r ../$EXT_name-$EXT_version.xpi *
+rm     .extension/$EXT_name-$EXT_version.xpi
+zip -r .extension/$EXT_name-$EXT_version.xpi *
 
 
 
