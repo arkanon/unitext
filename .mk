@@ -3,7 +3,7 @@
 # UniText Unicode Character Style Replacer Firefox Extension
 #
 # Arkanon <arkanon@lsd.org.br>
-# 0.0.2 - 2014/03/27 (Thu) 12:23:27 (BRS)
+# 0.0.2 - 2014/03/27 (Thu) 13:01:01 (BRS)
 # 0.0.1 - 2014/03/27 (Thu) 10:13:37 (BRS)
 #         2014/03/25 (Tue) 06:37:14 (BRS)
 #         2014/03/25 (Tue) 02:49:55 (BRS)
@@ -34,7 +34,7 @@ EXT_version="0.0.2"
 EXT_type="2"
 EXT_creator="Arkanon"
 EXT_descr="Unicode Character Style Replacer"
-EXT_home="http://www.lsd.org.br/"
+EXT_home="http://github.com/arkanon/unitext"
 EXT_locale="pt-BR"
 
 EXT_tgtApp_id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}" # firefox
