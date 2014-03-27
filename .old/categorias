@@ -1,0 +1,57 @@
+
+
+
+latin                     normal               small/capital/digit/small capital/turned/with line below
+serif/sans-serif          normal/bold/italic   small/capital/digit
+script/fraktur            normal/bold          small/capital
+monospace/double-struck   normal               small/capital/digit
+
+
+
+BLACK-LETTER          CAPITAL *
+DOUBLE-STRUCK         CAPITAL *
+SCRIPT          SMALL/CAPITAL *
+
+
+
+                SMALL/(CAPITAL) ROMAN NUMERAL *
+NEGATIVE         CIRCLED                                             NUMBER *
+                                                                     NUMBER * FULL STOP
+PARENTHESIZED                                                  DIGIT/NUMBER *
+                 CIRCLED                                       DIGIT/NUMBER *
+DINGBAT          CIRCLED SANS-SERIF                            DIGIT/NUMBER *
+DINGBAT NEGATIVE CIRCLED                                       DIGIT/NUMBER *
+DINGBAT NEGATIVE CIRCLED SANS-SERIF                            DIGIT/NUMBER *
+                                                               DIGIT          FULL STOP *
+
+
+
+
+LATIN                                            SMALL/CAPITAL LETTER       *
+(LATIN)                                                        DIGIT        *
+LATIN                                  LETTER    SMALL CAPITAL              *
+LATIN                                            SMALL/CAPITAL LETTER         TURNED *
+LATIN                                            SMALL/CAPITAL LETTER       * WITH LINE BELOW
+
+MATHEMATICAL             SANS-SERIF              SMALL/CAPITAL/DIGIT        *
+MATHEMATICAL             SANS-SERIF      ITALIC  SMALL/CAPITAL              *
+MATHEMATICAL             SANS-SERIF BOLD         SMALL/CAPITAL/DIGIT        *
+MATHEMATICAL             SANS-SERIF BOLD ITALIC  SMALL/CAPITAL              *
+
+MATHEMATICAL                             ITALIC  SMALL/CAPITAL              *
+MATHEMATICAL                        BOLD         SMALL/CAPITAL/DIGIT        *
+MATHEMATICAL                        BOLD ITALIC  SMALL/CAPITAL              *
+
+MATHEMATICAL                             SCRIPT  SMALL/CAPITAL              *
+MATHEMATICAL                        BOLD SCRIPT  SMALL/CAPITAL              *
+
+MATHEMATICAL                             FRAKTUR SMALL/CAPITAL              *
+MATHEMATICAL                        BOLD FRAKTUR SMALL/CAPITAL              *
+
+MATHEMATICAL             MONOSPACE               SMALL/CAPITAL/DIGIT        *
+MATHEMATICAL             DOUBLE-STRUCK           SMALL/CAPITAL/DIGIT        *
+
+MODIFIER LETTER                                  SMALL/CAPITAL              *
+LATIN                                  SUBSCRIPT SMALL LETTER               *
+                                       SUBSCRIPT/SUPERSCRIPT (DIGIT)        *
+

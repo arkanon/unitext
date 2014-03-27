@@ -1,0 +1,7 @@
+content   unitext   content/
+content   unitext   content/          contentaccessible=yes
+locale    unitext   pt-BR             locale/pt-BR/
+skin      unitext   classic/1.0       skin/
+
+overlay   chrome://browser/content/browser.xul           chrome://unitext/content/browser.xul
+style     chrome://global/content/customizeToolbar.xul   chrome://unitext/skin/skin.css

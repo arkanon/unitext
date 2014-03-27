@@ -1,0 +1,31 @@
+
+<!ENTITY unitext.00.label "UniText: MAIÚSCULO"                        > <!ENTITY unitext.00.key "m" >
+<!ENTITY unitext.01.label "UniText: minúsculo"                        > <!ENTITY unitext.01.key "m" >
+<!ENTITY unitext.02.label "UniText: Capital"                          > <!ENTITY unitext.02.key "m" >
+
+<!ENTITY unitext.03.label "UniText: latin"                            > <!ENTITY unitext.03.key "m" >
+<!ENTITY unitext.04.label "UniText: sem serifa"                       > <!ENTITY unitext.04.key "m" >
+<!ENTITY unitext.05.label "UniText: sem serifa negrito"               > <!ENTITY unitext.05.key "m" >
+<!ENTITY unitext.06.label "UniText: sem serifa italico"               > <!ENTITY unitext.06.key "m" >
+<!ENTITY unitext.07.label "UniText: sem serifa negrito italico"       > <!ENTITY unitext.07.key "m" >
+<!ENTITY unitext.08.label "UniText: com serifa negrito"               > <!ENTITY unitext.08.key "m" >
+<!ENTITY unitext.09.label "UniText: com serifa italico"               > <!ENTITY unitext.09.key "m" >
+<!ENTITY unitext.10.label "UniText: com serifa negrito italico"       > <!ENTITY unitext.10.key "m" >
+<!ENTITY unitext.11.label "UniText: grego sem serifa"                 > <!ENTITY unitext.11.key "m" >
+<!ENTITY unitext.12.label "UniText: grego sem serifa negrito"         > <!ENTITY unitext.12.key "m" >
+<!ENTITY unitext.13.label "UniText: grego sem serifa negrito italico" > <!ENTITY unitext.13.key "m" >
+<!ENTITY unitext.14.label "UniText: grego com serifa negrito"         > <!ENTITY unitext.14.key "m" >
+<!ENTITY unitext.15.label "UniText: grego com serifa italico"         > <!ENTITY unitext.15.key "m" >
+<!ENTITY unitext.16.label "UniText: grego com serifa negrito italico" > <!ENTITY unitext.16.key "m" >
+<!ENTITY unitext.17.label "UniText: gotico"                           > <!ENTITY unitext.17.key "m" >
+<!ENTITY unitext.18.label "UniText: gotico negrito"                   > <!ENTITY unitext.18.key "m" >
+<!ENTITY unitext.19.label "UniText: script"                           > <!ENTITY unitext.19.key "m" >
+<!ENTITY unitext.20.label "UniText: script negrito"                   > <!ENTITY unitext.20.key "m" >
+<!ENTITY unitext.21.label "UniText: virado"                           > <!ENTITY unitext.21.key "m" >
+<!ENTITY unitext.22.label "UniText: duplo"                            > <!ENTITY unitext.22.key "m" >
+<!ENTITY unitext.23.label "UniText: monoespacada"                     > <!ENTITY unitext.23.key "m" >
+<!ENTITY unitext.24.label "UniText: superescrito"                     > <!ENTITY unitext.24.key "m" >
+<!ENTITY unitext.25.label "UniText: subscrito"                        > <!ENTITY unitext.25.key "m" >
+<!ENTITY unitext.26.label "UniText: small caps"                       > <!ENTITY unitext.26.key "m" >
+<!ENTITY unitext.27.label "UniText: sublinhado"                       > <!ENTITY unitext.27.key "m" >
+
