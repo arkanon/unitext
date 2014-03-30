@@ -1,0 +1,2330 @@
+/*
+
+   ASCII-Unicode Relationship Table
+
+   Arkanon <arkanon@lsd.org.br>
+   2014/03/29 (Sat) 05:50:53 (BRS)
+   2014/03/27 (Thu) 07:27:43 (BRS)
+   2014/03/25 (Tue) 15:52:36 (BRS)
+
+*/
+
+
+
+   unitext.diacriticsMap = {};
+
+
+
+   // <http://stackoverflow.com/a/18391901>
+   unitext.defaultDiacriticsRemovalap =
+   [
+
+     /*
+        a   A
+        aa  AA
+        ae  AE
+        ao  AO
+        au  AU
+        av  AV
+        ay  AY
+        b   B
+        c   C
+        d   D
+        dz  DZ
+            Dz
+        e   E
+        f   F
+        g   G
+        h   H
+        hv
+        i   I
+        j   J
+        k   K
+        l   L
+        lj  LJ
+            Lj
+        m   M
+        n   N
+        nj  NJ
+            Nj
+        o   O
+        oe  OE
+        oi  OI
+        oo  OO
+        ou  OU
+        p   P
+        q   Q
+        r   R
+        s   S
+        t   T
+        tz  TZ
+        u   U
+        v   V
+        vy  VY
+        w   W
+        x   X
+        y   Y
+        z   Z
+     */
+
+     [ 'a'  , '\u0061\u24D0\uFF41\u1E9A\u00E0\u00E1\u00E2\u1EA7\u1EA5\u1EAB\u1EA9\u00E3\u0101\u0103\u1EB1\u1EAF\u1EB5\u1EB3\u0227\u01E1\u00E4\u01DF\u1EA3\u00E5\u01FB\u01CE\u0201\u0203\u1EA1\u1EAD\u1EB7\u1E01\u0105\u2C65\u0250' ],
+     [ 'aa' , '\uA733' ],
+     [ 'ae' , '\u00E6\u01FD\u01E3' ],
+     [ 'ao' , '\uA735' ],
+     [ 'au' , '\uA737' ],
+     [ 'av' , '\uA739\uA73B' ],
+     [ 'ay' , '\uA73D' ],
+     [ 'b'  , '\u0062\u24D1\uFF42\u1E03\u1E05\u1E07\u0180\u0183\u0253' ],
+     [ 'c'  , '\u0063\u24D2\uFF43\u0107\u0109\u010B\u010D\u00E7\u1E09\u0188\u023C\uA73F\u2184' ],
+     [ 'd'  , '\u0064\u24D3\uFF44\u1E0B\u010F\u1E0D\u1E11\u1E13\u1E0F\u0111\u018C\u0256\u0257\uA77A' ],
+     [ 'dz' , '\u01F3\u01C6' ],
+     [ 'e'  , '\u0065\u24D4\uFF45\u00E8\u00E9\u00EA\u1EC1\u1EBF\u1EC5\u1EC3\u1EBD\u0113\u1E15\u1E17\u0115\u0117\u00EB\u1EBB\u011B\u0205\u0207\u1EB9\u1EC7\u0229\u1E1D\u0119\u1E19\u1E1B\u0247\u025B\u01DD' ],
+     [ 'f'  , '\u0066\u24D5\uFF46\u1E1F\u0192\uA77C' ],
+     [ 'g'  , '\u0067\u24D6\uFF47\u01F5\u011D\u1E21\u011F\u0121\u01E7\u0123\u01E5\u0260\uA7A1\u1D79\uA77F' ],
+     [ 'h'  , '\u0068\u24D7\uFF48\u0125\u1E23\u1E27\u021F\u1E25\u1E29\u1E2B\u1E96\u0127\u2C68\u2C76\u0265' ],
+     [ 'hv' , '\u0195' ],
+     [ 'i'  , '\u0069\u24D8\uFF49\u00EC\u00ED\u00EE\u0129\u012B\u012D\u00EF\u1E2F\u1EC9\u01D0\u0209\u020B\u1ECB\u012F\u1E2D\u0268\u0131' ],
+     [ 'j'  , '\u006A\u24D9\uFF4A\u0135\u01F0\u0249' ],
+     [ 'k'  , '\u006B\u24DA\uFF4B\u1E31\u01E9\u1E33\u0137\u1E35\u0199\u2C6A\uA741\uA743\uA745\uA7A3' ],
+     [ 'l'  , '\u006C\u24DB\uFF4C\u0140\u013A\u013E\u1E37\u1E39\u013C\u1E3D\u1E3B\u017F\u0142\u019A\u026B\u2C61\uA749\uA781\uA747' ],
+     [ 'lj' , '\u01C9' ],
+     [ 'm'  , '\u006D\u24DC\uFF4D\u1E3F\u1E41\u1E43\u0271\u026F' ],
+     [ 'n'  , '\u006E\u24DD\uFF4E\u01F9\u0144\u00F1\u1E45\u0148\u1E47\u0146\u1E4B\u1E49\u019E\u0272\u0149\uA791\uA7A5' ],
+     [ 'nj' , '\u01CC' ],
+     [ 'o'  , '\u006F\u24DE\uFF4F\u00F2\u00F3\u00F4\u1ED3\u1ED1\u1ED7\u1ED5\u00F5\u1E4D\u022D\u1E4F\u014D\u1E51\u1E53\u014F\u022F\u0231\u00F6\u022B\u1ECF\u0151\u01D2\u020D\u020F\u01A1\u1EDD\u1EDB\u1EE1\u1EDF\u1EE3\u1ECD\u1ED9\u01EB\u01ED\u00F8\u01FF\u0254\uA74B\uA74D\u0275' ],
+     [ 'oe' , '\u009C\u0153' ],
+     [ 'oi' , '\u01A3' ],
+     [ 'oo' , '\uA74F' ],
+     [ 'ou' , '\u0223' ],
+     [ 'p'  , '\u0070\u24DF\uFF50\u1E55\u1E57\u01A5\u1D7D\uA751\uA753\uA755' ],
+     [ 'q'  , '\u0071\u24E0\uFF51\u024B\uA757\uA759' ],
+     [ 'r'  , '\u0072\u24E1\uFF52\u0155\u1E59\u0159\u0211\u0213\u1E5B\u1E5D\u0157\u1E5F\u024D\u027D\uA75B\uA7A7\uA783' ],
+     [ 's'  , '\u0073\u24E2\uFF53\u00DF\u015B\u1E65\u015D\u1E61\u0161\u1E67\u1E63\u1E69\u0219\u015F\u023F\uA7A9\uA785\u1E9B' ],
+     [ 't'  , '\u0074\u24E3\uFF54\u1E6B\u1E97\u0165\u1E6D\u021B\u0163\u1E71\u1E6F\u0167\u01AD\u0288\u2C66\uA787' ],
+     [ 'tz' , '\uA729' ],
+     [ 'u'  , '\u0075\u24E4\uFF55\u00F9\u00FA\u00FB\u0169\u1E79\u016B\u1E7B\u016D\u00FC\u01DC\u01D8\u01D6\u01DA\u1EE7\u016F\u0171\u01D4\u0215\u0217\u01B0\u1EEB\u1EE9\u1EEF\u1EED\u1EF1\u1EE5\u1E73\u0173\u1E77\u1E75\u0289' ],
+     [ 'v'  , '\u0076\u24E5\uFF56\u1E7D\u1E7F\u028B\uA75F\u028C' ],
+     [ 'vy' , '\uA761' ],
+     [ 'w'  , '\u0077\u24E6\uFF57\u1E81\u1E83\u0175\u1E87\u1E85\u1E98\u1E89\u2C73' ],
+     [ 'x'  , '\u0078\u24E7\uFF58\u1E8B\u1E8D' ],
+     [ 'y'  , '\u0079\u24E8\uFF59\u1EF3\u00FD\u0177\u1EF9\u0233\u1E8F\u00FF\u1EF7\u1E99\u1EF5\u01B4\u024F\u1EFF' ],
+     [ 'z'  , '\u007A\u24E9\uFF5A\u017A\u1E91\u017C\u017E\u1E93\u1E95\u01B6\u0225\u0240\u2C6C\uA763' ],
+
+     [ 'A'  , '\u0041\u24B6\uFF21\u00C0\u00C1\u00C2\u1EA6\u1EA4\u1EAA\u1EA8\u00C3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\u00C4\u01DE\u1EA2\u00C5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F' ],
+     [ 'AA' , '\uA732' ],
+     [ 'AE' , '\u00C6\u01FC\u01E2' ],
+     [ 'AO' , '\uA734' ],
+     [ 'AU' , '\uA736' ],
+     [ 'AV' , '\uA738\uA73A' ],
+     [ 'AY' , '\uA73C' ],
+     [ 'B'  , '\u0042\u24B7\uFF22\u1E02\u1E04\u1E06\u0243\u0182\u0181' ],
+     [ 'C'  , '\u0043\u24B8\uFF23\u0106\u0108\u010A\u010C\u00C7\u1E08\u0187\u023B\uA73E' ],
+     [ 'D'  , '\u0044\u24B9\uFF24\u1E0A\u010E\u1E0C\u1E10\u1E12\u1E0E\u0110\u018B\u018A\u0189\uA779' ],
+     [ 'DZ' , '\u01F1\u01C4' ],
+     [ 'Dz' , '\u01F2\u01C5' ],
+     [ 'E'  , '\u0045\u24BA\uFF25\u00C8\u00C9\u00CA\u1EC0\u1EBE\u1EC4\u1EC2\u1EBC\u0112\u1E14\u1E16\u0114\u0116\u00CB\u1EBA\u011A\u0204\u0206\u1EB8\u1EC6\u0228\u1E1C\u0118\u1E18\u1E1A\u0190\u018E' ],
+     [ 'F'  , '\u0046\u24BB\uFF26\u1E1E\u0191\uA77B' ],
+     [ 'G'  , '\u0047\u24BC\uFF27\u01F4\u011C\u1E20\u011E\u0120\u01E6\u0122\u01E4\u0193\uA7A0\uA77D\uA77E' ],
+     [ 'H'  , '\u0048\u24BD\uFF28\u0124\u1E22\u1E26\u021E\u1E24\u1E28\u1E2A\u0126\u2C67\u2C75\uA78D' ],
+     [ 'I'  , '\u0049\u24BE\uFF29\u00CC\u00CD\u00CE\u0128\u012A\u012C\u0130\u00CF\u1E2E\u1EC8\u01CF\u0208\u020A\u1ECA\u012E\u1E2C\u0197' ],
+     [ 'J'  , '\u004A\u24BF\uFF2A\u0134\u0248' ],
+     [ 'K'  , '\u004B\u24C0\uFF2B\u1E30\u01E8\u1E32\u0136\u1E34\u0198\u2C69\uA740\uA742\uA744\uA7A2' ],
+     [ 'L'  , '\u004C\u24C1\uFF2C\u013F\u0139\u013D\u1E36\u1E38\u013B\u1E3C\u1E3A\u0141\u023D\u2C62\u2C60\uA748\uA746\uA780' ],
+     [ 'LJ' , '\u01C7' ],
+     [ 'Lj' , '\u01C8' ],
+     [ 'M'  , '\u004D\u24C2\uFF2D\u1E3E\u1E40\u1E42\u2C6E\u019C' ],
+     [ 'N'  , '\u004E\u24C3\uFF2E\u01F8\u0143\u00D1\u1E44\u0147\u1E46\u0145\u1E4A\u1E48\u0220\u019D\uA790\uA7A4' ],
+     [ 'NJ' , '\u01CA' ],
+     [ 'Nj' , '\u01CB' ],
+     [ 'O'  , '\u004F\u24C4\uFF2F\u00D2\u00D3\u00D4\u1ED2\u1ED0\u1ED6\u1ED4\u00D5\u1E4C\u022C\u1E4E\u014C\u1E50\u1E52\u014E\u022E\u0230\u00D6\u022A\u1ECE\u0150\u01D1\u020C\u020E\u01A0\u1EDC\u1EDA\u1EE0\u1EDE\u1EE2\u1ECC\u1ED8\u01EA\u01EC\u00D8\u01FE\u0186\u019F\uA74A\uA74C' ],
+     [ 'OE' , '\u008C\u0152' ],
+     [ 'OI' , '\u01A2' ],
+     [ 'OO' , '\uA74E' ],
+     [ 'OU' , '\u0222' ],
+     [ 'P'  , '\u0050\u24C5\uFF30\u1E54\u1E56\u01A4\u2C63\uA750\uA752\uA754' ],
+     [ 'Q'  , '\u0051\u24C6\uFF31\uA756\uA758\u024A' ],
+     [ 'R'  , '\u0052\u24C7\uFF32\u0154\u1E58\u0158\u0210\u0212\u1E5A\u1E5C\u0156\u1E5E\u024C\u2C64\uA75A\uA7A6\uA782' ],
+     [ 'S'  , '\u0053\u24C8\uFF33\u1E9E\u015A\u1E64\u015C\u1E60\u0160\u1E66\u1E62\u1E68\u0218\u015E\u2C7E\uA7A8\uA784' ],
+     [ 'T'  , '\u0054\u24C9\uFF34\u1E6A\u0164\u1E6C\u021A\u0162\u1E70\u1E6E\u0166\u01AC\u01AE\u023E\uA786' ],
+     [ 'TZ' , '\uA728' ],
+     [ 'U'  , '\u0055\u24CA\uFF35\u00D9\u00DA\u00DB\u0168\u1E78\u016A\u1E7A\u016C\u00DC\u01DB\u01D7\u01D5\u01D9\u1EE6\u016E\u0170\u01D3\u0214\u0216\u01AF\u1EEA\u1EE8\u1EEE\u1EEC\u1EF0\u1EE4\u1E72\u0172\u1E76\u1E74\u0244' ],
+     [ 'V'  , '\u0056\u24CB\uFF36\u1E7C\u1E7E\u01B2\uA75E\u0245' ],
+     [ 'VY' , '\uA760' ],
+     [ 'W'  , '\u0057\u24CC\uFF37\u1E80\u1E82\u0174\u1E86\u1E84\u1E88\u2C72' ],
+     [ 'X'  , '\u0058\u24CD\uFF38\u1E8A\u1E8C' ],
+     [ 'Y'  , '\u0059\u24CE\uFF39\u1EF2\u00DD\u0176\u1EF8\u0232\u1E8E\u0178\u1EF6\u1EF4\u01B3\u024E\u1EFE' ],
+     [ 'Z'  , '\u005A\u24CF\uFF3A\u0179\u1E90\u017B\u017D\u1E92\u1E94\u01B5\u0224\u2C7F\u2C6B\uA762' ]
+
+   ];
+
+
+
+   unitext.charmap =
+   {
+
+
+
+     'letras':
+     {
+
+
+
+       'latin':
+       {
+
+          'a': [ 'a', '00061', 'LATIN SMALL   LETTER A' ],
+          'b': [ 'b', '00062', 'LATIN SMALL   LETTER B' ],
+          'c': [ 'c', '00063', 'LATIN SMALL   LETTER C' ],
+          'd': [ 'd', '00064', 'LATIN SMALL   LETTER D' ],
+          'e': [ 'e', '00065', 'LATIN SMALL   LETTER E' ],
+          'f': [ 'f', '00066', 'LATIN SMALL   LETTER F' ],
+          'g': [ 'g', '00067', 'LATIN SMALL   LETTER G' ],
+          'h': [ 'h', '00068', 'LATIN SMALL   LETTER H' ],
+          'i': [ 'i', '00069', 'LATIN SMALL   LETTER I' ],
+          'j': [ 'j', '0006A', 'LATIN SMALL   LETTER J' ],
+          'k': [ 'k', '0006B', 'LATIN SMALL   LETTER K' ],
+          'l': [ 'l', '0006C', 'LATIN SMALL   LETTER L' ],
+          'm': [ 'm', '0006D', 'LATIN SMALL   LETTER M' ],
+          'n': [ 'n', '0006E', 'LATIN SMALL   LETTER N' ],
+          'o': [ 'o', '0006F', 'LATIN SMALL   LETTER O' ],
+          'p': [ 'p', '00070', 'LATIN SMALL   LETTER P' ],
+          'q': [ 'q', '00071', 'LATIN SMALL   LETTER Q' ],
+          'r': [ 'r', '00072', 'LATIN SMALL   LETTER R' ],
+          's': [ 's', '00073', 'LATIN SMALL   LETTER S' ],
+          't': [ 't', '00074', 'LATIN SMALL   LETTER T' ],
+          'u': [ 'u', '00075', 'LATIN SMALL   LETTER U' ],
+          'v': [ 'v', '00076', 'LATIN SMALL   LETTER V' ],
+          'w': [ 'w', '00077', 'LATIN SMALL   LETTER W' ],
+          'x': [ 'x', '00078', 'LATIN SMALL   LETTER X' ],
+          'y': [ 'y', '00079', 'LATIN SMALL   LETTER Y' ],
+          'z': [ 'z', '0007A', 'LATIN SMALL   LETTER Z' ],
+
+          'A': [ 'A', '00041', 'LATIN CAPITAL LETTER A' ],
+          'B': [ 'B', '00042', 'LATIN CAPITAL LETTER B' ],
+          'C': [ 'C', '00043', 'LATIN CAPITAL LETTER C' ],
+          'D': [ 'D', '00044', 'LATIN CAPITAL LETTER D' ],
+          'E': [ 'E', '00045', 'LATIN CAPITAL LETTER E' ],
+          'F': [ 'F', '00046', 'LATIN CAPITAL LETTER F' ],
+          'G': [ 'G', '00047', 'LATIN CAPITAL LETTER G' ],
+          'H': [ 'H', '00048', 'LATIN CAPITAL LETTER H' ],
+          'I': [ 'I', '00049', 'LATIN CAPITAL LETTER I' ],
+          'J': [ 'J', '0004A', 'LATIN CAPITAL LETTER J' ],
+          'K': [ 'K', '0004B', 'LATIN CAPITAL LETTER K' ],
+          'L': [ 'L', '0004C', 'LATIN CAPITAL LETTER L' ],
+          'M': [ 'M', '0004D', 'LATIN CAPITAL LETTER M' ],
+          'N': [ 'N', '0004E', 'LATIN CAPITAL LETTER N' ],
+          'O': [ 'O', '0004F', 'LATIN CAPITAL LETTER O' ],
+          'P': [ 'P', '00050', 'LATIN CAPITAL LETTER P' ],
+          'Q': [ 'Q', '00051', 'LATIN CAPITAL LETTER Q' ],
+          'R': [ 'R', '00052', 'LATIN CAPITAL LETTER R' ],
+          'S': [ 'S', '00053', 'LATIN CAPITAL LETTER S' ],
+          'T': [ 'T', '00054', 'LATIN CAPITAL LETTER T' ],
+          'U': [ 'U', '00055', 'LATIN CAPITAL LETTER U' ],
+          'V': [ 'V', '00056', 'LATIN CAPITAL LETTER V' ],
+          'W': [ 'W', '00057', 'LATIN CAPITAL LETTER W' ],
+          'X': [ 'X', '00058', 'LATIN CAPITAL LETTER X' ],
+          'Y': [ 'Y', '00059', 'LATIN CAPITAL LETTER Y' ],
+          'Z': [ 'Z', '0005A', 'LATIN CAPITAL LETTER Z' ],
+
+          '0': [ '0', '00030', 'DIGIT  ZERO'  ],
+          '1': [ '1', '00031', 'DIGIT  ONE'   ],
+          '2': [ '2', '00032', 'DIGIT  TWO'   ],
+          '3': [ '3', '00033', 'DIGIT  THREE' ],
+          '4': [ '4', '00034', 'DIGIT  FOUR'  ],
+          '5': [ '5', '00035', 'DIGIT  FIVE'  ],
+          '6': [ '6', '00036', 'DIGIT  SIX'   ],
+          '7': [ '7', '00037', 'DIGIT  SEVEN' ],
+          '8': [ '8', '00038', 'DIGIT  EIGHT' ],
+          '9': [ '9', '00039', 'DIGIT  NINE'  ]
+
+       },
+
+
+
+       'sem serifa':
+       {
+
+          'a': [ '𝖺', '1D5BA', 'MATHEMATICAL SANS-SERIF SMALL   A' ],
+          'b': [ '𝖻', '1D5BB', 'MATHEMATICAL SANS-SERIF SMALL   B' ],
+          'c': [ '𝖼', '1D5BC', 'MATHEMATICAL SANS-SERIF SMALL   C' ],
+          'd': [ '𝖽', '1D5BD', 'MATHEMATICAL SANS-SERIF SMALL   D' ],
+          'e': [ '𝖾', '1D5BE', 'MATHEMATICAL SANS-SERIF SMALL   E' ],
+          'f': [ '𝖿', '1D5BF', 'MATHEMATICAL SANS-SERIF SMALL   F' ],
+          'g': [ '𝗀', '1D5C0', 'MATHEMATICAL SANS-SERIF SMALL   G' ],
+          'h': [ '𝗁', '1D5C1', 'MATHEMATICAL SANS-SERIF SMALL   H' ],
+          'i': [ '𝗂', '1D5C2', 'MATHEMATICAL SANS-SERIF SMALL   I' ],
+          'j': [ '𝗃', '1D5C3', 'MATHEMATICAL SANS-SERIF SMALL   J' ],
+          'k': [ '𝗄', '1D5C4', 'MATHEMATICAL SANS-SERIF SMALL   K' ],
+          'l': [ '𝗅', '1D5C5', 'MATHEMATICAL SANS-SERIF SMALL   L' ],
+          'm': [ '𝗆', '1D5C6', 'MATHEMATICAL SANS-SERIF SMALL   M' ],
+          'n': [ '𝗇', '1D5C7', 'MATHEMATICAL SANS-SERIF SMALL   N' ],
+          'o': [ '𝗈', '1D5C8', 'MATHEMATICAL SANS-SERIF SMALL   O' ],
+          'p': [ '𝗉', '1D5C9', 'MATHEMATICAL SANS-SERIF SMALL   P' ],
+          'q': [ '𝗊', '1D5CA', 'MATHEMATICAL SANS-SERIF SMALL   Q' ],
+          'r': [ '𝗋', '1D5CB', 'MATHEMATICAL SANS-SERIF SMALL   R' ],
+          's': [ '𝗌', '1D5CC', 'MATHEMATICAL SANS-SERIF SMALL   S' ],
+          't': [ '𝗍', '1D5CD', 'MATHEMATICAL SANS-SERIF SMALL   T' ],
+          'u': [ '𝗎', '1D5CE', 'MATHEMATICAL SANS-SERIF SMALL   U' ],
+          'v': [ '𝗏', '1D5CF', 'MATHEMATICAL SANS-SERIF SMALL   V' ],
+          'w': [ '𝗐', '1D5D0', 'MATHEMATICAL SANS-SERIF SMALL   W' ],
+          'x': [ '𝗑', '1D5D1', 'MATHEMATICAL SANS-SERIF SMALL   X' ],
+          'y': [ '𝗒', '1D5D2', 'MATHEMATICAL SANS-SERIF SMALL   Y' ],
+          'z': [ '𝗓', '1D5D3', 'MATHEMATICAL SANS-SERIF SMALL   Z' ],
+
+          'A': [ '𝖠', '1D5A0', 'MATHEMATICAL SANS-SERIF CAPITAL A' ],
+          'B': [ '𝖡', '1D5A1', 'MATHEMATICAL SANS-SERIF CAPITAL B' ],
+          'C': [ '𝖢', '1D5A2', 'MATHEMATICAL SANS-SERIF CAPITAL C' ],
+          'D': [ '𝖣', '1D5A3', 'MATHEMATICAL SANS-SERIF CAPITAL D' ],
+          'E': [ '𝖤', '1D5A4', 'MATHEMATICAL SANS-SERIF CAPITAL E' ],
+          'F': [ '𝖥', '1D5A5', 'MATHEMATICAL SANS-SERIF CAPITAL F' ],
+          'G': [ '𝖦', '1D5A6', 'MATHEMATICAL SANS-SERIF CAPITAL G' ],
+          'H': [ '𝖧', '1D5A7', 'MATHEMATICAL SANS-SERIF CAPITAL H' ],
+          'I': [ '𝖨', '1D5A8', 'MATHEMATICAL SANS-SERIF CAPITAL I' ],
+          'J': [ '𝖩', '1D5A9', 'MATHEMATICAL SANS-SERIF CAPITAL J' ],
+          'K': [ '𝖪', '1D5AA', 'MATHEMATICAL SANS-SERIF CAPITAL K' ],
+          'L': [ '𝖫', '1D5AB', 'MATHEMATICAL SANS-SERIF CAPITAL L' ],
+          'M': [ '𝖬', '1D5AC', 'MATHEMATICAL SANS-SERIF CAPITAL M' ],
+          'N': [ '𝖭', '1D5AD', 'MATHEMATICAL SANS-SERIF CAPITAL N' ],
+          'O': [ '𝖮', '1D5AE', 'MATHEMATICAL SANS-SERIF CAPITAL O' ],
+          'P': [ '𝖯', '1D5AF', 'MATHEMATICAL SANS-SERIF CAPITAL P' ],
+          'Q': [ '𝖰', '1D5B0', 'MATHEMATICAL SANS-SERIF CAPITAL Q' ],
+          'R': [ '𝖱', '1D5B1', 'MATHEMATICAL SANS-SERIF CAPITAL R' ],
+          'S': [ '𝖲', '1D5B2', 'MATHEMATICAL SANS-SERIF CAPITAL S' ],
+          'T': [ '𝖳', '1D5B3', 'MATHEMATICAL SANS-SERIF CAPITAL T' ],
+          'U': [ '𝖴', '1D5B4', 'MATHEMATICAL SANS-SERIF CAPITAL U' ],
+          'V': [ '𝖵', '1D5B5', 'MATHEMATICAL SANS-SERIF CAPITAL V' ],
+          'W': [ '𝖶', '1D5B6', 'MATHEMATICAL SANS-SERIF CAPITAL W' ],
+          'X': [ '𝖷', '1D5B7', 'MATHEMATICAL SANS-SERIF CAPITAL X' ],
+          'Y': [ '𝖸', '1D5B8', 'MATHEMATICAL SANS-SERIF CAPITAL Y' ],
+          'Z': [ '𝖹', '1D5B9', 'MATHEMATICAL SANS-SERIF CAPITAL Z' ],
+
+          '0': [ '𝟢', '1D7E2', 'MATHEMATICAL SANS-SERIF DIGIT  ZERO'  ],
+          '1': [ '𝟣', '1D7E3', 'MATHEMATICAL SANS-SERIF DIGIT  ONE'   ],
+          '2': [ '𝟤', '1D7E4', 'MATHEMATICAL SANS-SERIF DIGIT  TWO'   ],
+          '3': [ '𝟥', '1D7E5', 'MATHEMATICAL SANS-SERIF DIGIT  THREE' ],
+          '4': [ '𝟦', '1D7E6', 'MATHEMATICAL SANS-SERIF DIGIT  FOUR'  ],
+          '5': [ '𝟧', '1D7E7', 'MATHEMATICAL SANS-SERIF DIGIT  FIVE'  ],
+          '6': [ '𝟨', '1D7E8', 'MATHEMATICAL SANS-SERIF DIGIT  SIX'   ],
+          '7': [ '𝟩', '1D7E9', 'MATHEMATICAL SANS-SERIF DIGIT  SEVEN' ],
+          '8': [ '𝟪', '1D7EA', 'MATHEMATICAL SANS-SERIF DIGIT  EIGHT' ],
+          '9': [ '𝟫', '1D7EB', 'MATHEMATICAL SANS-SERIF DIGIT  NINE'  ]
+
+       },
+
+
+
+       'sem serifa negrito':
+       {
+
+          'a': [ '𝗮', '1D5EE', 'MATHEMATICAL SANS-SERIF BOLD SMALL   A' ],
+          'b': [ '𝗯', '1D5EF', 'MATHEMATICAL SANS-SERIF BOLD SMALL   B' ],
+          'c': [ '𝗰', '1D5F0', 'MATHEMATICAL SANS-SERIF BOLD SMALL   C' ],
+          'd': [ '𝗱', '1D5F1', 'MATHEMATICAL SANS-SERIF BOLD SMALL   D' ],
+          'e': [ '𝗲', '1D5F2', 'MATHEMATICAL SANS-SERIF BOLD SMALL   E' ],
+          'f': [ '𝗳', '1D5F3', 'MATHEMATICAL SANS-SERIF BOLD SMALL   F' ],
+          'g': [ '𝗴', '1D5F4', 'MATHEMATICAL SANS-SERIF BOLD SMALL   G' ],
+          'h': [ '𝗵', '1D5F5', 'MATHEMATICAL SANS-SERIF BOLD SMALL   H' ],
+          'i': [ '𝗶', '1D5F6', 'MATHEMATICAL SANS-SERIF BOLD SMALL   I' ],
+          'j': [ '𝗷', '1D5F7', 'MATHEMATICAL SANS-SERIF BOLD SMALL   J' ],
+          'k': [ '𝗸', '1D5F8', 'MATHEMATICAL SANS-SERIF BOLD SMALL   K' ],
+          'l': [ '𝗹', '1D5F9', 'MATHEMATICAL SANS-SERIF BOLD SMALL   L' ],
+          'm': [ '𝗺', '1D5FA', 'MATHEMATICAL SANS-SERIF BOLD SMALL   M' ],
+          'n': [ '𝗻', '1D5FB', 'MATHEMATICAL SANS-SERIF BOLD SMALL   N' ],
+          'o': [ '𝗼', '1D5FC', 'MATHEMATICAL SANS-SERIF BOLD SMALL   O' ],
+          'p': [ '𝗽', '1D5FD', 'MATHEMATICAL SANS-SERIF BOLD SMALL   P' ],
+          'q': [ '𝗾', '1D5FE', 'MATHEMATICAL SANS-SERIF BOLD SMALL   Q' ],
+          'r': [ '𝗿', '1D5FF', 'MATHEMATICAL SANS-SERIF BOLD SMALL   R' ],
+          's': [ '𝘀', '1D600', 'MATHEMATICAL SANS-SERIF BOLD SMALL   S' ],
+          't': [ '𝘁', '1D601', 'MATHEMATICAL SANS-SERIF BOLD SMALL   T' ],
+          'u': [ '𝘂', '1D602', 'MATHEMATICAL SANS-SERIF BOLD SMALL   U' ],
+          'v': [ '𝘃', '1D603', 'MATHEMATICAL SANS-SERIF BOLD SMALL   V' ],
+          'w': [ '𝘄', '1D604', 'MATHEMATICAL SANS-SERIF BOLD SMALL   W' ],
+          'x': [ '𝘅', '1D605', 'MATHEMATICAL SANS-SERIF BOLD SMALL   X' ],
+          'y': [ '𝘆', '1D606', 'MATHEMATICAL SANS-SERIF BOLD SMALL   Y' ],
+          'z': [ '𝘇', '1D607', 'MATHEMATICAL SANS-SERIF BOLD SMALL   Z' ],
+
+          'A': [ '𝗔', '1D5D4', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL A' ],
+          'B': [ '𝗕', '1D5D5', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL B' ],
+          'C': [ '𝗖', '1D5D6', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL C' ],
+          'D': [ '𝗗', '1D5D7', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL D' ],
+          'E': [ '𝗘', '1D5D8', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL E' ],
+          'F': [ '𝗙', '1D5D9', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL F' ],
+          'G': [ '𝗚', '1D5DA', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL G' ],
+          'H': [ '𝗛', '1D5DB', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL H' ],
+          'I': [ '𝗜', '1D5DC', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL I' ],
+          'J': [ '𝗝', '1D5DD', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL J' ],
+          'K': [ '𝗞', '1D5DE', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL K' ],
+          'L': [ '𝗟', '1D5DF', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL L' ],
+          'M': [ '𝗠', '1D5E0', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL M' ],
+          'N': [ '𝗡', '1D5E1', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL N' ],
+          'O': [ '𝗢', '1D5E2', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL O' ],
+          'P': [ '𝗣', '1D5E3', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL P' ],
+          'Q': [ '𝗤', '1D5E4', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL Q' ],
+          'R': [ '𝗥', '1D5E5', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL R' ],
+          'S': [ '𝗦', '1D5E6', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL S' ],
+          'T': [ '𝗧', '1D5E7', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL T' ],
+          'U': [ '𝗨', '1D5E8', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL U' ],
+          'V': [ '𝗩', '1D5E9', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL V' ],
+          'W': [ '𝗪', '1D5EA', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL W' ],
+          'X': [ '𝗫', '1D5EB', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL X' ],
+          'Y': [ '𝗬', '1D5EC', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL Y' ],
+          'Z': [ '𝗭', '1D5ED', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL Z' ],
+
+          '0': [ '𝟬', '1D7EC', 'MATHEMATICAL SANS-SERIF BOLD DIGIT ZERO'  ],
+          '1': [ '𝟭', '1D7ED', 'MATHEMATICAL SANS-SERIF BOLD DIGIT ONE'   ],
+          '2': [ '𝟮', '1D7EE', 'MATHEMATICAL SANS-SERIF BOLD DIGIT TWO'   ],
+          '3': [ '𝟯', '1D7EF', 'MATHEMATICAL SANS-SERIF BOLD DIGIT THREE' ],
+          '4': [ '𝟰', '1D7F0', 'MATHEMATICAL SANS-SERIF BOLD DIGIT FOUR'  ],
+          '5': [ '𝟱', '1D7F1', 'MATHEMATICAL SANS-SERIF BOLD DIGIT FIVE'  ],
+          '6': [ '𝟲', '1D7F2', 'MATHEMATICAL SANS-SERIF BOLD DIGIT SIX'   ],
+          '7': [ '𝟳', '1D7F3', 'MATHEMATICAL SANS-SERIF BOLD DIGIT SEVEN' ],
+          '8': [ '𝟴', '1D7F4', 'MATHEMATICAL SANS-SERIF BOLD DIGIT EIGHT' ],
+          '9': [ '𝟵', '1D7F5', 'MATHEMATICAL SANS-SERIF BOLD DIGIT NINE'  ]
+
+       },
+
+
+
+       'sem serifa italico':
+       {
+
+          'a': [ '𝘢', '1D622', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   A' ],
+          'b': [ '𝘣', '1D623', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   B' ],
+          'c': [ '𝘤', '1D624', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   C' ],
+          'd': [ '𝘥', '1D625', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   D' ],
+          'e': [ '𝘦', '1D626', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   E' ],
+          'f': [ '𝘧', '1D627', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   F' ],
+          'g': [ '𝘨', '1D628', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   G' ],
+          'h': [ '𝘩', '1D629', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   H' ],
+          'i': [ '𝘪', '1D62A', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   I' ],
+          'j': [ '𝘫', '1D62B', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   J' ],
+          'k': [ '𝘬', '1D62C', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   K' ],
+          'l': [ '𝘭', '1D62D', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   L' ],
+          'm': [ '𝘮', '1D62E', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   M' ],
+          'n': [ '𝘯', '1D62F', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   N' ],
+          'o': [ '𝘰', '1D630', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   O' ],
+          'p': [ '𝘱', '1D631', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   P' ],
+          'q': [ '𝘲', '1D632', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   Q' ],
+          'r': [ '𝘳', '1D633', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   R' ],
+          's': [ '𝘴', '1D634', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   S' ],
+          't': [ '𝘵', '1D635', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   T' ],
+          'u': [ '𝘶', '1D636', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   U' ],
+          'v': [ '𝘷', '1D637', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   V' ],
+          'w': [ '𝘸', '1D638', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   W' ],
+          'x': [ '𝘹', '1D639', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   X' ],
+          'y': [ '𝘺', '1D63A', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   Y' ],
+          'z': [ '𝘻', '1D63B', 'MATHEMATICAL SANS-SERIF ITALIC SMALL   Z' ],
+
+          'A': [ '𝘈', '1D608', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL A' ],
+          'B': [ '𝘉', '1D609', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL B' ],
+          'C': [ '𝘊', '1D60A', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL C' ],
+          'D': [ '𝘋', '1D60B', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL D' ],
+          'E': [ '𝘌', '1D60C', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL E' ],
+          'F': [ '𝘍', '1D60D', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL F' ],
+          'G': [ '𝘎', '1D60E', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL G' ],
+          'H': [ '𝘏', '1D60F', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL H' ],
+          'I': [ '𝘐', '1D610', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL I' ],
+          'J': [ '𝘑', '1D611', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL J' ],
+          'K': [ '𝘒', '1D612', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL K' ],
+          'L': [ '𝘓', '1D613', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL L' ],
+          'M': [ '𝘔', '1D614', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL M' ],
+          'N': [ '𝘕', '1D615', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL N' ],
+          'O': [ '𝘖', '1D616', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL O' ],
+          'P': [ '𝘗', '1D617', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL P' ],
+          'Q': [ '𝘘', '1D618', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL Q' ],
+          'R': [ '𝘙', '1D619', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL R' ],
+          'S': [ '𝘚', '1D61A', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL S' ],
+          'T': [ '𝘛', '1D61B', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL T' ],
+          'U': [ '𝘜', '1D61C', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL U' ],
+          'V': [ '𝘝', '1D61D', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL V' ],
+          'W': [ '𝘞', '1D61E', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL W' ],
+          'X': [ '𝘟', '1D61F', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL X' ],
+          'Y': [ '𝘠', '1D620', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL Y' ],
+          'Z': [ '𝘡', '1D621', 'MATHEMATICAL SANS-SERIF ITALIC CAPITAL Z' ]
+
+       },
+
+
+
+       'sem serifa negrito italico':
+       {
+
+          'a': [ '𝙖', '1D656', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   A' ],
+          'b': [ '𝙗', '1D657', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   B' ],
+          'c': [ '𝙘', '1D658', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   C' ],
+          'd': [ '𝙙', '1D659', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   D' ],
+          'e': [ '𝙚', '1D65A', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   E' ],
+          'f': [ '𝙛', '1D65B', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   F' ],
+          'g': [ '𝙜', '1D65C', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   G' ],
+          'h': [ '𝙝', '1D65D', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   H' ],
+          'i': [ '𝙞', '1D65E', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   I' ],
+          'j': [ '𝙟', '1D65F', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   J' ],
+          'k': [ '𝙠', '1D660', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   K' ],
+          'l': [ '𝙡', '1D661', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   L' ],
+          'm': [ '𝙢', '1D662', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   M' ],
+          'n': [ '𝙣', '1D663', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   N' ],
+          'o': [ '𝙤', '1D664', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   O' ],
+          'p': [ '𝙥', '1D665', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   P' ],
+          'q': [ '𝙦', '1D666', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   Q' ],
+          'r': [ '𝙧', '1D667', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   R' ],
+          's': [ '𝙨', '1D668', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   S' ],
+          't': [ '𝙩', '1D669', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   T' ],
+          'u': [ '𝙪', '1D66A', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   U' ],
+          'v': [ '𝙫', '1D66B', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   V' ],
+          'w': [ '𝙬', '1D66C', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   W' ],
+          'x': [ '𝙭', '1D66D', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   X' ],
+          'y': [ '𝙮', '1D66E', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   Y' ],
+          'z': [ '𝙯', '1D66F', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   Z' ],
+
+          'A': [ '𝘼', '1D63C', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL A' ],
+          'B': [ '𝘽', '1D63D', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL B' ],
+          'C': [ '𝘾', '1D63E', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL C' ],
+          'D': [ '𝘿', '1D63F', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL D' ],
+          'E': [ '𝙀', '1D640', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL E' ],
+          'F': [ '𝙁', '1D641', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL F' ],
+          'G': [ '𝙂', '1D642', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL G' ],
+          'H': [ '𝙃', '1D643', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL H' ],
+          'I': [ '𝙄', '1D644', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL I' ],
+          'J': [ '𝙅', '1D645', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL J' ],
+          'K': [ '𝙆', '1D646', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL K' ],
+          'L': [ '𝙇', '1D647', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL L' ],
+          'M': [ '𝙈', '1D648', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL M' ],
+          'N': [ '𝙉', '1D649', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL N' ],
+          'O': [ '𝙊', '1D64A', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL O' ],
+          'P': [ '𝙋', '1D64B', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL P' ],
+          'Q': [ '𝙌', '1D64C', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Q' ],
+          'R': [ '𝙍', '1D64D', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL R' ],
+          'S': [ '𝙎', '1D64E', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL S' ],
+          'T': [ '𝙏', '1D64F', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL T' ],
+          'U': [ '𝙐', '1D650', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL U' ],
+          'V': [ '𝙑', '1D651', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL V' ],
+          'W': [ '𝙒', '1D652', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL W' ],
+          'X': [ '𝙓', '1D653', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL X' ],
+          'Y': [ '𝙔', '1D654', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Y' ],
+          'Z': [ '𝙕', '1D655', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Z' ]
+
+       },
+
+
+
+       'com serifa negrito':
+       {
+
+          'a': [ '𝐚', '1D41A', 'MATHEMATICAL BOLD SMALL   A' ],
+          'b': [ '𝐛', '1D41B', 'MATHEMATICAL BOLD SMALL   B' ],
+          'c': [ '𝐜', '1D41C', 'MATHEMATICAL BOLD SMALL   C' ],
+          'd': [ '𝐝', '1D41D', 'MATHEMATICAL BOLD SMALL   D' ],
+          'e': [ '𝐞', '1D41E', 'MATHEMATICAL BOLD SMALL   E' ],
+          'f': [ '𝐟', '1D41F', 'MATHEMATICAL BOLD SMALL   F' ],
+          'g': [ '𝐠', '1D420', 'MATHEMATICAL BOLD SMALL   G' ],
+          'h': [ '𝐡', '1D421', 'MATHEMATICAL BOLD SMALL   H' ],
+          'i': [ '𝐢', '1D422', 'MATHEMATICAL BOLD SMALL   I' ],
+          'j': [ '𝐣', '1D423', 'MATHEMATICAL BOLD SMALL   J' ],
+          'k': [ '𝐤', '1D424', 'MATHEMATICAL BOLD SMALL   K' ],
+          'l': [ '𝐥', '1D425', 'MATHEMATICAL BOLD SMALL   L' ],
+          'm': [ '𝐦', '1D426', 'MATHEMATICAL BOLD SMALL   M' ],
+          'n': [ '𝐧', '1D427', 'MATHEMATICAL BOLD SMALL   N' ],
+          'o': [ '𝐨', '1D428', 'MATHEMATICAL BOLD SMALL   O' ],
+          'p': [ '𝐩', '1D429', 'MATHEMATICAL BOLD SMALL   P' ],
+          'q': [ '𝐪', '1D42A', 'MATHEMATICAL BOLD SMALL   Q' ],
+          'r': [ '𝐫', '1D42B', 'MATHEMATICAL BOLD SMALL   R' ],
+          's': [ '𝐬', '1D42C', 'MATHEMATICAL BOLD SMALL   S' ],
+          't': [ '𝐭', '1D42D', 'MATHEMATICAL BOLD SMALL   T' ],
+          'u': [ '𝐮', '1D42E', 'MATHEMATICAL BOLD SMALL   U' ],
+          'v': [ '𝐯', '1D42F', 'MATHEMATICAL BOLD SMALL   V' ],
+          'w': [ '𝐰', '1D430', 'MATHEMATICAL BOLD SMALL   W' ],
+          'x': [ '𝐱', '1D431', 'MATHEMATICAL BOLD SMALL   X' ],
+          'y': [ '𝐲', '1D432', 'MATHEMATICAL BOLD SMALL   Y' ],
+          'z': [ '𝐳', '1D433', 'MATHEMATICAL BOLD SMALL   Z' ],
+
+          'A': [ '𝐀', '1D400', 'MATHEMATICAL BOLD CAPITAL A' ],
+          'B': [ '𝐁', '1D401', 'MATHEMATICAL BOLD CAPITAL B' ],
+          'C': [ '𝐂', '1D402', 'MATHEMATICAL BOLD CAPITAL C' ],
+          'D': [ '𝐃', '1D403', 'MATHEMATICAL BOLD CAPITAL D' ],
+          'E': [ '𝐄', '1D404', 'MATHEMATICAL BOLD CAPITAL E' ],
+          'F': [ '𝐅', '1D405', 'MATHEMATICAL BOLD CAPITAL F' ],
+          'G': [ '𝐆', '1D406', 'MATHEMATICAL BOLD CAPITAL G' ],
+          'H': [ '𝐇', '1D407', 'MATHEMATICAL BOLD CAPITAL H' ],
+          'I': [ '𝐈', '1D408', 'MATHEMATICAL BOLD CAPITAL I' ],
+          'J': [ '𝐉', '1D409', 'MATHEMATICAL BOLD CAPITAL J' ],
+          'K': [ '𝐊', '1D40A', 'MATHEMATICAL BOLD CAPITAL K' ],
+          'L': [ '𝐋', '1D40B', 'MATHEMATICAL BOLD CAPITAL L' ],
+          'M': [ '𝐌', '1D40C', 'MATHEMATICAL BOLD CAPITAL M' ],
+          'N': [ '𝐍', '1D40D', 'MATHEMATICAL BOLD CAPITAL N' ],
+          'O': [ '𝐎', '1D40E', 'MATHEMATICAL BOLD CAPITAL O' ],
+          'P': [ '𝐏', '1D40F', 'MATHEMATICAL BOLD CAPITAL P' ],
+          'Q': [ '𝐐', '1D410', 'MATHEMATICAL BOLD CAPITAL Q' ],
+          'R': [ '𝐑', '1D411', 'MATHEMATICAL BOLD CAPITAL R' ],
+          'S': [ '𝐒', '1D412', 'MATHEMATICAL BOLD CAPITAL S' ],
+          'T': [ '𝐓', '1D413', 'MATHEMATICAL BOLD CAPITAL T' ],
+          'U': [ '𝐔', '1D414', 'MATHEMATICAL BOLD CAPITAL U' ],
+          'V': [ '𝐕', '1D415', 'MATHEMATICAL BOLD CAPITAL V' ],
+          'W': [ '𝐖', '1D416', 'MATHEMATICAL BOLD CAPITAL W' ],
+          'X': [ '𝐗', '1D417', 'MATHEMATICAL BOLD CAPITAL X' ],
+          'Y': [ '𝐘', '1D418', 'MATHEMATICAL BOLD CAPITAL Y' ],
+          'Z': [ '𝐙', '1D419', 'MATHEMATICAL BOLD CAPITAL Z' ],
+
+          '0': [ '𝟎', '1D7CE', 'MATHEMATICAL BOLD DIGIT ZERO'  ],
+          '1': [ '𝟏', '1D7CF', 'MATHEMATICAL BOLD DIGIT ONE'   ],
+          '2': [ '𝟐', '1D7D0', 'MATHEMATICAL BOLD DIGIT TWO'   ],
+          '3': [ '𝟑', '1D7D1', 'MATHEMATICAL BOLD DIGIT THREE' ],
+          '4': [ '𝟒', '1D7D2', 'MATHEMATICAL BOLD DIGIT FOUR'  ],
+          '5': [ '𝟓', '1D7D3', 'MATHEMATICAL BOLD DIGIT FIVE'  ],
+          '6': [ '𝟔', '1D7D4', 'MATHEMATICAL BOLD DIGIT SIX'   ],
+          '7': [ '𝟕', '1D7D5', 'MATHEMATICAL BOLD DIGIT SEVEN' ],
+          '8': [ '𝟖', '1D7D6', 'MATHEMATICAL BOLD DIGIT EIGHT' ],
+          '9': [ '𝟗', '1D7D7', 'MATHEMATICAL BOLD DIGIT NINE'  ]
+
+       },
+
+
+
+       'com serifa italico':
+       {
+
+          'a': [ '𝑎', '1D44E', 'MATHEMATICAL ITALIC SMALL   A' ],
+          'b': [ '𝑏', '1D44F', 'MATHEMATICAL ITALIC SMALL   B' ],
+          'c': [ '𝑐', '1D450', 'MATHEMATICAL ITALIC SMALL   C' ],
+          'd': [ '𝑑', '1D451', 'MATHEMATICAL ITALIC SMALL   D' ],
+          'e': [ '𝑒', '1D452', 'MATHEMATICAL ITALIC SMALL   E' ],
+          'f': [ '𝑓', '1D453', 'MATHEMATICAL ITALIC SMALL   F' ],
+          'g': [ '𝑔', '1D454', 'MATHEMATICAL ITALIC SMALL   G' ],
+          'i': [ '𝑖', '1D456', 'MATHEMATICAL ITALIC SMALL   I' ],
+          'j': [ '𝑗', '1D457', 'MATHEMATICAL ITALIC SMALL   J' ],
+          'k': [ '𝑘', '1D458', 'MATHEMATICAL ITALIC SMALL   K' ],
+          'l': [ '𝑙', '1D459', 'MATHEMATICAL ITALIC SMALL   L' ],
+          'm': [ '𝑚', '1D45A', 'MATHEMATICAL ITALIC SMALL   M' ],
+          'n': [ '𝑛', '1D45B', 'MATHEMATICAL ITALIC SMALL   N' ],
+          'o': [ '𝑜', '1D45C', 'MATHEMATICAL ITALIC SMALL   O' ],
+          'p': [ '𝑝', '1D45D', 'MATHEMATICAL ITALIC SMALL   P' ],
+          'q': [ '𝑞', '1D45E', 'MATHEMATICAL ITALIC SMALL   Q' ],
+          'r': [ '𝑟', '1D45F', 'MATHEMATICAL ITALIC SMALL   R' ],
+          's': [ '𝑠', '1D460', 'MATHEMATICAL ITALIC SMALL   S' ],
+          't': [ '𝑡', '1D461', 'MATHEMATICAL ITALIC SMALL   T' ],
+          'u': [ '𝑢', '1D462', 'MATHEMATICAL ITALIC SMALL   U' ],
+          'v': [ '𝑣', '1D463', 'MATHEMATICAL ITALIC SMALL   V' ],
+          'w': [ '𝑤', '1D464', 'MATHEMATICAL ITALIC SMALL   W' ],
+          'x': [ '𝑥', '1D465', 'MATHEMATICAL ITALIC SMALL   X' ],
+          'y': [ '𝑦', '1D466', 'MATHEMATICAL ITALIC SMALL   Y' ],
+          'z': [ '𝑧', '1D467', 'MATHEMATICAL ITALIC SMALL   Z' ],
+
+          'A': [ '𝐴', '1D434', 'MATHEMATICAL ITALIC CAPITAL A' ],
+          'B': [ '𝐵', '1D435', 'MATHEMATICAL ITALIC CAPITAL B' ],
+          'C': [ '𝐶', '1D436', 'MATHEMATICAL ITALIC CAPITAL C' ],
+          'D': [ '𝐷', '1D437', 'MATHEMATICAL ITALIC CAPITAL D' ],
+          'E': [ '𝐸', '1D438', 'MATHEMATICAL ITALIC CAPITAL E' ],
+          'F': [ '𝐹', '1D439', 'MATHEMATICAL ITALIC CAPITAL F' ],
+          'G': [ '𝐺', '1D43A', 'MATHEMATICAL ITALIC CAPITAL G' ],
+          'H': [ '𝐻', '1D43B', 'MATHEMATICAL ITALIC CAPITAL H' ],
+          'I': [ '𝐼', '1D43C', 'MATHEMATICAL ITALIC CAPITAL I' ],
+          'J': [ '𝐽', '1D43D', 'MATHEMATICAL ITALIC CAPITAL J' ],
+          'K': [ '𝐾', '1D43E', 'MATHEMATICAL ITALIC CAPITAL K' ],
+          'L': [ '𝐿', '1D43F', 'MATHEMATICAL ITALIC CAPITAL L' ],
+          'M': [ '𝑀', '1D440', 'MATHEMATICAL ITALIC CAPITAL M' ],
+          'N': [ '𝑁', '1D441', 'MATHEMATICAL ITALIC CAPITAL N' ],
+          'O': [ '𝑂', '1D442', 'MATHEMATICAL ITALIC CAPITAL O' ],
+          'P': [ '𝑃', '1D443', 'MATHEMATICAL ITALIC CAPITAL P' ],
+          'Q': [ '𝑄', '1D444', 'MATHEMATICAL ITALIC CAPITAL Q' ],
+          'R': [ '𝑅', '1D445', 'MATHEMATICAL ITALIC CAPITAL R' ],
+          'S': [ '𝑆', '1D446', 'MATHEMATICAL ITALIC CAPITAL S' ],
+          'T': [ '𝑇', '1D447', 'MATHEMATICAL ITALIC CAPITAL T' ],
+          'U': [ '𝑈', '1D448', 'MATHEMATICAL ITALIC CAPITAL U' ],
+          'V': [ '𝑉', '1D449', 'MATHEMATICAL ITALIC CAPITAL V' ],
+          'W': [ '𝑊', '1D44A', 'MATHEMATICAL ITALIC CAPITAL W' ],
+          'X': [ '𝑋', '1D44B', 'MATHEMATICAL ITALIC CAPITAL X' ],
+          'Y': [ '𝑌', '1D44C', 'MATHEMATICAL ITALIC CAPITAL Y' ],
+          'Z': [ '𝑍', '1D44D', 'MATHEMATICAL ITALIC CAPITAL Z' ]
+
+       },
+
+
+
+       'com serifa negrito italico':
+       {
+
+          'a': [ '𝒂', '1D482', 'MATHEMATICAL BOLD ITALIC SMALL   A' ],
+          'b': [ '𝒃', '1D483', 'MATHEMATICAL BOLD ITALIC SMALL   B' ],
+          'c': [ '𝒄', '1D484', 'MATHEMATICAL BOLD ITALIC SMALL   C' ],
+          'd': [ '𝒅', '1D485', 'MATHEMATICAL BOLD ITALIC SMALL   D' ],
+          'e': [ '𝒆', '1D486', 'MATHEMATICAL BOLD ITALIC SMALL   E' ],
+          'f': [ '𝒇', '1D487', 'MATHEMATICAL BOLD ITALIC SMALL   F' ],
+          'g': [ '𝒈', '1D488', 'MATHEMATICAL BOLD ITALIC SMALL   G' ],
+          'h': [ '𝒉', '1D489', 'MATHEMATICAL BOLD ITALIC SMALL   H' ],
+          'i': [ '𝒊', '1D48A', 'MATHEMATICAL BOLD ITALIC SMALL   I' ],
+          'j': [ '𝒋', '1D48B', 'MATHEMATICAL BOLD ITALIC SMALL   J' ],
+          'k': [ '𝒌', '1D48C', 'MATHEMATICAL BOLD ITALIC SMALL   K' ],
+          'l': [ '𝒍', '1D48D', 'MATHEMATICAL BOLD ITALIC SMALL   L' ],
+          'm': [ '𝒎', '1D48E', 'MATHEMATICAL BOLD ITALIC SMALL   M' ],
+          'n': [ '𝒏', '1D48F', 'MATHEMATICAL BOLD ITALIC SMALL   N' ],
+          'o': [ '𝒐', '1D490', 'MATHEMATICAL BOLD ITALIC SMALL   O' ],
+          'p': [ '𝒑', '1D491', 'MATHEMATICAL BOLD ITALIC SMALL   P' ],
+          'q': [ '𝒒', '1D492', 'MATHEMATICAL BOLD ITALIC SMALL   Q' ],
+          'r': [ '𝒓', '1D493', 'MATHEMATICAL BOLD ITALIC SMALL   R' ],
+          's': [ '𝒔', '1D494', 'MATHEMATICAL BOLD ITALIC SMALL   S' ],
+          't': [ '𝒕', '1D495', 'MATHEMATICAL BOLD ITALIC SMALL   T' ],
+          'u': [ '𝒖', '1D496', 'MATHEMATICAL BOLD ITALIC SMALL   U' ],
+          'v': [ '𝒗', '1D497', 'MATHEMATICAL BOLD ITALIC SMALL   V' ],
+          'w': [ '𝒘', '1D498', 'MATHEMATICAL BOLD ITALIC SMALL   W' ],
+          'x': [ '𝒙', '1D499', 'MATHEMATICAL BOLD ITALIC SMALL   X' ],
+          'y': [ '𝒚', '1D49A', 'MATHEMATICAL BOLD ITALIC SMALL   Y' ],
+          'z': [ '𝒛', '1D49B', 'MATHEMATICAL BOLD ITALIC SMALL   Z' ],
+
+          'A': [ '𝑨', '1D468', 'MATHEMATICAL BOLD ITALIC CAPITAL A' ],
+          'B': [ '𝑩', '1D469', 'MATHEMATICAL BOLD ITALIC CAPITAL B' ],
+          'C': [ '𝑪', '1D46A', 'MATHEMATICAL BOLD ITALIC CAPITAL C' ],
+          'D': [ '𝑫', '1D46B', 'MATHEMATICAL BOLD ITALIC CAPITAL D' ],
+          'E': [ '𝑬', '1D46C', 'MATHEMATICAL BOLD ITALIC CAPITAL E' ],
+          'F': [ '𝑭', '1D46D', 'MATHEMATICAL BOLD ITALIC CAPITAL F' ],
+          'G': [ '𝑮', '1D46E', 'MATHEMATICAL BOLD ITALIC CAPITAL G' ],
+          'H': [ '𝑯', '1D46F', 'MATHEMATICAL BOLD ITALIC CAPITAL H' ],
+          'I': [ '𝑰', '1D470', 'MATHEMATICAL BOLD ITALIC CAPITAL I' ],
+          'J': [ '𝑱', '1D471', 'MATHEMATICAL BOLD ITALIC CAPITAL J' ],
+          'K': [ '𝑲', '1D472', 'MATHEMATICAL BOLD ITALIC CAPITAL K' ],
+          'L': [ '𝑳', '1D473', 'MATHEMATICAL BOLD ITALIC CAPITAL L' ],
+          'M': [ '𝑴', '1D474', 'MATHEMATICAL BOLD ITALIC CAPITAL M' ],
+          'N': [ '𝑵', '1D475', 'MATHEMATICAL BOLD ITALIC CAPITAL N' ],
+          'O': [ '𝑶', '1D476', 'MATHEMATICAL BOLD ITALIC CAPITAL O' ],
+          'P': [ '𝑷', '1D477', 'MATHEMATICAL BOLD ITALIC CAPITAL P' ],
+          'Q': [ '𝑸', '1D478', 'MATHEMATICAL BOLD ITALIC CAPITAL Q' ],
+          'R': [ '𝑹', '1D479', 'MATHEMATICAL BOLD ITALIC CAPITAL R' ],
+          'S': [ '𝑺', '1D47A', 'MATHEMATICAL BOLD ITALIC CAPITAL S' ],
+          'T': [ '𝑻', '1D47B', 'MATHEMATICAL BOLD ITALIC CAPITAL T' ],
+          'U': [ '𝑼', '1D47C', 'MATHEMATICAL BOLD ITALIC CAPITAL U' ],
+          'V': [ '𝑽', '1D47D', 'MATHEMATICAL BOLD ITALIC CAPITAL V' ],
+          'W': [ '𝑾', '1D47E', 'MATHEMATICAL BOLD ITALIC CAPITAL W' ],
+          'X': [ '𝑿', '1D47F', 'MATHEMATICAL BOLD ITALIC CAPITAL X' ],
+          'Y': [ '𝒀', '1D480', 'MATHEMATICAL BOLD ITALIC CAPITAL Y' ],
+          'Z': [ '𝒁', '1D481', 'MATHEMATICAL BOLD ITALIC CAPITAL Z' ]
+
+       },
+
+
+       /*
+           A   𝝰
+           B   𝝱
+           C   𝞆
+           D   𝝳
+           E   𝝴
+           H   𝝶
+           G   𝝲
+           I   𝝸
+           K   𝝹
+           L   𝝺
+           M   𝝻
+           N   𝝼
+           W   𝞈
+           O   𝝾
+           F   𝞅
+           P   𝝿
+           Y   𝞇
+           R   𝞀
+           S   𝞂
+           T   𝞃
+           Q   𝝷
+           U   𝞄
+           X   𝝽
+           Z   𝝵
+       */
+
+       'grego sem serifa':
+       {
+
+          'a': [ 'α', '003B1', 'GREEK SMALL   LETTER ALPHA'   ],
+          'b': [ 'β', '003B2', 'GREEK SMALL   LETTER BETA'    ],
+          'c': [ 'χ', '003C7', 'GREEK SMALL   LETTER CHI'     ],
+          'd': [ 'δ', '003B4', 'GREEK SMALL   LETTER DELTA'   ],
+          'e': [ 'ε', '003B5', 'GREEK SMALL   LETTER EPSILON' ],
+          'f': [ 'φ', '003C6', 'GREEK SMALL   LETTER PHI'     ],
+          'g': [ 'γ', '003B3', 'GREEK SMALL   LETTER GAMMA'   ],
+          'h': [ 'η', '003B7', 'GREEK SMALL   LETTER ETA'     ],
+          'i': [ 'ι', '003B9', 'GREEK SMALL   LETTER IOTA'    ],
+          'j': [ ' ', '     ', ''                             ],
+          'k': [ 'κ', '003BA', 'GREEK SMALL   LETTER KAPPA'   ],
+          'l': [ 'λ', '003BB', 'GREEK SMALL   LETTER LAMDA'   ],
+          'm': [ 'μ', '003BC', 'GREEK SMALL   LETTER MU'      ],
+          'n': [ 'ν', '003BD', 'GREEK SMALL   LETTER NU'      ],
+          'o': [ 'ο', '003BF', 'GREEK SMALL   LETTER OMICRON' ],
+          'p': [ 'π', '003C0', 'GREEK SMALL   LETTER PI'      ],
+          'q': [ 'θ', '003B8', 'GREEK SMALL   LETTER THETA'   ],
+          'r': [ 'ρ', '003C1', 'GREEK SMALL   LETTER RHO'     ],
+          's': [ 'σ', '003C3', 'GREEK SMALL   LETTER SIGMA'   ],
+          't': [ 'τ', '003C4', 'GREEK SMALL   LETTER TAU'     ],
+          'u': [ 'υ', '003C5', 'GREEK SMALL   LETTER UPSILON' ],
+          'v': [ ' ', '     ', ''                             ],
+          'w': [ 'ω', '003C9', 'GREEK SMALL   LETTER OMEGA'   ],
+          'x': [ 'ξ', '003BE', 'GREEK SMALL   LETTER XI'      ],
+          'y': [ 'ψ', '003C8', 'GREEK SMALL   LETTER PSI'     ],
+          'z': [ 'ζ', '003B6', 'GREEK SMALL   LETTER ZETA'    ],
+
+          'A': [ 'Α', '00391', 'GREEK CAPITAL LETTER ALPHA'   ],
+          'B': [ 'Β', '00392', 'GREEK CAPITAL LETTER BETA'    ],
+          'C': [ 'Χ', '003A7', 'GREEK CAPITAL LETTER CHI'     ],
+          'D': [ 'Δ', '00394', 'GREEK CAPITAL LETTER DELTA'   ],
+          'E': [ 'Ε', '00395', 'GREEK CAPITAL LETTER EPSILON' ],
+          'F': [ 'Φ', '003A6', 'GREEK CAPITAL LETTER PHI'     ],
+          'G': [ 'Γ', '00393', 'GREEK CAPITAL LETTER GAMMA'   ],
+          'H': [ 'Η', '00397', 'GREEK CAPITAL LETTER ETA'     ],
+          'I': [ 'Ι', '00399', 'GREEK CAPITAL LETTER IOTA'    ],
+          'J': [ ' ', '     ', ''                             ],
+          'K': [ 'Κ', '0039A', 'GREEK CAPITAL LETTER KAPPA'   ],
+          'L': [ 'Λ', '0039B', 'GREEK CAPITAL LETTER LAMDA'   ],
+          'M': [ 'Μ', '0039C', 'GREEK CAPITAL LETTER MU'      ],
+          'N': [ 'Ν', '0039D', 'GREEK CAPITAL LETTER NU'      ],
+          'O': [ 'Ο', '0039F', 'GREEK CAPITAL LETTER OMICRON' ],
+          'P': [ 'Π', '003A0', 'GREEK CAPITAL LETTER PI'      ],
+          'Q': [ 'Θ', '00398', 'GREEK CAPITAL LETTER THETA'   ],
+          'R': [ 'Ρ', '003A1', 'GREEK CAPITAL LETTER RHO'     ],
+          'S': [ 'Σ', '003A3', 'GREEK CAPITAL LETTER SIGMA'   ],
+          'T': [ 'Τ', '003A4', 'GREEK CAPITAL LETTER TAU'     ],
+          'U': [ 'Υ', '003A5', 'GREEK CAPITAL LETTER UPSILON' ],
+          'V': [ ' ', '     ', ''                             ],
+          'W': [ 'Ω', '003A9', 'GREEK CAPITAL LETTER OMEGA'   ],
+          'X': [ 'Ξ', '0039E', 'GREEK CAPITAL LETTER XI'      ],
+          'Y': [ 'Ψ', '003A8', 'GREEK CAPITAL LETTER PSI'     ],
+          'Z': [ 'Ζ', '00396', 'GREEK CAPITAL LETTER ZETA'    ]
+
+       },
+
+
+
+       'grego sem serifa negrito':
+       {
+
+          'a': [ '𝝰', '1D770', 'MATHEMATICAL SANS-SERIF BOLD SMALL   ALPHA'   ],
+          'b': [ '𝝱', '1D771', 'MATHEMATICAL SANS-SERIF BOLD SMALL   BETA'    ],
+          'c': [ '𝞆', '1D786', 'MATHEMATICAL SANS-SERIF BOLD SMALL   CHI'     ],
+          'd': [ '𝝳', '1D773', 'MATHEMATICAL SANS-SERIF BOLD SMALL   DELTA'   ],
+          'e': [ '𝝴', '1D774', 'MATHEMATICAL SANS-SERIF BOLD SMALL   EPSILON' ],
+          'f': [ '𝞅', '1D785', 'MATHEMATICAL SANS-SERIF BOLD SMALL   PHI'     ],
+          'g': [ '𝝲', '1D772', 'MATHEMATICAL SANS-SERIF BOLD SMALL   GAMMA'   ],
+          'h': [ '𝝶', '1D776', 'MATHEMATICAL SANS-SERIF BOLD SMALL   ETA'     ],
+          'i': [ '𝝸', '1D778', 'MATHEMATICAL SANS-SERIF BOLD SMALL   IOTA'    ],
+          'j': [ ' ', '     ', ''                                             ],
+          'k': [ '𝝹', '1D779', 'MATHEMATICAL SANS-SERIF BOLD SMALL   KAPPA'   ],
+          'l': [ '𝝺', '1D77A', 'MATHEMATICAL SANS-SERIF BOLD SMALL   LAMDA'   ],
+          'm': [ '𝝻', '1D77B', 'MATHEMATICAL SANS-SERIF BOLD SMALL   MU'      ],
+          'n': [ '𝝼', '1D77C', 'MATHEMATICAL SANS-SERIF BOLD SMALL   NU'      ],
+          'o': [ '𝝾', '1D77E', 'MATHEMATICAL SANS-SERIF BOLD SMALL   OMICRON' ],
+          'p': [ '𝝿', '1D77F', 'MATHEMATICAL SANS-SERIF BOLD SMALL   PI'      ],
+          'q': [ '𝝷', '1D777', 'MATHEMATICAL SANS-SERIF BOLD SMALL   THETA'   ],
+          'r': [ '𝞀', '1D780', 'MATHEMATICAL SANS-SERIF BOLD SMALL   RHO'     ],
+          's': [ '𝞂', '1D782', 'MATHEMATICAL SANS-SERIF BOLD SMALL   SIGMA'   ],
+          't': [ '𝞃', '1D783', 'MATHEMATICAL SANS-SERIF BOLD SMALL   TAU'     ],
+          'u': [ '𝞄', '1D784', 'MATHEMATICAL SANS-SERIF BOLD SMALL   UPSILON' ],
+          'v': [ ' ', '     ', ''                                             ],
+          'w': [ '𝞈', '1D788', 'MATHEMATICAL SANS-SERIF BOLD SMALL   OMEGA'   ],
+          'x': [ '𝝽', '1D77D', 'MATHEMATICAL SANS-SERIF BOLD SMALL   XI'      ],
+          'y': [ '𝞇', '1D787', 'MATHEMATICAL SANS-SERIF BOLD SMALL   PSI'     ],
+          'z': [ '𝝵', '1D775', 'MATHEMATICAL SANS-SERIF BOLD SMALL   ZETA'    ],
+
+          'A': [ '𝝖', '1D756', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL ALPHA'   ],
+          'B': [ '𝝗', '1D757', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL BETA'    ],
+          'C': [ '𝝬', '1D76C', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL CHI'     ],
+          'D': [ '𝝙', '1D759', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL DELTA'   ],
+          'E': [ '𝝚', '1D75A', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL EPSILON' ],
+          'F': [ '𝝫', '1D76B', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL PHI'     ],
+          'G': [ '𝝘', '1D758', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL GAMMA'   ],
+          'H': [ '𝝜', '1D75C', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL ETA'     ],
+          'I': [ '𝝞', '1D75E', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL IOTA'    ],
+          'J': [ ' ', '     ', ''                                             ],
+          'K': [ '𝝟', '1D75F', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL KAPPA'   ],
+          'L': [ '𝝠', '1D760', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL LAMDA'   ],
+          'M': [ '𝝡', '1D761', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL MU'      ],
+          'N': [ '𝝢', '1D762', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL NU'      ],
+          'O': [ '𝝤', '1D764', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL OMICRON' ],
+          'P': [ '𝝥', '1D765', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL PI'      ],
+          'Q': [ '𝝝', '1D75D', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL THETA'   ],
+          'R': [ '𝝦', '1D766', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL RHO'     ],
+          'S': [ '𝝨', '1D768', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL SIGMA'   ],
+          'T': [ '𝝩', '1D769', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL TAU'     ],
+          'U': [ '𝝪', '1D76A', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL UPSILON' ],
+          'V': [ ' ', '     ', ''                                             ],
+          'W': [ '𝝮', '1D76E', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL OMEGA'   ],
+          'X': [ '𝝣', '1D763', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL XI'      ],
+          'Y': [ '𝝭', '1D76D', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL PSI'     ],
+          'Z': [ '𝝛', '1D75B', 'MATHEMATICAL SANS-SERIF BOLD CAPITAL ZETA'    ]
+
+       },
+
+
+
+       'grego sem serifa negrito italico':
+       {
+
+          'a': [ '𝞪', '1D7AA', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   ALPHA'   ],
+          'b': [ '𝞫', '1D7AB', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   BETA'    ],
+          'c': [ '𝟀', '1D7C0', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   CHI'     ],
+          'd': [ '𝞭', '1D7AD', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   DELTA'   ],
+          'e': [ '𝞮', '1D7AE', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   EPSILON' ],
+          'f': [ '𝞿', '1D7BF', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   PHI'     ],
+          'g': [ '𝞬', '1D7AC', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   GAMMA'   ],
+          'h': [ '𝞰', '1D7B0', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   ETA'     ],
+          'i': [ '𝞲', '1D7B2', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   IOTA'    ],
+          'j': [ ' ', '     ', ''                                                    ],
+          'k': [ '𝞳', '1D7B3', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   KAPPA'   ],
+          'l': [ '𝞴', '1D7B4', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   LAMDA'   ],
+          'm': [ '𝞵', '1D7B5', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   MU'      ],
+          'n': [ '𝞶', '1D7B6', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   NU'      ],
+          'o': [ '𝞸', '1D7B8', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   OMICRON' ],
+          'p': [ '𝞹', '1D7B9', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   PI'      ],
+          'q': [ '𝞱', '1D7B1', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   THETA'   ],
+          'r': [ '𝞺', '1D7BA', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   RHO'     ],
+          's': [ '𝞼', '1D7BC', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   SIGMA'   ],
+          't': [ '𝞽', '1D7BD', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   TAU'     ],
+          'u': [ '𝞾', '1D7BE', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   UPSILON' ],
+          'v': [ ' ', '     ', ''                                                    ],
+          'w': [ '𝟂', '1D7C2', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   OMEGA'   ],
+          'x': [ '𝞷', '1D7B7', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   XI'      ],
+          'y': [ '𝟁', '1D7C1', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   PSI'     ],
+          'z': [ '𝞯', '1D7AF', 'MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL   ZETA'    ],
+
+          'A': [ '𝞐', '1D790', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL ALPHA'   ],
+          'B': [ '𝞑', '1D791', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL BETA'    ],
+          'C': [ '𝞦', '1D7A6', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL CHI'     ],
+          'D': [ '𝞓', '1D793', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL DELTA'   ],
+          'E': [ '𝞔', '1D794', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL EPSILON' ],
+          'F': [ '𝞥', '1D7A5', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PHI'     ],
+          'G': [ '𝞒', '1D792', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL GAMMA'   ],
+          'H': [ '𝞖', '1D796', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL ETA'     ],
+          'I': [ '𝞘', '1D798', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL IOTA'    ],
+          'J': [ ' ', '     ', ''                                                    ],
+          'K': [ '𝞙', '1D799', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL KAPPA'   ],
+          'L': [ '𝞚', '1D79A', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL LAMDA'   ],
+          'M': [ '𝞛', '1D79B', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL MU'      ],
+          'N': [ '𝞜', '1D79C', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL NU'      ],
+          'O': [ '𝞞', '1D79E', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL OMICRON' ],
+          'P': [ '𝞟', '1D79F', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PI'      ],
+          'Q': [ '𝞗', '1D797', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL THETA'   ],
+          'R': [ '𝞠', '1D7A0', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL RHO'     ],
+          'S': [ '𝞢', '1D7A2', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL SIGMA'   ],
+          'T': [ '𝞣', '1D7A3', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL TAU'     ],
+          'U': [ '𝞤', '1D7A4', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL UPSILON' ],
+          'V': [ ' ', '     ', ''                                                    ],
+          'W': [ '𝞨', '1D7A8', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL OMEGA'   ],
+          'X': [ '𝞝', '1D79D', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL XI'      ],
+          'Y': [ '𝞧', '1D7A7', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL PSI'     ],
+          'Z': [ '𝞕', '1D795', 'MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL ZETA'    ]
+
+       },
+
+
+
+       'grego com serifa negrito':
+       {
+
+          'a': [ '𝛂', '1D6C2', 'MATHEMATICAL BOLD SMALL   ALPHA'   ],
+          'b': [ '𝛃', '1D6C3', 'MATHEMATICAL BOLD SMALL   BETA'    ],
+          'c': [ '𝛘', '1D6D8', 'MATHEMATICAL BOLD SMALL   CHI'     ],
+          'd': [ '𝛅', '1D6C5', 'MATHEMATICAL BOLD SMALL   DELTA'   ],
+          'e': [ '𝛆', '1D6C6', 'MATHEMATICAL BOLD SMALL   EPSILON' ],
+          'f': [ '𝛗', '1D6D7', 'MATHEMATICAL BOLD SMALL   PHI'     ],
+          'g': [ '𝛄', '1D6C4', 'MATHEMATICAL BOLD SMALL   GAMMA'   ],
+          'h': [ '𝛈', '1D6C8', 'MATHEMATICAL BOLD SMALL   ETA'     ],
+          'i': [ '𝛊', '1D6CA', 'MATHEMATICAL BOLD SMALL   IOTA'    ],
+          'j': [ ' ', '     ', ''                                  ],
+          'k': [ '𝛋', '1D6CB', 'MATHEMATICAL BOLD SMALL   KAPPA'   ],
+          'l': [ '𝛌', '1D6CC', 'MATHEMATICAL BOLD SMALL   LAMDA'   ],
+          'm': [ '𝛍', '1D6CD', 'MATHEMATICAL BOLD SMALL   MU'      ],
+          'n': [ '𝛎', '1D6CE', 'MATHEMATICAL BOLD SMALL   NU'      ],
+          'o': [ '𝛐', '1D6D0', 'MATHEMATICAL BOLD SMALL   OMICRON' ],
+          'p': [ '𝛑', '1D6D1', 'MATHEMATICAL BOLD SMALL   PI'      ],
+          'q': [ '𝛉', '1D6C9', 'MATHEMATICAL BOLD SMALL   THETA'   ],
+          'r': [ '𝛒', '1D6D2', 'MATHEMATICAL BOLD SMALL   RHO'     ],
+          's': [ '𝛔', '1D6D4', 'MATHEMATICAL BOLD SMALL   SIGMA'   ],
+          't': [ '𝛕', '1D6D5', 'MATHEMATICAL BOLD SMALL   TAU'     ],
+          'u': [ '𝛖', '1D6D6', 'MATHEMATICAL BOLD SMALL   UPSILON' ],
+          'v': [ ' ', '     ', ''                                  ],
+          'w': [ '𝛚', '1D6DA', 'MATHEMATICAL BOLD SMALL   OMEGA'   ],
+          'x': [ '𝛏', '1D6CF', 'MATHEMATICAL BOLD SMALL   XI'      ],
+          'y': [ '𝛙', '1D6D9', 'MATHEMATICAL BOLD SMALL   PSI'     ],
+          'z': [ '𝛇', '1D6C7', 'MATHEMATICAL BOLD SMALL   ZETA'    ],
+
+          'A': [ '𝚨', '1D6A8', 'MATHEMATICAL BOLD CAPITAL ALPHA'   ],
+          'B': [ '𝚩', '1D6A9', 'MATHEMATICAL BOLD CAPITAL BETA'    ],
+          'C': [ '𝚾', '1D6BE', 'MATHEMATICAL BOLD CAPITAL CHI'     ],
+          'D': [ '𝚫', '1D6AB', 'MATHEMATICAL BOLD CAPITAL DELTA'   ],
+          'E': [ '𝚬', '1D6AC', 'MATHEMATICAL BOLD CAPITAL EPSILON' ],
+          'F': [ '𝚽', '1D6BD', 'MATHEMATICAL BOLD CAPITAL PHI'     ],
+          'G': [ '𝚪', '1D6AA', 'MATHEMATICAL BOLD CAPITAL GAMMA'   ],
+          'H': [ '𝚮', '1D6AE', 'MATHEMATICAL BOLD CAPITAL ETA'     ],
+          'I': [ '𝚰', '1D6B0', 'MATHEMATICAL BOLD CAPITAL IOTA'    ],
+          'J': [ ' ', '     ', ''                                  ],
+          'K': [ '𝚱', '1D6B1', 'MATHEMATICAL BOLD CAPITAL KAPPA'   ],
+          'L': [ '𝚲', '1D6B2', 'MATHEMATICAL BOLD CAPITAL LAMDA'   ],
+          'M': [ '𝚳', '1D6B3', 'MATHEMATICAL BOLD CAPITAL MU'      ],
+          'N': [ '𝚴', '1D6B4', 'MATHEMATICAL BOLD CAPITAL NU'      ],
+          'O': [ '𝚶', '1D6B6', 'MATHEMATICAL BOLD CAPITAL OMICRON' ],
+          'P': [ '𝚷', '1D6B7', 'MATHEMATICAL BOLD CAPITAL PI'      ],
+          'Q': [ '𝚯', '1D6AF', 'MATHEMATICAL BOLD CAPITAL THETA'   ],
+          'R': [ '𝚸', '1D6B8', 'MATHEMATICAL BOLD CAPITAL RHO'     ],
+          'S': [ '𝚺', '1D6BA', 'MATHEMATICAL BOLD CAPITAL SIGMA'   ],
+          'T': [ '𝚻', '1D6BB', 'MATHEMATICAL BOLD CAPITAL TAU'     ],
+          'U': [ '𝚼', '1D6BC', 'MATHEMATICAL BOLD CAPITAL UPSILON' ],
+          'V': [ ' ', '     ', ''                                  ],
+          'W': [ '𝛀', '1D6C0', 'MATHEMATICAL BOLD CAPITAL OMEGA'   ],
+          'X': [ '𝚵', '1D6B5', 'MATHEMATICAL BOLD CAPITAL XI'      ],
+          'Y': [ '𝚿', '1D6BF', 'MATHEMATICAL BOLD CAPITAL PSI'     ],
+          'Z': [ '𝚭', '1D6AD', 'MATHEMATICAL BOLD CAPITAL ZETA'    ]
+
+       },
+
+
+
+       'grego com serifa italico':
+       {
+
+          'a': [ '𝛼', '1D6FC', 'MATHEMATICAL ITALIC SMALL   ALPHA'   ],
+          'b': [ '𝛽', '1D6FD', 'MATHEMATICAL ITALIC SMALL   BETA'    ],
+          'c': [ '𝜒', '1D712', 'MATHEMATICAL ITALIC SMALL   CHI'     ],
+          'd': [ '𝛿', '1D6FF', 'MATHEMATICAL ITALIC SMALL   DELTA'   ],
+          'e': [ '𝜀', '1D700', 'MATHEMATICAL ITALIC SMALL   EPSILON' ],
+          'f': [ '𝜑', '1D711', 'MATHEMATICAL ITALIC SMALL   PHI'     ],
+          'g': [ '𝛾', '1D6FE', 'MATHEMATICAL ITALIC SMALL   GAMMA'   ],
+          'h': [ '𝜂', '1D702', 'MATHEMATICAL ITALIC SMALL   ETA'     ],
+          'i': [ '𝜄', '1D704', 'MATHEMATICAL ITALIC SMALL   IOTA'    ],
+          'j': [ ' ', '     ', ''                                    ],
+          'k': [ '𝜅', '1D705', 'MATHEMATICAL ITALIC SMALL   KAPPA'   ],
+          'l': [ '𝜆', '1D706', 'MATHEMATICAL ITALIC SMALL   LAMDA'   ],
+          'm': [ '𝜇', '1D707', 'MATHEMATICAL ITALIC SMALL   MU'      ],
+          'n': [ '𝜈', '1D708', 'MATHEMATICAL ITALIC SMALL   NU'      ],
+          'o': [ '𝜊', '1D70A', 'MATHEMATICAL ITALIC SMALL   OMICRON' ],
+          'p': [ '𝜋', '1D70B', 'MATHEMATICAL ITALIC SMALL   PI'      ],
+          'q': [ '𝜃', '1D703', 'MATHEMATICAL ITALIC SMALL   THETA'   ],
+          'r': [ '𝜌', '1D70C', 'MATHEMATICAL ITALIC SMALL   RHO'     ],
+          's': [ '𝜎', '1D70E', 'MATHEMATICAL ITALIC SMALL   SIGMA'   ],
+          't': [ '𝜏', '1D70F', 'MATHEMATICAL ITALIC SMALL   TAU'     ],
+          'u': [ '𝜐', '1D710', 'MATHEMATICAL ITALIC SMALL   UPSILON' ],
+          'v': [ ' ', '     ', ''                                    ],
+          'w': [ '𝜔', '1D714', 'MATHEMATICAL ITALIC SMALL   OMEGA'   ],
+          'x': [ '𝜉', '1D709', 'MATHEMATICAL ITALIC SMALL   XI'      ],
+          'y': [ '𝜓', '1D713', 'MATHEMATICAL ITALIC SMALL   PSI'     ],
+          'z': [ '𝜁', '1D701', 'MATHEMATICAL ITALIC SMALL   ZETA'    ],
+
+          'A': [ '𝛢', '1D6E2', 'MATHEMATICAL ITALIC CAPITAL ALPHA'   ],
+          'B': [ '𝛣', '1D6E3', 'MATHEMATICAL ITALIC CAPITAL BETA'    ],
+          'C': [ '𝛸', '1D6F8', 'MATHEMATICAL ITALIC CAPITAL CHI'     ],
+          'D': [ '𝛥', '1D6E5', 'MATHEMATICAL ITALIC CAPITAL DELTA'   ],
+          'E': [ '𝛦', '1D6E6', 'MATHEMATICAL ITALIC CAPITAL EPSILON' ],
+          'F': [ '𝛷', '1D6F7', 'MATHEMATICAL ITALIC CAPITAL PHI'     ],
+          'G': [ '𝛤', '1D6E4', 'MATHEMATICAL ITALIC CAPITAL GAMMA'   ],
+          'H': [ '𝛨', '1D6E8', 'MATHEMATICAL ITALIC CAPITAL ETA'     ],
+          'I': [ '𝛪', '1D6EA', 'MATHEMATICAL ITALIC CAPITAL IOTA'    ],
+          'J': [ ' ', '     ', ''                                    ],
+          'K': [ '𝛫', '1D6EB', 'MATHEMATICAL ITALIC CAPITAL KAPPA'   ],
+          'L': [ '𝛬', '1D6EC', 'MATHEMATICAL ITALIC CAPITAL LAMDA'   ],
+          'M': [ '𝛭', '1D6ED', 'MATHEMATICAL ITALIC CAPITAL MU'      ],
+          'N': [ '𝛮', '1D6EE', 'MATHEMATICAL ITALIC CAPITAL NU'      ],
+          'O': [ '𝛰', '1D6F0', 'MATHEMATICAL ITALIC CAPITAL OMICRON' ],
+          'P': [ '𝛱', '1D6F1', 'MATHEMATICAL ITALIC CAPITAL PI'      ],
+          'Q': [ '𝛩', '1D6E9', 'MATHEMATICAL ITALIC CAPITAL THETA'   ],
+          'R': [ '𝛲', '1D6F2', 'MATHEMATICAL ITALIC CAPITAL RHO'     ],
+          'S': [ '𝛴', '1D6F4', 'MATHEMATICAL ITALIC CAPITAL SIGMA'   ],
+          'T': [ '𝛵', '1D6F5', 'MATHEMATICAL ITALIC CAPITAL TAU'     ],
+          'U': [ '𝛶', '1D6F6', 'MATHEMATICAL ITALIC CAPITAL UPSILON' ],
+          'V': [ ' ', '     ', ''                                    ],
+          'W': [ '𝛺', '1D6FA', 'MATHEMATICAL ITALIC CAPITAL OMEGA'   ],
+          'X': [ '𝛯', '1D6EF', 'MATHEMATICAL ITALIC CAPITAL XI'      ],
+          'Y': [ '𝛹', '1D6F9', 'MATHEMATICAL ITALIC CAPITAL PSI'     ],
+          'Z': [ '𝛧', '1D6E7', 'MATHEMATICAL ITALIC CAPITAL ZETA'    ]
+
+       },
+
+
+
+       'grego com serifa negrito italico':
+       {
+
+          'a': [ '𝜶', '1D736', 'MATHEMATICAL BOLD ITALIC SMALL   ALPHA'   ],
+          'b': [ '𝜷', '1D737', 'MATHEMATICAL BOLD ITALIC SMALL   BETA'    ],
+          'c': [ '𝝌', '1D74C', 'MATHEMATICAL BOLD ITALIC SMALL   CHI'     ],
+          'd': [ '𝜹', '1D739', 'MATHEMATICAL BOLD ITALIC SMALL   DELTA'   ],
+          'e': [ '𝜺', '1D73A', 'MATHEMATICAL BOLD ITALIC SMALL   EPSILON' ],
+          'f': [ '𝝋', '1D74B', 'MATHEMATICAL BOLD ITALIC SMALL   PHI'     ],
+          'g': [ '𝜸', '1D738', 'MATHEMATICAL BOLD ITALIC SMALL   GAMMA'   ],
+          'h': [ '𝜼', '1D73C', 'MATHEMATICAL BOLD ITALIC SMALL   ETA'     ],
+          'i': [ '𝜾', '1D73E', 'MATHEMATICAL BOLD ITALIC SMALL   IOTA'    ],
+          'j': [ ' ', '     ', ''                                         ],
+          'k': [ '𝜿', '1D73F', 'MATHEMATICAL BOLD ITALIC SMALL   KAPPA'   ],
+          'l': [ '𝝀', '1D740', 'MATHEMATICAL BOLD ITALIC SMALL   LAMDA'   ],
+          'm': [ '𝝁', '1D741', 'MATHEMATICAL BOLD ITALIC SMALL   MU'      ],
+          'n': [ '𝝂', '1D742', 'MATHEMATICAL BOLD ITALIC SMALL   NU'      ],
+          'o': [ '𝝄', '1D744', 'MATHEMATICAL BOLD ITALIC SMALL   OMICRON' ],
+          'p': [ '𝝅', '1D745', 'MATHEMATICAL BOLD ITALIC SMALL   PI'      ],
+          'q': [ '𝜽', '1D73D', 'MATHEMATICAL BOLD ITALIC SMALL   THETA'   ],
+          'r': [ '𝝆', '1D746', 'MATHEMATICAL BOLD ITALIC SMALL   RHO'     ],
+          's': [ '𝝈', '1D748', 'MATHEMATICAL BOLD ITALIC SMALL   SIGMA'   ],
+          't': [ '𝝉', '1D749', 'MATHEMATICAL BOLD ITALIC SMALL   TAU'     ],
+          'u': [ '𝝊', '1D74A', 'MATHEMATICAL BOLD ITALIC SMALL   UPSILON' ],
+          'v': [ ' ', '     ', ''                                         ],
+          'w': [ '𝝎', '1D74E', 'MATHEMATICAL BOLD ITALIC SMALL   OMEGA'   ],
+          'x': [ '𝝃', '1D743', 'MATHEMATICAL BOLD ITALIC SMALL   XI'      ],
+          'y': [ '𝝍', '1D74D', 'MATHEMATICAL BOLD ITALIC SMALL   PSI'     ],
+          'z': [ '𝜻', '1D73B', 'MATHEMATICAL BOLD ITALIC SMALL   ZETA'    ],
+
+          'A': [ '𝜜', '1D71C', 'MATHEMATICAL BOLD ITALIC CAPITAL ALPHA'   ],
+          'B': [ '𝜝', '1D71D', 'MATHEMATICAL BOLD ITALIC CAPITAL BETA'    ],
+          'C': [ '𝜲', '1D732', 'MATHEMATICAL BOLD ITALIC CAPITAL CHI'     ],
+          'D': [ '𝜟', '1D71F', 'MATHEMATICAL BOLD ITALIC CAPITAL DELTA'   ],
+          'E': [ '𝜠', '1D720', 'MATHEMATICAL BOLD ITALIC CAPITAL EPSILON' ],
+          'F': [ '𝜱', '1D731', 'MATHEMATICAL BOLD ITALIC CAPITAL PHI'     ],
+          'G': [ '𝜞', '1D71E', 'MATHEMATICAL BOLD ITALIC CAPITAL GAMMA'   ],
+          'H': [ '𝜢', '1D722', 'MATHEMATICAL BOLD ITALIC CAPITAL ETA'     ],
+          'I': [ '𝜤', '1D724', 'MATHEMATICAL BOLD ITALIC CAPITAL IOTA'    ],
+          'J': [ ' ', '     ', ''                                         ],
+          'K': [ '𝜥', '1D725', 'MATHEMATICAL BOLD ITALIC CAPITAL KAPPA'   ],
+          'L': [ '𝜦', '1D726', 'MATHEMATICAL BOLD ITALIC CAPITAL LAMDA'   ],
+          'M': [ '𝜧', '1D727', 'MATHEMATICAL BOLD ITALIC CAPITAL MU'      ],
+          'N': [ '𝜨', '1D728', 'MATHEMATICAL BOLD ITALIC CAPITAL NU'      ],
+          'O': [ '𝜪', '1D72A', 'MATHEMATICAL BOLD ITALIC CAPITAL OMICRON' ],
+          'P': [ '𝜫', '1D72B', 'MATHEMATICAL BOLD ITALIC CAPITAL PI'      ],
+          'Q': [ '𝜣', '1D723', 'MATHEMATICAL BOLD ITALIC CAPITAL THETA'   ],
+          'R': [ '𝜬', '1D72C', 'MATHEMATICAL BOLD ITALIC CAPITAL RHO'     ],
+          'S': [ '𝜮', '1D72E', 'MATHEMATICAL BOLD ITALIC CAPITAL SIGMA'   ],
+          'T': [ '𝜯', '1D72F', 'MATHEMATICAL BOLD ITALIC CAPITAL TAU'     ],
+          'U': [ '𝜰', '1D730', 'MATHEMATICAL BOLD ITALIC CAPITAL UPSILON' ],
+          'V': [ ' ', '     ', ''                                         ],
+          'W': [ '𝜴', '1D734', 'MATHEMATICAL BOLD ITALIC CAPITAL OMEGA'   ],
+          'X': [ '𝜩', '1D729', 'MATHEMATICAL BOLD ITALIC CAPITAL XI'      ],
+          'Y': [ '𝜳', '1D733', 'MATHEMATICAL BOLD ITALIC CAPITAL PSI'     ],
+          'Z': [ '𝜡', '1D721', 'MATHEMATICAL BOLD ITALIC CAPITAL ZETA'    ]
+
+       },
+
+
+
+       'gotico':
+       {
+
+          'a': [ '𝔞', '1D51E', 'MATHEMATICAL FRAKTUR SMALL   A' ],
+          'b': [ '𝔟', '1D51F', 'MATHEMATICAL FRAKTUR SMALL   B' ],
+          'c': [ '𝔠', '1D520', 'MATHEMATICAL FRAKTUR SMALL   C' ],
+          'd': [ '𝔡', '1D521', 'MATHEMATICAL FRAKTUR SMALL   D' ],
+          'e': [ '𝔢', '1D522', 'MATHEMATICAL FRAKTUR SMALL   E' ],
+          'f': [ '𝔣', '1D523', 'MATHEMATICAL FRAKTUR SMALL   F' ],
+          'g': [ '𝔤', '1D524', 'MATHEMATICAL FRAKTUR SMALL   G' ],
+          'h': [ '𝔥', '1D525', 'MATHEMATICAL FRAKTUR SMALL   H' ],
+          'i': [ '𝔦', '1D526', 'MATHEMATICAL FRAKTUR SMALL   I' ],
+          'j': [ '𝔧', '1D527', 'MATHEMATICAL FRAKTUR SMALL   J' ],
+          'k': [ '𝔨', '1D528', 'MATHEMATICAL FRAKTUR SMALL   K' ],
+          'l': [ '𝔩', '1D529', 'MATHEMATICAL FRAKTUR SMALL   L' ],
+          'm': [ '𝔪', '1D52A', 'MATHEMATICAL FRAKTUR SMALL   M' ],
+          'n': [ '𝔫', '1D52B', 'MATHEMATICAL FRAKTUR SMALL   N' ],
+          'o': [ '𝔬', '1D52C', 'MATHEMATICAL FRAKTUR SMALL   O' ],
+          'p': [ '𝔭', '1D52D', 'MATHEMATICAL FRAKTUR SMALL   P' ],
+          'q': [ '𝔮', '1D52E', 'MATHEMATICAL FRAKTUR SMALL   Q' ],
+          'r': [ '𝔯', '1D52F', 'MATHEMATICAL FRAKTUR SMALL   R' ],
+          's': [ '𝔰', '1D530', 'MATHEMATICAL FRAKTUR SMALL   S' ],
+          't': [ '𝔱', '1D531', 'MATHEMATICAL FRAKTUR SMALL   T' ],
+          'u': [ '𝔲', '1D532', 'MATHEMATICAL FRAKTUR SMALL   U' ],
+          'v': [ '𝔳', '1D533', 'MATHEMATICAL FRAKTUR SMALL   V' ],
+          'w': [ '𝔴', '1D534', 'MATHEMATICAL FRAKTUR SMALL   W' ],
+          'x': [ '𝔵', '1D535', 'MATHEMATICAL FRAKTUR SMALL   X' ],
+          'y': [ '𝔶', '1D536', 'MATHEMATICAL FRAKTUR SMALL   Y' ],
+          'z': [ '𝔷', '1D537', 'MATHEMATICAL FRAKTUR SMALL   Z' ],
+
+          'A': [ '𝔄', '1D504', 'MATHEMATICAL FRAKTUR CAPITAL A' ],
+          'B': [ '𝔅', '1D505', 'MATHEMATICAL FRAKTUR CAPITAL B' ],
+          'C': [ 'ℭ', '0212D', '        BLACK-LETTER CAPITAL C' ],
+          'D': [ '𝔇', '1D507', 'MATHEMATICAL FRAKTUR CAPITAL D' ],
+          'E': [ '𝔈', '1D508', 'MATHEMATICAL FRAKTUR CAPITAL E' ],
+          'F': [ '𝔉', '1D509', 'MATHEMATICAL FRAKTUR CAPITAL F' ],
+          'G': [ '𝔊', '1D50A', 'MATHEMATICAL FRAKTUR CAPITAL G' ],
+          'H': [ 'ℌ', '0210C', '        BLACK-LETTER CAPITAL H' ],
+          'I': [ 'ℑ', '02111', '        BLACK-LETTER CAPITAL I' ],
+          'J': [ '𝔍', '1D50D', 'MATHEMATICAL FRAKTUR CAPITAL J' ],
+          'K': [ '𝔎', '1D50E', 'MATHEMATICAL FRAKTUR CAPITAL K' ],
+          'L': [ '𝔏', '1D50F', 'MATHEMATICAL FRAKTUR CAPITAL L' ],
+          'M': [ '𝔐', '1D510', 'MATHEMATICAL FRAKTUR CAPITAL M' ],
+          'N': [ '𝔑', '1D511', 'MATHEMATICAL FRAKTUR CAPITAL N' ],
+          'O': [ '𝔒', '1D512', 'MATHEMATICAL FRAKTUR CAPITAL O' ],
+          'P': [ '𝔓', '1D513', 'MATHEMATICAL FRAKTUR CAPITAL P' ],
+          'Q': [ '𝔔', '1D514', 'MATHEMATICAL FRAKTUR CAPITAL Q' ],
+          'R': [ 'ℜ', '0211C', '        BLACK-LETTER CAPITAL R' ],
+          'S': [ '𝔖', '1D516', 'MATHEMATICAL FRAKTUR CAPITAL S' ],
+          'T': [ '𝔗', '1D517', 'MATHEMATICAL FRAKTUR CAPITAL T' ],
+          'U': [ '𝔘', '1D518', 'MATHEMATICAL FRAKTUR CAPITAL U' ],
+          'V': [ '𝔙', '1D519', 'MATHEMATICAL FRAKTUR CAPITAL V' ],
+          'W': [ '𝔚', '1D51A', 'MATHEMATICAL FRAKTUR CAPITAL W' ],
+          'X': [ '𝔛', '1D51B', 'MATHEMATICAL FRAKTUR CAPITAL X' ],
+          'Y': [ '𝔜', '1D51C', 'MATHEMATICAL FRAKTUR CAPITAL Y' ],
+          'Z': [ 'ℨ', '02128', '        BLACK-LETTER CAPITAL Z' ]
+
+       },
+
+
+
+       'gotico negrito':
+       {
+
+          'a': [ '𝖆', '1D586', 'MATHEMATICAL BOLD FRAKTUR SMALL   A' ],
+          'b': [ '𝖇', '1D587', 'MATHEMATICAL BOLD FRAKTUR SMALL   B' ],
+          'c': [ '𝖈', '1D588', 'MATHEMATICAL BOLD FRAKTUR SMALL   C' ],
+          'd': [ '𝖉', '1D589', 'MATHEMATICAL BOLD FRAKTUR SMALL   D' ],
+          'e': [ '𝖊', '1D58A', 'MATHEMATICAL BOLD FRAKTUR SMALL   E' ],
+          'f': [ '𝖋', '1D58B', 'MATHEMATICAL BOLD FRAKTUR SMALL   F' ],
+          'g': [ '𝖌', '1D58C', 'MATHEMATICAL BOLD FRAKTUR SMALL   G' ],
+          'h': [ '𝖍', '1D58D', 'MATHEMATICAL BOLD FRAKTUR SMALL   H' ],
+          'i': [ '𝖎', '1D58E', 'MATHEMATICAL BOLD FRAKTUR SMALL   I' ],
+          'j': [ '𝖏', '1D58F', 'MATHEMATICAL BOLD FRAKTUR SMALL   J' ],
+          'k': [ '𝖐', '1D590', 'MATHEMATICAL BOLD FRAKTUR SMALL   K' ],
+          'l': [ '𝖑', '1D591', 'MATHEMATICAL BOLD FRAKTUR SMALL   L' ],
+          'm': [ '𝖒', '1D592', 'MATHEMATICAL BOLD FRAKTUR SMALL   M' ],
+          'n': [ '𝖓', '1D593', 'MATHEMATICAL BOLD FRAKTUR SMALL   N' ],
+          'o': [ '𝖔', '1D594', 'MATHEMATICAL BOLD FRAKTUR SMALL   O' ],
+          'p': [ '𝖕', '1D595', 'MATHEMATICAL BOLD FRAKTUR SMALL   P' ],
+          'q': [ '𝖖', '1D596', 'MATHEMATICAL BOLD FRAKTUR SMALL   Q' ],
+          'r': [ '𝖗', '1D597', 'MATHEMATICAL BOLD FRAKTUR SMALL   R' ],
+          's': [ '𝖘', '1D598', 'MATHEMATICAL BOLD FRAKTUR SMALL   S' ],
+          't': [ '𝖙', '1D599', 'MATHEMATICAL BOLD FRAKTUR SMALL   T' ],
+          'u': [ '𝖚', '1D59A', 'MATHEMATICAL BOLD FRAKTUR SMALL   U' ],
+          'v': [ '𝖛', '1D59B', 'MATHEMATICAL BOLD FRAKTUR SMALL   V' ],
+          'w': [ '𝖜', '1D59C', 'MATHEMATICAL BOLD FRAKTUR SMALL   W' ],
+          'x': [ '𝖝', '1D59D', 'MATHEMATICAL BOLD FRAKTUR SMALL   X' ],
+          'y': [ '𝖞', '1D59E', 'MATHEMATICAL BOLD FRAKTUR SMALL   Y' ],
+          'z': [ '𝖟', '1D59F', 'MATHEMATICAL BOLD FRAKTUR SMALL   Z' ],
+
+          'A': [ '𝕬', '1D56C', 'MATHEMATICAL BOLD FRAKTUR CAPITAL A' ],
+          'B': [ '𝕭', '1D56D', 'MATHEMATICAL BOLD FRAKTUR CAPITAL B' ],
+          'C': [ '𝕮', '1D56E', 'MATHEMATICAL BOLD FRAKTUR CAPITAL C' ],
+          'D': [ '𝕯', '1D56F', 'MATHEMATICAL BOLD FRAKTUR CAPITAL D' ],
+          'E': [ '𝕰', '1D570', 'MATHEMATICAL BOLD FRAKTUR CAPITAL E' ],
+          'F': [ '𝕱', '1D571', 'MATHEMATICAL BOLD FRAKTUR CAPITAL F' ],
+          'G': [ '𝕲', '1D572', 'MATHEMATICAL BOLD FRAKTUR CAPITAL G' ],
+          'H': [ '𝕳', '1D573', 'MATHEMATICAL BOLD FRAKTUR CAPITAL H' ],
+          'I': [ '𝕴', '1D574', 'MATHEMATICAL BOLD FRAKTUR CAPITAL I' ],
+          'J': [ '𝕵', '1D575', 'MATHEMATICAL BOLD FRAKTUR CAPITAL J' ],
+          'K': [ '𝕶', '1D576', 'MATHEMATICAL BOLD FRAKTUR CAPITAL K' ],
+          'L': [ '𝕷', '1D577', 'MATHEMATICAL BOLD FRAKTUR CAPITAL L' ],
+          'M': [ '𝕸', '1D578', 'MATHEMATICAL BOLD FRAKTUR CAPITAL M' ],
+          'N': [ '𝕹', '1D579', 'MATHEMATICAL BOLD FRAKTUR CAPITAL N' ],
+          'O': [ '𝕺', '1D57A', 'MATHEMATICAL BOLD FRAKTUR CAPITAL O' ],
+          'P': [ '𝕻', '1D57B', 'MATHEMATICAL BOLD FRAKTUR CAPITAL P' ],
+          'Q': [ '𝕼', '1D57C', 'MATHEMATICAL BOLD FRAKTUR CAPITAL Q' ],
+          'R': [ '𝕽', '1D57D', 'MATHEMATICAL BOLD FRAKTUR CAPITAL R' ],
+          'S': [ '𝕾', '1D57E', 'MATHEMATICAL BOLD FRAKTUR CAPITAL S' ],
+          'T': [ '𝕿', '1D57F', 'MATHEMATICAL BOLD FRAKTUR CAPITAL T' ],
+          'U': [ '𝖀', '1D580', 'MATHEMATICAL BOLD FRAKTUR CAPITAL U' ],
+          'V': [ '𝖁', '1D581', 'MATHEMATICAL BOLD FRAKTUR CAPITAL V' ],
+          'W': [ '𝖂', '1D582', 'MATHEMATICAL BOLD FRAKTUR CAPITAL W' ],
+          'X': [ '𝖃', '1D583', 'MATHEMATICAL BOLD FRAKTUR CAPITAL X' ],
+          'Y': [ '𝖄', '1D584', 'MATHEMATICAL BOLD FRAKTUR CAPITAL Y' ],
+          'Z': [ '𝖅', '1D585', 'MATHEMATICAL BOLD FRAKTUR CAPITAL Z' ]
+
+       },
+
+
+
+       'script':
+       {
+
+          'a': [ '𝒶', '1D4B6', 'MATHEMATICAL SCRIPT SMALL   A' ],
+          'b': [ '𝒷', '1D4B7', 'MATHEMATICAL SCRIPT SMALL   B' ],
+          'c': [ '𝒸', '1D4B8', 'MATHEMATICAL SCRIPT SMALL   C' ],
+          'd': [ '𝒹', '1D4B9', 'MATHEMATICAL SCRIPT SMALL   D' ],
+          'e': [ 'ℯ', '0212F', '             SCRIPT SMALL   E' ],
+          'f': [ '𝒻', '1D4BB', 'MATHEMATICAL SCRIPT SMALL   F' ],
+          'g': [ 'ℊ', '0210A', '             SCRIPT SMALL   G' ],
+          'h': [ '𝒽', '1D4BD', 'MATHEMATICAL SCRIPT SMALL   H' ],
+          'i': [ '𝒾', '1D4BE', 'MATHEMATICAL SCRIPT SMALL   I' ],
+          'j': [ '𝒿', '1D4BF', 'MATHEMATICAL SCRIPT SMALL   J' ],
+          'k': [ '𝓀', '1D4C0', 'MATHEMATICAL SCRIPT SMALL   K' ],
+          'l': [ '𝓁', '1D4C1', 'MATHEMATICAL SCRIPT SMALL   L' ],
+          'm': [ '𝓂', '1D4C2', 'MATHEMATICAL SCRIPT SMALL   M' ],
+          'n': [ '𝓃', '1D4C3', 'MATHEMATICAL SCRIPT SMALL   N' ],
+          'o': [ 'ℴ', '02134', '             SCRIPT SMALL   O' ],
+          'p': [ '𝓅', '1D4C5', 'MATHEMATICAL SCRIPT SMALL   P' ],
+          'q': [ '𝓆', '1D4C6', 'MATHEMATICAL SCRIPT SMALL   Q' ],
+          'r': [ '𝓇', '1D4C7', 'MATHEMATICAL SCRIPT SMALL   R' ],
+          's': [ '𝓈', '1D4C8', 'MATHEMATICAL SCRIPT SMALL   S' ],
+          't': [ '𝓉', '1D4C9', 'MATHEMATICAL SCRIPT SMALL   T' ],
+          'u': [ '𝓊', '1D4CA', 'MATHEMATICAL SCRIPT SMALL   U' ],
+          'v': [ '𝓋', '1D4CB', 'MATHEMATICAL SCRIPT SMALL   V' ],
+          'w': [ '𝓌', '1D4CC', 'MATHEMATICAL SCRIPT SMALL   W' ],
+          'x': [ '𝓍', '1D4CD', 'MATHEMATICAL SCRIPT SMALL   X' ],
+          'y': [ '𝓎', '1D4CE', 'MATHEMATICAL SCRIPT SMALL   Y' ],
+          'z': [ '𝓏', '1D4CF', 'MATHEMATICAL SCRIPT SMALL   Z' ],
+
+          'A': [ '𝒜', '1D49C', 'MATHEMATICAL SCRIPT CAPITAL A' ],
+          'B': [ 'ℬ', '0212C', '             SCRIPT CAPITAL B' ],
+          'C': [ '𝒞', '1D49E', 'MATHEMATICAL SCRIPT CAPITAL C' ],
+          'D': [ '𝒟', '1D49F', 'MATHEMATICAL SCRIPT CAPITAL D' ],
+          'E': [ 'ℰ', '02130', '             SCRIPT CAPITAL E' ],
+          'F': [ 'ℱ', '02131', '             SCRIPT CAPITAL F' ],
+          'G': [ '𝒢', '1D4A2', 'MATHEMATICAL SCRIPT CAPITAL G' ],
+          'H': [ 'ℋ', '0210B', '             SCRIPT CAPITAL H' ],
+          'I': [ 'ℐ', '02110', '             SCRIPT CAPITAL I' ],
+          'J': [ '𝒥', '1D4A5', 'MATHEMATICAL SCRIPT CAPITAL J' ],
+          'K': [ '𝒦', '1D4A6', 'MATHEMATICAL SCRIPT CAPITAL K' ],
+          'L': [ 'ℒ', '02112', '             SCRIPT CAPITAL L' ],
+          'M': [ 'ℳ', '02133', '             SCRIPT CAPITAL M' ],
+          'N': [ '𝒩', '1D4A9', 'MATHEMATICAL SCRIPT CAPITAL N' ],
+          'O': [ '𝒪', '1D4AA', 'MATHEMATICAL SCRIPT CAPITAL O' ],
+          'P': [ '𝒫', '1D4AB', 'MATHEMATICAL SCRIPT CAPITAL P' ],
+          'Q': [ '𝒬', '1D4AC', 'MATHEMATICAL SCRIPT CAPITAL Q' ],
+          'R': [ 'ℛ', '0211B', '             SCRIPT CAPITAL R' ],
+          'S': [ '𝒮', '1D4AE', 'MATHEMATICAL SCRIPT CAPITAL S' ],
+          'T': [ '𝒯', '1D4AF', 'MATHEMATICAL SCRIPT CAPITAL T' ],
+          'U': [ '𝒰', '1D4B0', 'MATHEMATICAL SCRIPT CAPITAL U' ],
+          'V': [ '𝒱', '1D4B1', 'MATHEMATICAL SCRIPT CAPITAL V' ],
+          'W': [ '𝒲', '1D4B2', 'MATHEMATICAL SCRIPT CAPITAL W' ],
+          'X': [ '𝒳', '1D4B3', 'MATHEMATICAL SCRIPT CAPITAL X' ],
+          'Y': [ '𝒴', '1D4B4', 'MATHEMATICAL SCRIPT CAPITAL Y' ],
+          'Z': [ '𝒵', '1D4B5', 'MATHEMATICAL SCRIPT CAPITAL Z' ]
+
+       },
+
+
+
+       'script negrito':
+       {
+
+          'a': [ '𝓪', '1D4EA', 'MATHEMATICAL BOLD SCRIPT SMALL   A' ],
+          'b': [ '𝓫', '1D4EB', 'MATHEMATICAL BOLD SCRIPT SMALL   B' ],
+          'c': [ '𝓬', '1D4EC', 'MATHEMATICAL BOLD SCRIPT SMALL   C' ],
+          'd': [ '𝓭', '1D4ED', 'MATHEMATICAL BOLD SCRIPT SMALL   D' ],
+          'e': [ '𝓮', '1D4EE', 'MATHEMATICAL BOLD SCRIPT SMALL   E' ],
+          'f': [ '𝓯', '1D4EF', 'MATHEMATICAL BOLD SCRIPT SMALL   F' ],
+          'g': [ '𝓰', '1D4F0', 'MATHEMATICAL BOLD SCRIPT SMALL   G' ],
+          'h': [ '𝓱', '1D4F1', 'MATHEMATICAL BOLD SCRIPT SMALL   H' ],
+          'i': [ '𝓲', '1D4F2', 'MATHEMATICAL BOLD SCRIPT SMALL   I' ],
+          'j': [ '𝓳', '1D4F3', 'MATHEMATICAL BOLD SCRIPT SMALL   J' ],
+          'k': [ '𝓴', '1D4F4', 'MATHEMATICAL BOLD SCRIPT SMALL   K' ],
+          'l': [ '𝓵', '1D4F5', 'MATHEMATICAL BOLD SCRIPT SMALL   L' ],
+          'm': [ '𝓶', '1D4F6', 'MATHEMATICAL BOLD SCRIPT SMALL   M' ],
+          'n': [ '𝓷', '1D4F7', 'MATHEMATICAL BOLD SCRIPT SMALL   N' ],
+          'o': [ '𝓸', '1D4F8', 'MATHEMATICAL BOLD SCRIPT SMALL   O' ],
+          'p': [ '𝓹', '1D4F9', 'MATHEMATICAL BOLD SCRIPT SMALL   P' ],
+          'q': [ '𝓺', '1D4FA', 'MATHEMATICAL BOLD SCRIPT SMALL   Q' ],
+          'r': [ '𝓻', '1D4FB', 'MATHEMATICAL BOLD SCRIPT SMALL   R' ],
+          's': [ '𝓼', '1D4FC', 'MATHEMATICAL BOLD SCRIPT SMALL   S' ],
+          't': [ '𝓽', '1D4FD', 'MATHEMATICAL BOLD SCRIPT SMALL   T' ],
+          'u': [ '𝓾', '1D4FE', 'MATHEMATICAL BOLD SCRIPT SMALL   U' ],
+          'v': [ '𝓿', '1D4FF', 'MATHEMATICAL BOLD SCRIPT SMALL   V' ],
+          'w': [ '𝔀', '1D500', 'MATHEMATICAL BOLD SCRIPT SMALL   W' ],
+          'x': [ '𝔁', '1D501', 'MATHEMATICAL BOLD SCRIPT SMALL   X' ],
+          'y': [ '𝔂', '1D502', 'MATHEMATICAL BOLD SCRIPT SMALL   Y' ],
+          'z': [ '𝔃', '1D503', 'MATHEMATICAL BOLD SCRIPT SMALL   Z' ],
+
+          'A': [ '𝓐', '1D4D0', 'MATHEMATICAL BOLD SCRIPT CAPITAL A' ],
+          'B': [ '𝓑', '1D4D1', 'MATHEMATICAL BOLD SCRIPT CAPITAL B' ],
+          'C': [ '𝓒', '1D4D2', 'MATHEMATICAL BOLD SCRIPT CAPITAL C' ],
+          'D': [ '𝓓', '1D4D3', 'MATHEMATICAL BOLD SCRIPT CAPITAL D' ],
+          'E': [ '𝓔', '1D4D4', 'MATHEMATICAL BOLD SCRIPT CAPITAL E' ],
+          'F': [ '𝓕', '1D4D5', 'MATHEMATICAL BOLD SCRIPT CAPITAL F' ],
+          'G': [ '𝓖', '1D4D6', 'MATHEMATICAL BOLD SCRIPT CAPITAL G' ],
+          'H': [ '𝓗', '1D4D7', 'MATHEMATICAL BOLD SCRIPT CAPITAL H' ],
+          'I': [ '𝓘', '1D4D8', 'MATHEMATICAL BOLD SCRIPT CAPITAL I' ],
+          'J': [ '𝓙', '1D4D9', 'MATHEMATICAL BOLD SCRIPT CAPITAL J' ],
+          'K': [ '𝓚', '1D4DA', 'MATHEMATICAL BOLD SCRIPT CAPITAL K' ],
+          'L': [ '𝓛', '1D4DB', 'MATHEMATICAL BOLD SCRIPT CAPITAL L' ],
+          'M': [ '𝓜', '1D4DC', 'MATHEMATICAL BOLD SCRIPT CAPITAL M' ],
+          'N': [ '𝓝', '1D4DD', 'MATHEMATICAL BOLD SCRIPT CAPITAL N' ],
+          'O': [ '𝓞', '1D4DE', 'MATHEMATICAL BOLD SCRIPT CAPITAL O' ],
+          'P': [ '𝓟', '1D4DF', 'MATHEMATICAL BOLD SCRIPT CAPITAL P' ],
+          'Q': [ '𝓠', '1D4E0', 'MATHEMATICAL BOLD SCRIPT CAPITAL Q' ],
+          'R': [ '𝓡', '1D4E1', 'MATHEMATICAL BOLD SCRIPT CAPITAL R' ],
+          'S': [ '𝓢', '1D4E2', 'MATHEMATICAL BOLD SCRIPT CAPITAL S' ],
+          'T': [ '𝓣', '1D4E3', 'MATHEMATICAL BOLD SCRIPT CAPITAL T' ],
+          'U': [ '𝓤', '1D4E4', 'MATHEMATICAL BOLD SCRIPT CAPITAL U' ],
+          'V': [ '𝓥', '1D4E5', 'MATHEMATICAL BOLD SCRIPT CAPITAL V' ],
+          'W': [ '𝓦', '1D4E6', 'MATHEMATICAL BOLD SCRIPT CAPITAL W' ],
+          'X': [ '𝓧', '1D4E7', 'MATHEMATICAL BOLD SCRIPT CAPITAL X' ],
+          'Y': [ '𝓨', '1D4E8', 'MATHEMATICAL BOLD SCRIPT CAPITAL Y' ],
+          'Z': [ '𝓩', '1D4E9', 'MATHEMATICAL BOLD SCRIPT CAPITAL Z' ]
+
+       },
+
+
+
+       'virado':
+       {
+
+          'a': [ 'ɐ', '00250', 'LATIN SMALL LETTER TURNED   A'              ],
+          'b': [ 'q', '00071', 'LATIN SMALL LETTER          Q'              ],
+          'c': [ 'ↄ', '02184', 'LATIN SMALL LETTER REVERSED C'              ],
+          'd': [ 'p', '00070', 'LATIN SMALL LETTER          P'              ],
+          'e': [ 'ǝ', '001DD', 'LATIN SMALL LETTER TURNED   E'              ],
+          'f': [ ' ', '     ', ''                                           ],
+          'g': [ 'ᵷ', '01D77', 'LATIN SMALL LETTER TURNED   G'              ],
+          'h': [ 'ɥ', '00265', 'LATIN SMALL LETTER TURNED   H'              ],
+          'i': [ 'ᴉ', '01D09', 'LATIN SMALL LETTER TURNED   I'              ],
+          'j': [ ' ', '     ', ''                                           ],
+          'k': [ 'ʞ', '0029E', 'LATIN SMALL LETTER TURNED   K'              ],
+          'l': [ 'ꞁ', '0A781', 'LATIN SMALL LETTER TURNED   L'              ],
+          'm': [ 'ɯ', '0026F', 'LATIN SMALL LETTER TURNED   M'              ],
+          'n': [ 'u', '00075', 'LATIN SMALL LETTER          U'              ],
+          'o': [ 'o', '0006F', 'LATIN SMALL LETTER          O'              ],
+          'p': [ 'd', '00064', 'LATIN SMALL LETTER          D'              ],
+          'q': [ 'b', '00062', 'LATIN SMALL LETTER          B'              ],
+          'r': [ 'ɹ', '00279', 'LATIN SMALL LETTER TURNED   R'              ],
+          's': [ 's', '00073', 'LATIN SMALL LETTER          S'              ],
+          't': [ 'ʇ', '00287', 'LATIN SMALL LETTER TURNED   T'              ],
+          'u': [ 'n', '0006E', 'LATIN SMALL LETTER          N'              ],
+          'v': [ 'ʌ', '0028C', 'LATIN SMALL LETTER TURNED   V'              ],
+          'w': [ 'ʍ', '0028D', 'LATIN SMALL LETTER TURNED   W'              ],
+          'x': [ 'x', '00078', 'LATIN SMALL LETTER          X'              ],
+          'y': [ 'ʎ', '0028E', 'LATIN SMALL LETTER TURNED   Y'              ],
+          'z': [ 'z', '0007A', 'LATIN SMALL LETTER          Z'              ],
+
+          'A': [ 'Ɐ', '02C6F', 'LATIN CAPITAL LETTER TURNED       A'        ],
+          'B': [ ' ', '     ', ''                                           ],
+          'C': [ 'Ͻ', '003FD', 'GREEK CAPITAL REVERSED LUNATE SIGMA SYMBOL' ],
+          'B': [ ' ', '     ', ''                                           ],
+          'E': [ 'Ǝ', '0018E', 'LATIN CAPITAL LETTER REVERSED     E'        ],
+          'F': [ 'Ⅎ', '02132', 'TURNED CAPITAL                    F'        ],
+          'G': [ ' ', '     ', ''                                           ],
+          'H': [ 'H', '00048', 'LATIN CAPITAL LETTER              H'        ], // 'Ɥ', '0A78D', 'LATIN CAPITAL LETTER TURNED H'
+          'I': [ 'I', '00049', 'LATIN CAPITAL LETTER              I'        ],
+          'J': [ ' ', '     ', ''                                           ],
+          'K': [ ' ', '     ', ''                                           ],
+          'L': [ 'Ꞁ', '0A780', 'LATIN CAPITAL LETTER TURNED       L'        ],
+          'M': [ 'ꟽ', '0A7FD', 'LATIN EPIGRAPHIC LETTER INVERTED  M'        ], // 'Ɯ', '0019C', 'LATIN CAPITAL LETTER TURNED M'
+          'N': [ 'N', '0004E', 'LATIN CAPITAL LETTER              N'        ],
+          'O': [ 'O', '0004F', 'LATIN CAPITAL LETTER              O'        ],
+          'P': [ ' ', '     ', ''                                           ],
+          'Q': [ ' ', '     ', ''                                           ],
+          'R': [ 'ᴚ', '01D1A', 'LATIN LETTER SMALL CAPITAL TURNED R'        ],
+          'S': [ 'S', '00053', 'LATIN CAPITAL LETTER              S'        ],
+          'T': [ ' ', '     ', ''                                           ],
+          'U': [ ' ', '     ', ''                                           ],
+          'V': [ 'Ʌ', '00245', 'LATIN CAPITAL LETTER TURNED       V'        ],
+          'W': [ ' ', '     ', ''                                           ],
+          'X': [ 'X', '00058', 'LATIN CAPITAL LETTER              X'        ],
+          'Y': [ ' ', '     ', ''                                           ],
+          'Z': [ 'Z', '0005A', 'LATIN CAPITAL LETTER              Z'        ]
+
+       },
+
+
+
+       'duplo':
+       {
+
+          'a': [ '𝕒', '1D552', 'MATHEMATICAL DOUBLE-STRUCK SMALL   A' ],
+          'b': [ '𝕓', '1D553', 'MATHEMATICAL DOUBLE-STRUCK SMALL   B' ],
+          'c': [ '𝕔', '1D554', 'MATHEMATICAL DOUBLE-STRUCK SMALL   C' ],
+          'd': [ '𝕕', '1D555', 'MATHEMATICAL DOUBLE-STRUCK SMALL   D' ],
+          'e': [ '𝕖', '1D556', 'MATHEMATICAL DOUBLE-STRUCK SMALL   E' ],
+          'f': [ '𝕗', '1D557', 'MATHEMATICAL DOUBLE-STRUCK SMALL   F' ],
+          'g': [ '𝕘', '1D558', 'MATHEMATICAL DOUBLE-STRUCK SMALL   G' ],
+          'h': [ '𝕙', '1D559', 'MATHEMATICAL DOUBLE-STRUCK SMALL   H' ],
+          'i': [ '𝕚', '1D55A', 'MATHEMATICAL DOUBLE-STRUCK SMALL   I' ],
+          'j': [ '𝕛', '1D55B', 'MATHEMATICAL DOUBLE-STRUCK SMALL   J' ],
+          'k': [ '𝕜', '1D55C', 'MATHEMATICAL DOUBLE-STRUCK SMALL   K' ],
+          'l': [ '𝕝', '1D55D', 'MATHEMATICAL DOUBLE-STRUCK SMALL   L' ],
+          'm': [ '𝕞', '1D55E', 'MATHEMATICAL DOUBLE-STRUCK SMALL   M' ],
+          'n': [ '𝕟', '1D55F', 'MATHEMATICAL DOUBLE-STRUCK SMALL   N' ],
+          'o': [ '𝕠', '1D560', 'MATHEMATICAL DOUBLE-STRUCK SMALL   O' ],
+          'p': [ '𝕡', '1D561', 'MATHEMATICAL DOUBLE-STRUCK SMALL   P' ],
+          'q': [ '𝕢', '1D562', 'MATHEMATICAL DOUBLE-STRUCK SMALL   Q' ],
+          'r': [ '𝕣', '1D563', 'MATHEMATICAL DOUBLE-STRUCK SMALL   R' ],
+          's': [ '𝕤', '1D564', 'MATHEMATICAL DOUBLE-STRUCK SMALL   S' ],
+          't': [ '𝕥', '1D565', 'MATHEMATICAL DOUBLE-STRUCK SMALL   T' ],
+          'u': [ '𝕦', '1D566', 'MATHEMATICAL DOUBLE-STRUCK SMALL   U' ],
+          'v': [ '𝕧', '1D567', 'MATHEMATICAL DOUBLE-STRUCK SMALL   V' ],
+          'w': [ '𝕨', '1D568', 'MATHEMATICAL DOUBLE-STRUCK SMALL   W' ],
+          'x': [ '𝕩', '1D569', 'MATHEMATICAL DOUBLE-STRUCK SMALL   X' ],
+          'y': [ '𝕪', '1D56A', 'MATHEMATICAL DOUBLE-STRUCK SMALL   Y' ],
+          'z': [ '𝕫', '1D56B', 'MATHEMATICAL DOUBLE-STRUCK SMALL   Z' ],
+
+          'A': [ '𝔸', '1D538', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL A' ],
+          'B': [ '𝔹', '1D539', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL B' ],
+          'C': [ 'ℂ', '02102', '             DOUBLE-STRUCK CAPITAL C' ],
+          'D': [ '𝔻', '1D53B', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL D' ],
+          'E': [ '𝔼', '1D53C', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL E' ],
+          'F': [ '𝔽', '1D53D', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL F' ],
+          'G': [ '𝔾', '1D53E', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL G' ],
+          'H': [ 'ℍ', '0210D', '             DOUBLE-STRUCK CAPITAL H' ],
+          'I': [ '𝕀', '1D540', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL I' ],
+          'J': [ '𝕁', '1D541', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL J' ],
+          'K': [ '𝕂', '1D542', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL K' ],
+          'L': [ '𝕃', '1D543', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL L' ],
+          'M': [ '𝕄', '1D544', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL M' ],
+          'N': [ 'ℕ', '02115', '             DOUBLE-STRUCK CAPITAL N' ],
+          'O': [ '𝕆', '1D546', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL O' ],
+          'P': [ 'ℙ', '02119', '             DOUBLE-STRUCK CAPITAL P' ],
+          'Q': [ 'ℚ', '0211A', '             DOUBLE-STRUCK CAPITAL Q' ],
+          'R': [ 'ℝ', '0211D', '             DOUBLE-STRUCK CAPITAL R' ],
+          'S': [ '𝕊', '1D54A', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL S' ],
+          'T': [ '𝕋', '1D54B', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL T' ],
+          'U': [ '𝕌', '1D54C', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL U' ],
+          'V': [ '𝕍', '1D54D', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL V' ],
+          'W': [ '𝕎', '1D54E', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL W' ],
+          'X': [ '𝕏', '1D54F', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL X' ],
+          'Y': [ '𝕐', '1D550', 'MATHEMATICAL DOUBLE-STRUCK CAPITAL Y' ],
+          'Z': [ 'ℤ', '02124', '             DOUBLE-STRUCK CAPITAL Z' ],
+
+          '0': [ '𝟘', '1D7D8', 'MATHEMATICAL DOUBLE-STRUCK DIGIT  ZERO'  ],
+          '1': [ '𝟙', '1D7D9', 'MATHEMATICAL DOUBLE-STRUCK DIGIT  ONE'   ],
+          '2': [ '𝟚', '1D7DA', 'MATHEMATICAL DOUBLE-STRUCK DIGIT  TWO'   ],
+          '3': [ '𝟛', '1D7DB', 'MATHEMATICAL DOUBLE-STRUCK DIGIT  THREE' ],
+          '4': [ '𝟜', '1D7DC', 'MATHEMATICAL DOUBLE-STRUCK DIGIT  FOUR'  ],
+          '5': [ '𝟝', '1D7DD', 'MATHEMATICAL DOUBLE-STRUCK DIGIT  FIVE'  ],
+          '6': [ '𝟞', '1D7DE', 'MATHEMATICAL DOUBLE-STRUCK DIGIT  SIX'   ],
+          '7': [ '𝟟', '1D7DF', 'MATHEMATICAL DOUBLE-STRUCK DIGIT  SEVEN' ],
+          '8': [ '𝟠', '1D7E0', 'MATHEMATICAL DOUBLE-STRUCK DIGIT  EIGHT' ],
+          '9': [ '𝟡', '1D7E1', 'MATHEMATICAL DOUBLE-STRUCK DIGIT  NINE'  ]
+
+       },
+
+
+
+       'monoespacado':
+       {
+
+          'a': [ '𝚊', '1D68A', 'MATHEMATICAL MONOSPACE SMALL   A' ],
+          'b': [ '𝚋', '1D68B', 'MATHEMATICAL MONOSPACE SMALL   B' ],
+          'c': [ '𝚌', '1D68C', 'MATHEMATICAL MONOSPACE SMALL   C' ],
+          'd': [ '𝚍', '1D68D', 'MATHEMATICAL MONOSPACE SMALL   D' ],
+          'e': [ '𝚎', '1D68E', 'MATHEMATICAL MONOSPACE SMALL   E' ],
+          'f': [ '𝚏', '1D68F', 'MATHEMATICAL MONOSPACE SMALL   F' ],
+          'g': [ '𝚐', '1D690', 'MATHEMATICAL MONOSPACE SMALL   G' ],
+          'h': [ '𝚑', '1D691', 'MATHEMATICAL MONOSPACE SMALL   H' ],
+          'i': [ '𝚒', '1D692', 'MATHEMATICAL MONOSPACE SMALL   I' ],
+          'j': [ '𝚓', '1D693', 'MATHEMATICAL MONOSPACE SMALL   J' ],
+          'k': [ '𝚔', '1D694', 'MATHEMATICAL MONOSPACE SMALL   K' ],
+          'l': [ '𝚕', '1D695', 'MATHEMATICAL MONOSPACE SMALL   L' ],
+          'm': [ '𝚖', '1D696', 'MATHEMATICAL MONOSPACE SMALL   M' ],
+          'n': [ '𝚗', '1D697', 'MATHEMATICAL MONOSPACE SMALL   N' ],
+          'o': [ '𝚘', '1D698', 'MATHEMATICAL MONOSPACE SMALL   O' ],
+          'p': [ '𝚙', '1D699', 'MATHEMATICAL MONOSPACE SMALL   P' ],
+          'q': [ '𝚚', '1D69A', 'MATHEMATICAL MONOSPACE SMALL   Q' ],
+          'r': [ '𝚛', '1D69B', 'MATHEMATICAL MONOSPACE SMALL   R' ],
+          's': [ '𝚜', '1D69C', 'MATHEMATICAL MONOSPACE SMALL   S' ],
+          't': [ '𝚝', '1D69D', 'MATHEMATICAL MONOSPACE SMALL   T' ],
+          'u': [ '𝚞', '1D69E', 'MATHEMATICAL MONOSPACE SMALL   U' ],
+          'v': [ '𝚟', '1D69F', 'MATHEMATICAL MONOSPACE SMALL   V' ],
+          'w': [ '𝚠', '1D6A0', 'MATHEMATICAL MONOSPACE SMALL   W' ],
+          'x': [ '𝚡', '1D6A1', 'MATHEMATICAL MONOSPACE SMALL   X' ],
+          'y': [ '𝚢', '1D6A2', 'MATHEMATICAL MONOSPACE SMALL   Y' ],
+          'z': [ '𝚣', '1D6A3', 'MATHEMATICAL MONOSPACE SMALL   Z' ],
+
+          'A': [ '𝙰', '1D670', 'MATHEMATICAL MONOSPACE CAPITAL A' ],
+          'B': [ '𝙱', '1D671', 'MATHEMATICAL MONOSPACE CAPITAL B' ],
+          'C': [ '𝙲', '1D672', 'MATHEMATICAL MONOSPACE CAPITAL C' ],
+          'D': [ '𝙳', '1D673', 'MATHEMATICAL MONOSPACE CAPITAL D' ],
+          'E': [ '𝙴', '1D674', 'MATHEMATICAL MONOSPACE CAPITAL E' ],
+          'F': [ '𝙵', '1D675', 'MATHEMATICAL MONOSPACE CAPITAL F' ],
+          'G': [ '𝙶', '1D676', 'MATHEMATICAL MONOSPACE CAPITAL G' ],
+          'H': [ '𝙷', '1D677', 'MATHEMATICAL MONOSPACE CAPITAL H' ],
+          'I': [ '𝙸', '1D678', 'MATHEMATICAL MONOSPACE CAPITAL I' ],
+          'J': [ '𝙹', '1D679', 'MATHEMATICAL MONOSPACE CAPITAL J' ],
+          'K': [ '𝙺', '1D67A', 'MATHEMATICAL MONOSPACE CAPITAL K' ],
+          'L': [ '𝙻', '1D67B', 'MATHEMATICAL MONOSPACE CAPITAL L' ],
+          'M': [ '𝙼', '1D67C', 'MATHEMATICAL MONOSPACE CAPITAL M' ],
+          'N': [ '𝙽', '1D67D', 'MATHEMATICAL MONOSPACE CAPITAL N' ],
+          'O': [ '𝙾', '1D67E', 'MATHEMATICAL MONOSPACE CAPITAL O' ],
+          'P': [ '𝙿', '1D67F', 'MATHEMATICAL MONOSPACE CAPITAL P' ],
+          'Q': [ '𝚀', '1D680', 'MATHEMATICAL MONOSPACE CAPITAL Q' ],
+          'R': [ '𝚁', '1D681', 'MATHEMATICAL MONOSPACE CAPITAL R' ],
+          'S': [ '𝚂', '1D682', 'MATHEMATICAL MONOSPACE CAPITAL S' ],
+          'T': [ '𝚃', '1D683', 'MATHEMATICAL MONOSPACE CAPITAL T' ],
+          'U': [ '𝚄', '1D684', 'MATHEMATICAL MONOSPACE CAPITAL U' ],
+          'V': [ '𝚅', '1D685', 'MATHEMATICAL MONOSPACE CAPITAL V' ],
+          'W': [ '𝚆', '1D686', 'MATHEMATICAL MONOSPACE CAPITAL W' ],
+          'X': [ '𝚇', '1D687', 'MATHEMATICAL MONOSPACE CAPITAL X' ],
+          'Y': [ '𝚈', '1D688', 'MATHEMATICAL MONOSPACE CAPITAL Y' ],
+          'Z': [ '𝚉', '1D689', 'MATHEMATICAL MONOSPACE CAPITAL Z' ],
+
+          '0': [ '𝟶', '1D7F6', 'MATHEMATICAL MONOSPACE DIGIT  ZERO'  ],
+          '1': [ '𝟷', '1D7F7', 'MATHEMATICAL MONOSPACE DIGIT  ONE'   ],
+          '2': [ '𝟸', '1D7F8', 'MATHEMATICAL MONOSPACE DIGIT  TWO'   ],
+          '3': [ '𝟹', '1D7F9', 'MATHEMATICAL MONOSPACE DIGIT  THREE' ],
+          '4': [ '𝟺', '1D7FA', 'MATHEMATICAL MONOSPACE DIGIT  FOUR'  ],
+          '5': [ '𝟻', '1D7FB', 'MATHEMATICAL MONOSPACE DIGIT  FIVE'  ],
+          '6': [ '𝟼', '1D7FC', 'MATHEMATICAL MONOSPACE DIGIT  SIX'   ],
+          '7': [ '𝟽', '1D7FD', 'MATHEMATICAL MONOSPACE DIGIT  SEVEN' ],
+          '8': [ '𝟾', '1D7FE', 'MATHEMATICAL MONOSPACE DIGIT  EIGHT' ],
+          '9': [ '𝟿', '1D7FF', 'MATHEMATICAL MONOSPACE DIGIT  NINE'  ]
+
+       },
+
+
+
+       'circulado':
+       {
+
+          'a': [ 'ⓐ' , '024D0', 'CIRCLED LATIN SMALL   LETTER A' ],
+          'b': [ 'ⓑ' , '024D1', 'CIRCLED LATIN SMALL   LETTER B' ],
+          'c': [ 'ⓒ' , '024D2', 'CIRCLED LATIN SMALL   LETTER C' ],
+          'd': [ 'ⓓ' , '024D3', 'CIRCLED LATIN SMALL   LETTER D' ],
+          'e': [ 'ⓔ' , '024D4', 'CIRCLED LATIN SMALL   LETTER E' ],
+          'f': [ 'ⓕ' , '024D5', 'CIRCLED LATIN SMALL   LETTER F' ],
+          'g': [ 'ⓖ' , '024D6', 'CIRCLED LATIN SMALL   LETTER G' ],
+          'h': [ 'ⓗ' , '024D7', 'CIRCLED LATIN SMALL   LETTER H' ],
+          'i': [ 'ⓘ' , '024D8', 'CIRCLED LATIN SMALL   LETTER I' ],
+          'j': [ 'ⓙ' , '024D9', 'CIRCLED LATIN SMALL   LETTER J' ],
+          'k': [ 'ⓚ' , '024DA', 'CIRCLED LATIN SMALL   LETTER K' ],
+          'l': [ 'ⓛ' , '024DB', 'CIRCLED LATIN SMALL   LETTER L' ],
+          'm': [ 'ⓜ' , '024DC', 'CIRCLED LATIN SMALL   LETTER M' ],
+          'n': [ 'ⓝ' , '024DD', 'CIRCLED LATIN SMALL   LETTER N' ],
+          'o': [ 'ⓞ' , '024DE', 'CIRCLED LATIN SMALL   LETTER O' ],
+          'p': [ 'ⓟ' , '024DF', 'CIRCLED LATIN SMALL   LETTER P' ],
+          'q': [ 'ⓠ' , '024E0', 'CIRCLED LATIN SMALL   LETTER Q' ],
+          'r': [ 'ⓡ' , '024E1', 'CIRCLED LATIN SMALL   LETTER R' ],
+          's': [ 'ⓢ' , '024E2', 'CIRCLED LATIN SMALL   LETTER S' ],
+          't': [ 'ⓣ' , '024E3', 'CIRCLED LATIN SMALL   LETTER T' ],
+          'u': [ 'ⓤ' , '024E4', 'CIRCLED LATIN SMALL   LETTER U' ],
+          'v': [ 'ⓥ' , '024E5', 'CIRCLED LATIN SMALL   LETTER V' ],
+          'w': [ 'ⓦ' , '024E6', 'CIRCLED LATIN SMALL   LETTER W' ],
+          'x': [ 'ⓧ' , '024E7', 'CIRCLED LATIN SMALL   LETTER X' ],
+          'y': [ 'ⓨ' , '024E8', 'CIRCLED LATIN SMALL   LETTER Y' ],
+          'z': [ 'ⓩ' , '024E9', 'CIRCLED LATIN SMALL   LETTER Z' ],
+
+          'A': [ 'Ⓐ' , '024B6', 'CIRCLED LATIN CAPITAL LETTER A' ],
+          'B': [ 'Ⓑ' , '024B7', 'CIRCLED LATIN CAPITAL LETTER B' ],
+          'C': [ 'Ⓒ' , '024B8', 'CIRCLED LATIN CAPITAL LETTER C' ],
+          'D': [ 'Ⓓ' , '024B9', 'CIRCLED LATIN CAPITAL LETTER D' ],
+          'E': [ 'Ⓔ' , '024BA', 'CIRCLED LATIN CAPITAL LETTER E' ],
+          'F': [ 'Ⓕ' , '024BB', 'CIRCLED LATIN CAPITAL LETTER F' ],
+          'G': [ 'Ⓖ' , '024BC', 'CIRCLED LATIN CAPITAL LETTER G' ],
+          'H': [ 'Ⓗ' , '024BD', 'CIRCLED LATIN CAPITAL LETTER H' ],
+          'I': [ 'Ⓘ' , '024BE', 'CIRCLED LATIN CAPITAL LETTER I' ],
+          'J': [ 'Ⓙ' , '024BF', 'CIRCLED LATIN CAPITAL LETTER J' ],
+          'K': [ 'Ⓚ' , '024C0', 'CIRCLED LATIN CAPITAL LETTER K' ],
+          'L': [ 'Ⓛ' , '024C1', 'CIRCLED LATIN CAPITAL LETTER L' ],
+          'M': [ 'Ⓜ' , '024C2', 'CIRCLED LATIN CAPITAL LETTER M' ],
+          'N': [ 'Ⓝ' , '024C3', 'CIRCLED LATIN CAPITAL LETTER N' ],
+          'O': [ 'Ⓞ' , '024C4', 'CIRCLED LATIN CAPITAL LETTER O' ],
+          'P': [ 'Ⓟ' , '024C5', 'CIRCLED LATIN CAPITAL LETTER P' ],
+          'Q': [ 'Ⓠ' , '024C6', 'CIRCLED LATIN CAPITAL LETTER Q' ],
+          'R': [ 'Ⓡ' , '024C7', 'CIRCLED LATIN CAPITAL LETTER R' ],
+          'S': [ 'Ⓢ' , '024C8', 'CIRCLED LATIN CAPITAL LETTER S' ],
+          'T': [ 'Ⓣ' , '024C9', 'CIRCLED LATIN CAPITAL LETTER T' ],
+          'U': [ 'Ⓤ' , '024CA', 'CIRCLED LATIN CAPITAL LETTER U' ],
+          'V': [ 'Ⓥ' , '024CB', 'CIRCLED LATIN CAPITAL LETTER V' ],
+          'W': [ 'Ⓦ' , '024CC', 'CIRCLED LATIN CAPITAL LETTER W' ],
+          'X': [ 'Ⓧ' , '024CD', 'CIRCLED LATIN CAPITAL LETTER X' ],
+          'Y': [ 'Ⓨ' , '024CE', 'CIRCLED LATIN CAPITAL LETTER Y' ],
+          'Z': [ 'Ⓩ' , '024CF', 'CIRCLED LATIN CAPITAL LETTER Z' ],
+
+          '0': [ '⓪' , '024EA', 'CIRCLED DIGIT  ZERO'         ],
+          '1': [ '①' , '02460', 'CIRCLED DIGIT  ONE'          ],
+          '2': [ '②' , '02461', 'CIRCLED DIGIT  TWO'          ],
+          '3': [ '③' , '02462', 'CIRCLED DIGIT  THREE'        ],
+          '4': [ '④' , '02463', 'CIRCLED DIGIT  FOUR'         ],
+          '5': [ '⑤' , '02464', 'CIRCLED DIGIT  FIVE'         ],
+          '6': [ '⑥' , '02465', 'CIRCLED DIGIT  SIX'          ],
+          '7': [ '⑦' , '02466', 'CIRCLED DIGIT  SEVEN'        ],
+          '8': [ '⑧' , '02467', 'CIRCLED DIGIT  EIGHT'        ],
+          '9': [ '⑨' , '02468', 'CIRCLED DIGIT  NINE'         ],
+         '10': [ '⑩' , '02469', 'CIRCLED NUMBER TEN'          ],
+         '11': [ '⑪' , '0246A', 'CIRCLED NUMBER ELEVEN'       ],
+         '12': [ '⑫' , '0246B', 'CIRCLED NUMBER TWELVE'       ],
+         '13': [ '⑬' , '0246C', 'CIRCLED NUMBER THIRTEEN'     ],
+         '14': [ '⑭' , '0246D', 'CIRCLED NUMBER FOURTEEN'     ],
+         '15': [ '⑮' , '0246E', 'CIRCLED NUMBER FIFTEEN'      ],
+         '16': [ '⑯' , '0246F', 'CIRCLED NUMBER SIXTEEN'      ],
+         '17': [ '⑰' , '02470', 'CIRCLED NUMBER SEVENTEEN'    ],
+         '18': [ '⑱' , '02471', 'CIRCLED NUMBER EIGHTEEN'     ],
+         '19': [ '⑲' , '02472', 'CIRCLED NUMBER NINETEEN'     ],
+         '20': [ '⑳' , '02473', 'CIRCLED NUMBER TWENTY'       ],
+         '21': [ '㉑', '03251', 'CIRCLED NUMBER TWENTY ONE'   ],
+         '22': [ '㉒', '03252', 'CIRCLED NUMBER TWENTY TWO'   ],
+         '23': [ '㉓', '03253', 'CIRCLED NUMBER TWENTY THREE' ],
+         '24': [ '㉔', '03254', 'CIRCLED NUMBER TWENTY FOUR'  ],
+         '25': [ '㉕', '03255', 'CIRCLED NUMBER TWENTY FIVE'  ],
+         '26': [ '㉖', '03256', 'CIRCLED NUMBER TWENTY SIX'   ],
+         '27': [ '㉗', '03257', 'CIRCLED NUMBER TWENTY SEVEN' ],
+         '28': [ '㉘', '03258', 'CIRCLED NUMBER TWENTY EIGHT' ],
+         '29': [ '㉙', '03259', 'CIRCLED NUMBER TWENTY NINE'  ],
+         '30': [ '㉚', '0325A', 'CIRCLED NUMBER THIRTY'       ]
+
+       },
+
+
+
+       'superescrito':
+       {
+
+          'a': [ 'ᵃ', '01D43', 'MODIFIER LETTER SMALL   A'           ],
+          'b': [ 'ᵇ', '01D47', 'MODIFIER LETTER SMALL   B'           ],
+          'c': [ 'ᶜ', '01D9C', 'MODIFIER LETTER SMALL   C'           ],
+          'd': [ 'ᵈ', '01D48', 'MODIFIER LETTER SMALL   D'           ],
+          'e': [ 'ᵉ', '01D49', 'MODIFIER LETTER SMALL   E'           ],
+          'f': [ 'ᶠ', '01DA0', 'MODIFIER LETTER SMALL   F'           ],
+          'g': [ 'ᵍ', '01D4D', 'MODIFIER LETTER SMALL   G'           ],
+          'h': [ 'ʰ', '002B0', 'MODIFIER LETTER SMALL   H'           ],
+          'i': [ 'ⁱ', '02071', 'SUPERSCRIPT LATIN SMALL LETTER I'    ],
+          'j': [ 'ʲ', '002B2', 'MODIFIER LETTER SMALL   J'           ],
+          'k': [ 'ᵏ', '01D4F', 'MODIFIER LETTER SMALL   K'           ],
+          'l': [ 'ˡ', '002E1', 'MODIFIER LETTER SMALL   L'           ],
+          'm': [ 'ᵐ', '01D50', 'MODIFIER LETTER SMALL   M'           ],
+          'n': [ 'ⁿ', '0207F', 'SUPERSCRIPT LATIN SMALL LETTER N'    ],
+          'o': [ 'ᵒ', '01D52', 'MODIFIER LETTER SMALL   O'           ],
+          'p': [ 'ᵖ', '01D56', 'MODIFIER LETTER SMALL   P'           ],
+          'q': [ ' ', '     ', ''                                    ],
+          'r': [ 'ʳ', '002B3', 'MODIFIER LETTER SMALL   R'           ],
+          's': [ 'ˢ', '002E2', 'MODIFIER LETTER SMALL   S'           ],
+          't': [ 'ᵗ', '01D57', 'MODIFIER LETTER SMALL   T'           ],
+          'u': [ 'ᵘ', '01D58', 'MODIFIER LETTER SMALL   U'           ],
+          'v': [ 'ᵛ', '01D5B', 'MODIFIER LETTER SMALL   V'           ],
+          'w': [ 'ʷ', '002B7', 'MODIFIER LETTER SMALL   W'           ],
+          'x': [ 'ˣ', '002E3', 'MODIFIER LETTER SMALL   X'           ],
+          'y': [ 'ʸ', '002B8', 'MODIFIER LETTER SMALL   Y'           ],
+          'z': [ 'ᶻ', '01DBB', 'MODIFIER LETTER SMALL   Z'           ],
+
+          'A': [ 'ᴬ', '01D2C', 'MODIFIER LETTER CAPITAL A'           ],
+          'B': [ 'ᴮ', '01D2E', 'MODIFIER LETTER CAPITAL B'           ],
+          'C': [ 'ᶜ', '01D9C', 'MODIFIER LETTER SMALL   C'           ],
+          'D': [ 'ᴰ', '01D30', 'MODIFIER LETTER CAPITAL D'           ],
+          'E': [ 'ᴱ', '01D31', 'MODIFIER LETTER CAPITAL E'           ],
+          'F': [ ' ', '     ', ''                                    ],
+          'G': [ 'ᴳ', '01D33', 'MODIFIER LETTER CAPITAL G'           ],
+          'H': [ 'ᴴ', '01D34', 'MODIFIER LETTER CAPITAL H'           ],
+          'I': [ 'ᴵ', '01D35', 'MODIFIER LETTER CAPITAL I'           ],
+          'J': [ 'ᴶ', '01D36', 'MODIFIER LETTER CAPITAL J'           ],
+          'K': [ 'ᴷ', '01D37', 'MODIFIER LETTER CAPITAL K'           ],
+          'L': [ 'ᴸ', '01D38', 'MODIFIER LETTER CAPITAL L'           ],
+          'M': [ 'ᴹ', '01D39', 'MODIFIER LETTER CAPITAL M'           ],
+          'N': [ 'ᴺ', '01D3A', 'MODIFIER LETTER CAPITAL N'           ],
+          'O': [ 'ᴼ', '01D3C', 'MODIFIER LETTER CAPITAL O'           ],
+          'P': [ 'ᴾ', '01D3E', 'MODIFIER LETTER CAPITAL P'           ],
+          'Q': [ ' ', '     ', ''                                    ],
+          'R': [ 'ᴿ', '01D3F', 'MODIFIER LETTER CAPITAL R'           ],
+          'S': [ 'ˢ', '002E2', 'MODIFIER LETTER SMALL   S'           ],
+          'T': [ 'ᵀ', '01D40', 'MODIFIER LETTER CAPITAL T'           ],
+          'U': [ 'ᵁ', '01D41', 'MODIFIER LETTER CAPITAL U'           ],
+          'V': [ 'ⱽ', '02C7D', 'MODIFIER LETTER CAPITAL V'           ],
+          'W': [ 'ᵂ', '01D42', 'MODIFIER LETTER CAPITAL W'           ],
+          'X': [ 'ᵡ', '01D61', 'MODIFIER LETTER SMALL   CHI'         ],
+          'Y': [ 'ᵞ', '01D5E', 'MODIFIER LETTER SMALL   GREEK GAMMA' ],
+          'Z': [ 'ᶻ', '01DBB', 'MODIFIER LETTER SMALL   Z'           ],
+
+          '0': [ '⁰', '02070', 'SUPERSCRIPT ZERO'  ],
+          '1': [ '¹', '000B9', 'SUPERSCRIPT ONE'   ],
+          '2': [ '²', '000B2', 'SUPERSCRIPT TWO'   ],
+          '3': [ '³', '000B3', 'SUPERSCRIPT THREE' ],
+          '4': [ '⁴', '02074', 'SUPERSCRIPT FOUR'  ],
+          '5': [ '⁵', '02075', 'SUPERSCRIPT FIVE'  ],
+          '6': [ '⁶', '02076', 'SUPERSCRIPT SIX'   ],
+          '7': [ '⁷', '02077', 'SUPERSCRIPT SEVEN' ],
+          '8': [ '⁸', '02078', 'SUPERSCRIPT EIGHT' ],
+          '9': [ '⁹', '02079', 'SUPERSCRIPT NINE'  ]
+
+       },
+
+
+
+       'subscrito':
+       {
+
+          'a': [ 'ₐ', '02090', 'LATIN SUBSCRIPT SMALL LETTER A'         ],
+          'b': [ ' ', '     ', ''                                       ],
+          'c': [ ' ', '     ', ''                                       ],
+          'd': [ ' ', '     ', ''                                       ],
+          'e': [ 'ₑ', '02091', 'LATIN SUBSCRIPT SMALL LETTER E'         ],
+          'f': [ ' ', '     ', ''                                       ],
+          'g': [ ' ', '     ', ''                                       ],
+          'h': [ 'ₕ', '02095', 'LATIN SUBSCRIPT SMALL LETTER H'         ],
+          'i': [ 'ᵢ', '01D62', 'LATIN SUBSCRIPT SMALL LETTER I'         ],
+          'j': [ 'ⱼ', '02C7C', 'LATIN SUBSCRIPT SMALL LETTER J'         ],
+          'k': [ 'ₖ', '02096', 'LATIN SUBSCRIPT SMALL LETTER K'         ],
+          'l': [ 'ₗ', '02097', 'LATIN SUBSCRIPT SMALL LETTER L'         ],
+          'm': [ 'ₘ', '02098', 'LATIN SUBSCRIPT SMALL LETTER M'         ],
+          'n': [ 'ₙ', '02099', 'LATIN SUBSCRIPT SMALL LETTER N'         ],
+          'o': [ 'ₒ', '02092', 'LATIN SUBSCRIPT SMALL LETTER O'         ],
+          'p': [ 'ₚ', '0209A', 'LATIN SUBSCRIPT SMALL LETTER P'         ],
+          'q': [ ' ', '     ', ''                                       ],
+          'r': [ 'ᵣ', '01D63', 'LATIN SUBSCRIPT SMALL LETTER R'         ],
+          's': [ 'ₛ', '0209B', 'LATIN SUBSCRIPT SMALL LETTER S'         ],
+          't': [ 'ₜ', '0209C', 'LATIN SUBSCRIPT SMALL LETTER T'         ],
+          'u': [ 'ᵤ', '01D64', 'LATIN SUBSCRIPT SMALL LETTER U'         ],
+          'v': [ 'ᵥ', '01D65', 'LATIN SUBSCRIPT SMALL LETTER V'         ],
+          'w': [ ' ', '     ', ''                                       ],
+          'x': [ 'ₓ', '02093', 'LATIN SUBSCRIPT SMALL LETTER X'         ],
+          'y': [ 'ᵧ', '01D67', 'GREEK SUBSCRIPT SMALL LETTER GAMMA'     ],
+          'z': [ 'ᵶ', '01D76', 'LATIN SMALL LETTER Z WITH MIDDLE TILDE' ],
+
+          '0': [ '₀', '02080', 'SUBSCRIPT ZERO'  ],
+          '1': [ '₁', '02081', 'SUBSCRIPT ONE'   ],
+          '2': [ '₂', '02082', 'SUBSCRIPT TWO'   ],
+          '3': [ '₃', '02083', 'SUBSCRIPT THREE' ],
+          '4': [ '₄', '02084', 'SUBSCRIPT FOUR'  ],
+          '5': [ '₅', '02085', 'SUBSCRIPT FIVE'  ],
+          '6': [ '₆', '02086', 'SUBSCRIPT SIX'   ],
+          '7': [ '₇', '02087', 'SUBSCRIPT SEVEN' ],
+          '8': [ '₈', '02088', 'SUBSCRIPT EIGHT' ],
+          '9': [ '₉', '02089', 'SUBSCRIPT NINE'  ]
+
+       },
+
+
+
+       'entre parenteses':
+       {
+
+          'a': [ '⒜', '0249C', '' ],
+          'b': [ '⒝', '0249D', '' ],
+          'c': [ '⒞', '0249E', '' ],
+          'd': [ '⒟', '0249F', '' ],
+          'e': [ '⒠', '024A0', '' ],
+          'f': [ '⒡', '024A1', '' ],
+          'g': [ '⒢', '024A2', '' ],
+          'h': [ '⒣', '024A3', '' ],
+          'i': [ '⒤', '024A4', '' ],
+          'j': [ '⒥', '024A5', '' ],
+          'k': [ '⒦', '024A6', '' ],
+          'l': [ '⒧', '024A7', '' ],
+          'm': [ '⒨', '024A8', '' ],
+          'n': [ '⒩', '024A9', '' ],
+          'o': [ '⒪', '024AA', '' ],
+          'p': [ '⒫', '024AB', '' ],
+          'q': [ '⒬', '024AC', '' ],
+          'r': [ '⒭', '024AD', '' ],
+          's': [ '⒮', '024AE', '' ],
+          't': [ '⒯', '024AF', '' ],
+          'u': [ '⒰', '024B0', '' ],
+          'v': [ '⒱', '024B1', '' ],
+          'w': [ '⒲', '024B2', '' ],
+          'x': [ '⒳', '024B3', '' ],
+          'y': [ '⒴', '024B4', '' ],
+          'z': [ '⒵', '024B5', '' ],
+
+          '1': [ '⑴', '02474', 'PARENTHESIZED DIGIT  ONE'       ],
+          '2': [ '⑵', '02475', 'PARENTHESIZED DIGIT  TWO'       ],
+          '3': [ '⑶', '02476', 'PARENTHESIZED DIGIT  THREE'     ],
+          '4': [ '⑷', '02477', 'PARENTHESIZED DIGIT  FOUR'      ],
+          '5': [ '⑸', '02478', 'PARENTHESIZED DIGIT  FIVE'      ],
+          '6': [ '⑹', '02479', 'PARENTHESIZED DIGIT  SIX'       ],
+          '7': [ '⑺', '0247A', 'PARENTHESIZED DIGIT  SEVEN'     ],
+          '8': [ '⑻', '0247B', 'PARENTHESIZED DIGIT  EIGHT'     ],
+          '9': [ '⑼', '0247C', 'PARENTHESIZED DIGIT  NINE'      ],
+         '10': [ '⑽', '0247D', 'PARENTHESIZED NUMBER TEN'       ],
+         '11': [ '⑾', '0247E', 'PARENTHESIZED NUMBER ELEVEN'    ],
+         '12': [ '⑿', '0247F', 'PARENTHESIZED NUMBER TWELVE'    ],
+         '13': [ '⒀', '02480', 'PARENTHESIZED NUMBER THIRTEEN'  ],
+         '14': [ '⒁', '02481', 'PARENTHESIZED NUMBER FOURTEEN'  ],
+         '15': [ '⒂', '02482', 'PARENTHESIZED NUMBER FIFTEEN'   ],
+         '16': [ '⒃', '02483', 'PARENTHESIZED NUMBER SIXTEEN'   ],
+         '17': [ '⒄', '02484', 'PARENTHESIZED NUMBER SEVENTEEN' ],
+         '18': [ '⒅', '02485', 'PARENTHESIZED NUMBER EIGHTEEN'  ],
+         '19': [ '⒆', '02486', 'PARENTHESIZED NUMBER NINETEEN'  ],
+         '20': [ '⒇', '02487', 'PARENTHESIZED NUMBER TWENTY'    ]
+
+       },
+
+
+
+       'small caps':
+       {
+
+          'a': [ 'ᴀ', '01D00', 'LATIN LETTER SMALL CAPITAL A' ],
+          'b': [ 'ʙ', '00299', 'LATIN LETTER SMALL CAPITAL B' ],
+          'c': [ 'ᴄ', '01D04', 'LATIN LETTER SMALL CAPITAL C' ],
+          'd': [ 'ᴅ', '01D05', 'LATIN LETTER SMALL CAPITAL D' ],
+          'e': [ 'ᴇ', '01D07', 'LATIN LETTER SMALL CAPITAL E' ],
+          'f': [ 'ꜰ', '0A730', 'LATIN LETTER SMALL CAPITAL F' ],
+          'g': [ 'ɢ', '00262', 'LATIN LETTER SMALL CAPITAL G' ],
+          'h': [ 'ʜ', '0029C', 'LATIN LETTER SMALL CAPITAL H' ],
+          'i': [ 'ɪ', '0026A', 'LATIN LETTER SMALL CAPITAL I' ],
+          'j': [ 'ᴊ', '01D0A', 'LATIN LETTER SMALL CAPITAL J' ],
+          'k': [ 'ᴋ', '01D0B', 'LATIN LETTER SMALL CAPITAL K' ],
+          'l': [ 'ʟ', '0029F', 'LATIN LETTER SMALL CAPITAL L' ],
+          'm': [ 'ᴍ', '01D0D', 'LATIN LETTER SMALL CAPITAL M' ],
+          'n': [ 'ɴ', '00274', 'LATIN LETTER SMALL CAPITAL N' ],
+          'o': [ 'ᴏ', '01D0F', 'LATIN LETTER SMALL CAPITAL O' ],
+          'p': [ 'ᴘ', '01D18', 'LATIN LETTER SMALL CAPITAL P' ],
+          'q': [ ' ', '     ', ''                             ],
+          'r': [ 'ʀ', '00280', 'LATIN LETTER SMALL CAPITAL R' ],
+          's': [ 'ꜱ', '0A731', 'LATIN LETTER SMALL CAPITAL S' ],
+          't': [ 'ᴛ', '01D1B', 'LATIN LETTER SMALL CAPITAL T' ],
+          'u': [ 'ᴜ', '01D1C', 'LATIN LETTER SMALL CAPITAL U' ],
+          'v': [ 'ᴠ', '01D20', 'LATIN LETTER SMALL CAPITAL V' ],
+          'w': [ 'ᴡ', '01D21', 'LATIN LETTER SMALL CAPITAL W' ],
+          'x': [ 'x', '00078', 'LATIN SMALL LETTER         X' ],
+          'y': [ 'ʏ', '0028F', 'LATIN LETTER SMALL CAPITAL Y' ],
+          'z': [ 'ᴢ', '01D22', 'LATIN LETTER SMALL CAPITAL Z' ]
+
+       },
+
+
+
+       'sublinhado':
+       {
+
+          'b': [ 'ḇ', '01E07', 'LATIN SMALL   LETTER B WITH LINE BELOW' ],
+          'd': [ 'ḏ', '01E0F', 'LATIN SMALL   LETTER D WITH LINE BELOW' ],
+          'h': [ 'ẖ', '01E96', 'LATIN SMALL   LETTER H WITH LINE BELOW' ],
+          'k': [ 'ḵ', '01E35', 'LATIN SMALL   LETTER K WITH LINE BELOW' ],
+          'l': [ 'ḻ', '01E3B', 'LATIN SMALL   LETTER L WITH LINE BELOW' ],
+          'n': [ 'ṉ', '01E49', 'LATIN SMALL   LETTER N WITH LINE BELOW' ],
+          'r': [ 'ṟ', '01E5F', 'LATIN SMALL   LETTER R WITH LINE BELOW' ],
+          't': [ 'ṯ', '01E6F', 'LATIN SMALL   LETTER T WITH LINE BELOW' ],
+          'z': [ 'ẕ', '01E95', 'LATIN SMALL   LETTER Z WITH LINE BELOW' ],
+
+          'B': [ 'Ḇ', '01E06', 'LATIN CAPITAL LETTER B WITH LINE BELOW' ],
+          'D': [ 'Ḏ', '01E0E', 'LATIN CAPITAL LETTER D WITH LINE BELOW' ],
+          'H': [ ' ', '     ', ''                                       ],
+          'K': [ 'Ḵ', '01E34', 'LATIN CAPITAL LETTER K WITH LINE BELOW' ],
+          'L': [ 'Ḻ', '01E3A', 'LATIN CAPITAL LETTER L WITH LINE BELOW' ],
+          'N': [ 'Ṉ', '01E48', 'LATIN CAPITAL LETTER N WITH LINE BELOW' ],
+          'R': [ 'Ṟ', '01E5E', 'LATIN CAPITAL LETTER R WITH LINE BELOW' ],
+          'T': [ 'Ṯ', '01E6E', 'LATIN CAPITAL LETTER T WITH LINE BELOW' ],
+          'Z': [ 'Ẕ', '01E94', 'LATIN CAPITAL LETTER Z WITH LINE BELOW' ]
+
+       },
+
+
+
+       'leet basico':
+       // <http://geekernel.wordpress.com/2008/12/18/alfabeto-leet/>
+       // <http://www.tecmundo.com.br/curiosidade/2452-o-que-e-l33t-.htm>
+       {
+
+          'a': [ '4', '', '' ],
+          'b': [ '8', '', '' ],
+          'c': [ '(', '', '' ],
+          'd': [ 'd', '', '' ],
+          'e': [ '3', '', '' ],
+          'f': [ 'f', '', '' ],
+          'g': [ '6', '', '' ],
+          'h': [ '#', '', '' ],
+          'i': [ '!', '', '' ],
+          'j': [ 'j', '', '' ],
+          'k': [ 'k', '', '' ],
+          'l': [ '1', '', '' ],
+          'm': [ 'm', '', '' ],
+          'n': [ 'n', '', '' ],
+          'o': [ '0', '', '' ],
+          'p': [ 'p', '', '' ],
+          'q': [ '9', '', '' ],
+          'r': [ 'r', '', '' ],
+          's': [ '5', '', '' ],
+          't': [ '7', '', '' ],
+          'u': [ 'u', '', '' ],
+          'v': [ 'v', '', '' ],
+          'w': [ 'w', '', '' ],
+          'x': [ 'x', '', '' ],
+          'y': [ 'y', '', '' ],
+          'z': [ '2', '', '' ],
+
+          'A': [ '4', '', '' ],
+          'B': [ '8', '', '' ],
+          'C': [ '(', '', '' ],
+          'D': [ 'D', '', '' ],
+          'E': [ '3', '', '' ],
+          'F': [ 'F', '', '' ],
+          'G': [ '6', '', '' ],
+          'H': [ '#', '', '' ],
+          'I': [ '!', '', '' ],
+          'J': [ 'J', '', '' ],
+          'K': [ 'K', '', '' ],
+          'L': [ '1', '', '' ],
+          'M': [ 'M', '', '' ],
+          'N': [ 'N', '', '' ],
+          'O': [ '0', '', '' ],
+          'P': [ 'P', '', '' ],
+          'Q': [ '9', '', '' ],
+          'R': [ 'R', '', '' ],
+          'S': [ '5', '', '' ],
+          'T': [ '7', '', '' ],
+          'U': [ 'U', '', '' ],
+          'V': [ 'V', '', '' ],
+          'W': [ 'W', '', '' ],
+          'X': [ 'X', '', '' ],
+          'Y': [ 'Y', '', '' ],
+          'Z': [ '2', '', '' ]
+
+       },
+
+
+
+       'braille padrao':
+       // <http://libbraille.org/alphabet.php>
+       {
+
+          'a': [ '⠁', '02801', 'BRAILLE PATTERN DOTS-1'        ],
+          'b': [ '⠃', '02803', 'BRAILLE PATTERN DOTS-12'       ],
+          'c': [ '⠉', '02809', 'BRAILLE PATTERN DOTS-14'       ],
+          'd': [ '⠙', '02819', 'BRAILLE PATTERN DOTS-145'      ],
+          'e': [ '⠑', '02811', 'BRAILLE PATTERN DOTS-15'       ],
+          'f': [ '⠋', '0280B', 'BRAILLE PATTERN DOTS-124'      ],
+          'g': [ '⠛', '0281B', 'BRAILLE PATTERN DOTS-1245'     ],
+          'h': [ '⠓', '02813', 'BRAILLE PATTERN DOTS-125'      ],
+          'i': [ '⠊', '0280A', 'BRAILLE PATTERN DOTS-24'       ],
+          'j': [ '⠚', '0281A', 'BRAILLE PATTERN DOTS-245'      ],
+          'k': [ '⠅', '02805', 'BRAILLE PATTERN DOTS-13'       ],
+          'l': [ '⠇', '02807', 'BRAILLE PATTERN DOTS-123'      ],
+          'm': [ '⠍', '0280D', 'BRAILLE PATTERN DOTS-134'      ],
+          'n': [ '⠝', '0281D', 'BRAILLE PATTERN DOTS-1345'     ],
+          'o': [ '⠕', '02815', 'BRAILLE PATTERN DOTS-135'      ],
+          'p': [ '⠏', '0280F', 'BRAILLE PATTERN DOTS-1234'     ],
+          'q': [ '⠟', '0281F', 'BRAILLE PATTERN DOTS-12345'    ],
+          'r': [ '⠗', '02817', 'BRAILLE PATTERN DOTS-1235'     ],
+          's': [ '⠎', '0280E', 'BRAILLE PATTERN DOTS-234'      ],
+          't': [ '⠞', '0281E', 'BRAILLE PATTERN DOTS-2345'     ],
+          'u': [ '⠥', '02825', 'BRAILLE PATTERN DOTS-136'      ],
+          'v': [ '⠧', '02827', 'BRAILLE PATTERN DOTS-1236'     ],
+          'w': [ '⠺', '0283A', 'BRAILLE PATTERN DOTS-2456'     ],
+          'x': [ '⠭', '0282D', 'BRAILLE PATTERN DOTS-1346'     ],
+          'y': [ '⠽', '0283D', 'BRAILLE PATTERN DOTS-13456'    ],
+          'z': [ '⠵', '02835', 'BRAILLE PATTERN DOTS-1356'     ],
+
+          'A': [ '⠠⠁', '', '' ],
+          'B': [ '⠠⠃', '', '' ],
+          'C': [ '⠠⠉', '', '' ],
+          'D': [ '⠠⠙', '', '' ],
+          'E': [ '⠠⠑', '', '' ],
+          'F': [ '⠠⠋', '', '' ],
+          'G': [ '⠠⠛', '', '' ],
+          'H': [ '⠠⠓', '', '' ],
+          'I': [ '⠠⠊', '', '' ],
+          'J': [ '⠠⠚', '', '' ],
+          'K': [ '⠠⠅', '', '' ],
+          'L': [ '⠠⠇', '', '' ],
+          'M': [ '⠠⠍', '', '' ],
+          'N': [ '⠠⠝', '', '' ],
+          'O': [ '⠠⠕', '', '' ],
+          'P': [ '⠠⠏', '', '' ],
+          'Q': [ '⠠⠟', '', '' ],
+          'R': [ '⠠⠗', '', '' ],
+          'S': [ '⠠⠎', '', '' ],
+          'T': [ '⠠⠞', '', '' ],
+          'U': [ '⠠⠥', '', '' ],
+          'V': [ '⠠⠧', '', '' ],
+          'W': [ '⠠⠺', '', '' ],
+          'X': [ '⠠⠭', '', '' ],
+          'Y': [ '⠠⠽', '', '' ],
+          'Z': [ '⠠⠵', '', '' ],
+
+          '0': [ '⠼⠚', '', '' ],
+          '1': [ '⠼⠁', '', '' ],
+          '2': [ '⠼⠃', '', '' ],
+          '3': [ '⠼⠉', '', '' ],
+          '4': [ '⠼⠙', '', '' ],
+          '5': [ '⠼⠑', '', '' ],
+          '6': [ '⠼⠋', '', '' ],
+          '7': [ '⠼⠛', '', '' ],
+          '8': [ '⠼⠓', '', '' ],
+          '9': [ '⠼⠊', '', '' ]
+
+   /* original list
+
+          ' ': [ '⠀', '02800', 'BRAILLE PATTERN BLANK'         ],
+          'a': [ '⠁', '02801', 'BRAILLE PATTERN DOTS-1'        ],
+          ' ': [ '⠂', '02802', 'BRAILLE PATTERN DOTS-2'        ],
+          'b': [ '⠃', '02803', 'BRAILLE PATTERN DOTS-12'       ],
+          ' ': [ '⠄', '02804', 'BRAILLE PATTERN DOTS-3'        ],
+          'k': [ '⠅', '02805', 'BRAILLE PATTERN DOTS-13'       ],
+          ' ': [ '⠆', '02806', 'BRAILLE PATTERN DOTS-23'       ],
+          'l': [ '⠇', '02807', 'BRAILLE PATTERN DOTS-123'      ],
+          ' ': [ '⠈', '02808', 'BRAILLE PATTERN DOTS-4'        ],
+          'c': [ '⠉', '02809', 'BRAILLE PATTERN DOTS-14'       ],
+          'i': [ '⠊', '0280A', 'BRAILLE PATTERN DOTS-24'       ],
+          'f': [ '⠋', '0280B', 'BRAILLE PATTERN DOTS-124'      ],
+          ' ': [ '⠌', '0280C', 'BRAILLE PATTERN DOTS-34'       ],
+          'm': [ '⠍', '0280D', 'BRAILLE PATTERN DOTS-134'      ],
+          's': [ '⠎', '0280E', 'BRAILLE PATTERN DOTS-234'      ],
+          'p': [ '⠏', '0280F', 'BRAILLE PATTERN DOTS-1234'     ],
+          ' ': [ '⠐', '02810', 'BRAILLE PATTERN DOTS-5'        ],
+          'e': [ '⠑', '02811', 'BRAILLE PATTERN DOTS-15'       ],
+          ' ': [ '⠒', '02812', 'BRAILLE PATTERN DOTS-25'       ],
+          'h': [ '⠓', '02813', 'BRAILLE PATTERN DOTS-125'      ],
+          ' ': [ '⠔', '02814', 'BRAILLE PATTERN DOTS-35'       ],
+          'o': [ '⠕', '02815', 'BRAILLE PATTERN DOTS-135'      ],
+          ' ': [ '⠖', '02816', 'BRAILLE PATTERN DOTS-235'      ],
+          'r': [ '⠗', '02817', 'BRAILLE PATTERN DOTS-1235'     ],
+          ' ': [ '⠘', '02818', 'BRAILLE PATTERN DOTS-45'       ],
+          'd': [ '⠙', '02819', 'BRAILLE PATTERN DOTS-145'      ],
+          'j': [ '⠚', '0281A', 'BRAILLE PATTERN DOTS-245'      ],
+          'g': [ '⠛', '0281B', 'BRAILLE PATTERN DOTS-1245'     ],
+          ' ': [ '⠜', '0281C', 'BRAILLE PATTERN DOTS-345'      ],
+          'n': [ '⠝', '0281D', 'BRAILLE PATTERN DOTS-1345'     ],
+          't': [ '⠞', '0281E', 'BRAILLE PATTERN DOTS-2345'     ],
+          'q': [ '⠟', '0281F', 'BRAILLE PATTERN DOTS-12345'    ],
+          ' ': [ '⠠', '02820', 'BRAILLE PATTERN DOTS-6'        ], // maiusculo
+          ' ': [ '⠡', '02821', 'BRAILLE PATTERN DOTS-16'       ],
+          ' ': [ '⠢', '02822', 'BRAILLE PATTERN DOTS-26'       ],
+          ' ': [ '⠣', '02823', 'BRAILLE PATTERN DOTS-126'      ],
+          ' ': [ '⠤', '02824', 'BRAILLE PATTERN DOTS-36'       ],
+          'u': [ '⠥', '02825', 'BRAILLE PATTERN DOTS-136'      ],
+          ' ': [ '⠦', '02826', 'BRAILLE PATTERN DOTS-236'      ],
+          'v': [ '⠧', '02827', 'BRAILLE PATTERN DOTS-1236'     ],
+          ' ': [ '⠨', '02828', 'BRAILLE PATTERN DOTS-46'       ],
+          ' ': [ '⠩', '02829', 'BRAILLE PATTERN DOTS-146'      ],
+          ' ': [ '⠪', '0282A', 'BRAILLE PATTERN DOTS-246'      ],
+          ' ': [ '⠫', '0282B', 'BRAILLE PATTERN DOTS-1246'     ],
+          ' ': [ '⠬', '0282C', 'BRAILLE PATTERN DOTS-346'      ],
+          'x': [ '⠭', '0282D', 'BRAILLE PATTERN DOTS-1346'     ],
+          ' ': [ '⠮', '0282E', 'BRAILLE PATTERN DOTS-2346'     ],
+          ' ': [ '⠯', '0282F', 'BRAILLE PATTERN DOTS-12346'    ],
+          ' ': [ '⠰', '02830', 'BRAILLE PATTERN DOTS-56'       ],
+          ' ': [ '⠱', '02831', 'BRAILLE PATTERN DOTS-156'      ],
+          ' ': [ '⠲', '02832', 'BRAILLE PATTERN DOTS-256'      ],
+          ' ': [ '⠳', '02833', 'BRAILLE PATTERN DOTS-1256'     ],
+          ' ': [ '⠴', '02834', 'BRAILLE PATTERN DOTS-356'      ],
+          'z': [ '⠵', '02835', 'BRAILLE PATTERN DOTS-1356'     ],
+          ' ': [ '⠶', '02836', 'BRAILLE PATTERN DOTS-2356'     ],
+          ' ': [ '⠷', '02837', 'BRAILLE PATTERN DOTS-12356'    ],
+          ' ': [ '⠸', '02838', 'BRAILLE PATTERN DOTS-456'      ],
+          ' ': [ '⠹', '02839', 'BRAILLE PATTERN DOTS-1456'     ],
+          'w': [ '⠺', '0283A', 'BRAILLE PATTERN DOTS-2456'     ],
+          ' ': [ '⠻', '0283B', 'BRAILLE PATTERN DOTS-12456'    ],
+          ' ': [ '⠼', '0283C', 'BRAILLE PATTERN DOTS-3456'     ], // numero
+          'y': [ '⠽', '0283D', 'BRAILLE PATTERN DOTS-13456'    ],
+          ' ': [ '⠾', '0283E', 'BRAILLE PATTERN DOTS-23456'    ],
+          ' ': [ '⠿', '0283F', 'BRAILLE PATTERN DOTS-123456'   ]
+
+   */
+
+       },
+
+
+
+       'fullwidth latin':
+       // <http://www.linkstrasse.de/en/%EF%BD%86%EF%BD%95%EF%BD%8C%EF%BD%8C%EF%BD%97%EF%BD%89%EF%BD%84%EF%BD%94%EF%BD%88%EF%BC%8D%EF%BD%83%EF%BD%8F%EF%BD%8E%EF%BD%96%EF%BD%85%EF%BD%92%EF%BD%94%EF%BD%85%EF%BD%92>
+       {
+
+          'a': [ 'ａ', '0FF41', 'FULLWIDTH LATIN SMALL   LETTER A' ],
+          'b': [ 'ｂ', '0FF42', 'FULLWIDTH LATIN SMALL   LETTER B' ],
+          'c': [ 'ｃ', '0FF43', 'FULLWIDTH LATIN SMALL   LETTER C' ],
+          'd': [ 'ｄ', '0FF44', 'FULLWIDTH LATIN SMALL   LETTER D' ],
+          'e': [ 'ｅ', '0FF45', 'FULLWIDTH LATIN SMALL   LETTER E' ],
+          'f': [ 'ｆ', '0FF46', 'FULLWIDTH LATIN SMALL   LETTER F' ],
+          'g': [ 'ｇ', '0FF47', 'FULLWIDTH LATIN SMALL   LETTER G' ],
+          'h': [ 'ｈ', '0FF48', 'FULLWIDTH LATIN SMALL   LETTER H' ],
+          'i': [ 'ｉ', '0FF49', 'FULLWIDTH LATIN SMALL   LETTER I' ],
+          'j': [ 'ｊ', '0FF4A', 'FULLWIDTH LATIN SMALL   LETTER J' ],
+          'k': [ 'ｋ', '0FF4B', 'FULLWIDTH LATIN SMALL   LETTER K' ],
+          'l': [ 'ｌ', '0FF4C', 'FULLWIDTH LATIN SMALL   LETTER L' ],
+          'm': [ 'ｍ', '0FF4D', 'FULLWIDTH LATIN SMALL   LETTER M' ],
+          'n': [ 'ｎ', '0FF4E', 'FULLWIDTH LATIN SMALL   LETTER N' ],
+          'o': [ 'ｏ', '0FF4F', 'FULLWIDTH LATIN SMALL   LETTER O' ],
+          'p': [ 'ｐ', '0FF50', 'FULLWIDTH LATIN SMALL   LETTER P' ],
+          'q': [ 'ｑ', '0FF51', 'FULLWIDTH LATIN SMALL   LETTER Q' ],
+          'r': [ 'ｒ', '0FF52', 'FULLWIDTH LATIN SMALL   LETTER R' ],
+          's': [ 'ｓ', '0FF53', 'FULLWIDTH LATIN SMALL   LETTER S' ],
+          't': [ 'ｔ', '0FF54', 'FULLWIDTH LATIN SMALL   LETTER T' ],
+          'u': [ 'ｕ', '0FF55', 'FULLWIDTH LATIN SMALL   LETTER U' ],
+          'v': [ 'ｖ', '0FF56', 'FULLWIDTH LATIN SMALL   LETTER V' ],
+          'w': [ 'ｗ', '0FF57', 'FULLWIDTH LATIN SMALL   LETTER W' ],
+          'x': [ 'ｘ', '0FF58', 'FULLWIDTH LATIN SMALL   LETTER X' ],
+          'y': [ 'ｙ', '0FF59', 'FULLWIDTH LATIN SMALL   LETTER Y' ],
+          'z': [ 'ｚ', '0FF5A', 'FULLWIDTH LATIN SMALL   LETTER Z' ],
+
+          'A': [ 'Ａ', '0FF21', 'FULLWIDTH LATIN CAPITAL LETTER A' ],
+          'B': [ 'Ｂ', '0FF22', 'FULLWIDTH LATIN CAPITAL LETTER B' ],
+          'C': [ 'Ｃ', '0FF23', 'FULLWIDTH LATIN CAPITAL LETTER C' ],
+          'D': [ 'Ｄ', '0FF24', 'FULLWIDTH LATIN CAPITAL LETTER D' ],
+          'E': [ 'Ｅ', '0FF25', 'FULLWIDTH LATIN CAPITAL LETTER E' ],
+          'F': [ 'Ｆ', '0FF26', 'FULLWIDTH LATIN CAPITAL LETTER F' ],
+          'G': [ 'Ｇ', '0FF27', 'FULLWIDTH LATIN CAPITAL LETTER G' ],
+          'H': [ 'Ｈ', '0FF28', 'FULLWIDTH LATIN CAPITAL LETTER H' ],
+          'I': [ 'Ｉ', '0FF29', 'FULLWIDTH LATIN CAPITAL LETTER I' ],
+          'J': [ 'Ｊ', '0FF2A', 'FULLWIDTH LATIN CAPITAL LETTER J' ],
+          'K': [ 'Ｋ', '0FF2B', 'FULLWIDTH LATIN CAPITAL LETTER K' ],
+          'L': [ 'Ｌ', '0FF2C', 'FULLWIDTH LATIN CAPITAL LETTER L' ],
+          'M': [ 'Ｍ', '0FF2D', 'FULLWIDTH LATIN CAPITAL LETTER M' ],
+          'N': [ 'Ｎ', '0FF2E', 'FULLWIDTH LATIN CAPITAL LETTER N' ],
+          'O': [ 'Ｏ', '0FF2F', 'FULLWIDTH LATIN CAPITAL LETTER O' ],
+          'P': [ 'Ｐ', '0FF30', 'FULLWIDTH LATIN CAPITAL LETTER P' ],
+          'Q': [ 'Ｑ', '0FF31', 'FULLWIDTH LATIN CAPITAL LETTER Q' ],
+          'R': [ 'Ｒ', '0FF32', 'FULLWIDTH LATIN CAPITAL LETTER R' ],
+          'S': [ 'Ｓ', '0FF33', 'FULLWIDTH LATIN CAPITAL LETTER S' ],
+          'T': [ 'Ｔ', '0FF34', 'FULLWIDTH LATIN CAPITAL LETTER T' ],
+          'U': [ 'Ｕ', '0FF35', 'FULLWIDTH LATIN CAPITAL LETTER U' ],
+          'V': [ 'Ｖ', '0FF36', 'FULLWIDTH LATIN CAPITAL LETTER V' ],
+          'W': [ 'Ｗ', '0FF37', 'FULLWIDTH LATIN CAPITAL LETTER W' ],
+          'X': [ 'Ｘ', '0FF38', 'FULLWIDTH LATIN CAPITAL LETTER X' ],
+          'Y': [ 'Ｙ', '0FF39', 'FULLWIDTH LATIN CAPITAL LETTER Y' ],
+          'Z': [ 'Ｚ', '0FF3A', 'FULLWIDTH LATIN CAPITAL LETTER Z' ],
+
+          '0': [ '０', '0FF10', 'FULLWIDTH DIGIT ZERO'             ],
+          '1': [ '１', '0FF11', 'FULLWIDTH DIGIT ONE'              ],
+          '2': [ '２', '0FF12', 'FULLWIDTH DIGIT TWO'              ],
+          '3': [ '３', '0FF13', 'FULLWIDTH DIGIT THREE'            ],
+          '4': [ '４', '0FF14', 'FULLWIDTH DIGIT FOUR'             ],
+          '5': [ '５', '0FF15', 'FULLWIDTH DIGIT FIVE'             ],
+          '6': [ '６', '0FF16', 'FULLWIDTH DIGIT SIX'              ],
+          '7': [ '７', '0FF17', 'FULLWIDTH DIGIT SEVEN'            ],
+          '8': [ '８', '0FF18', 'FULLWIDTH DIGIT EIGHT'            ],
+          '9': [ '９', '0FF19', 'FULLWIDTH DIGIT NINE'             ],
+
+          '!': [ '！', '0FF01', 'FULLWIDTH EXCLAMATION MARK'       ],
+          '"': [ '＂', '0FF02', 'FULLWIDTH QUOTATION MARK'         ],
+          '#': [ '＃', '0FF03', 'FULLWIDTH NUMBER SIGN'            ],
+          '$': [ '＄', '0FF04', 'FULLWIDTH DOLLAR SIGN'            ],
+          '%': [ '％', '0FF05', 'FULLWIDTH PERCENT SIGN'           ],
+          '&': [ '＆', '0FF06', 'FULLWIDTH AMPERSAND'              ],
+         '\'': [ '＇', '0FF07', 'FULLWIDTH APOSTROPHE'             ],
+          '(': [ '（', '0FF08', 'FULLWIDTH LEFT PARENTHESIS'       ],
+          ')': [ '）', '0FF09', 'FULLWIDTH RIGHT PARENTHESIS'      ],
+          '*': [ '＊', '0FF0A', 'FULLWIDTH ASTERISK'               ],
+          '+': [ '＋', '0FF0B', 'FULLWIDTH PLUS SIGN'              ],
+          ',': [ '，', '0FF0C', 'FULLWIDTH COMMA'                  ],
+          '-': [ '－', '0FF0D', 'FULLWIDTH HYPHEN-MINUS'           ],
+          '.': [ '．', '0FF0E', 'FULLWIDTH FULL STOP'              ],
+          '/': [ '／', '0FF0F', 'FULLWIDTH SOLIDUS'                ],
+          ':': [ '：', '0FF1A', 'FULLWIDTH COLON'                  ],
+          ';': [ '；', '0FF1B', 'FULLWIDTH SEMICOLON'              ],
+          '<': [ '＜', '0FF1C', 'FULLWIDTH LESS-THAN SIGN'         ],
+          '=': [ '＝', '0FF1D', 'FULLWIDTH EQUALS SIGN'            ],
+          '>': [ '＞', '0FF1E', 'FULLWIDTH GREATER-THAN SIGN'      ],
+          '?': [ '？', '0FF1F', 'FULLWIDTH QUESTION MARK'          ],
+          '@': [ '＠', '0FF20', 'FULLWIDTH COMMERCIAL AT'          ],
+          '[': [ '［', '0FF3B', 'FULLWIDTH LEFT SQUARE BRACKET'    ],
+         '\\': [ '＼', '0FF3C', 'FULLWIDTH REVERSE SOLIDUS'        ],
+          ']': [ '］', '0FF3D', 'FULLWIDTH RIGHT SQUARE BRACKET'   ],
+          '^': [ '＾', '0FF3E', 'FULLWIDTH CIRCUMFLEX ACCENT'      ],
+          '_': [ '＿', '0FF3F', 'FULLWIDTH LOW LINE'               ],
+          '`': [ '｀', '0FF40', 'FULLWIDTH GRAVE ACCENT'           ],
+          '{': [ '｛', '0FF5B', 'FULLWIDTH LEFT CURLY BRACKET'     ],
+          '|': [ '｜', '0FF5C', 'FULLWIDTH VERTICAL LINE'          ],
+          '}': [ '｝', '0FF5D', 'FULLWIDTH RIGHT CURLY BRACKET'    ],
+          '~': [ '～', '0FF5E', 'FULLWIDTH TILDE'                  ]
+
+       }
+
+
+
+     },
+
+
+     'numeros':
+     {
+
+
+
+       'pontuado':
+       {
+
+          '0': [ '🄀', '1F100', 'DIGIT            FULL STOP ZERO'  ],
+          '1': [ '⒈', '02488', 'DIGIT            FULL STOP ONE'   ],
+          '2': [ '⒉', '02489', 'DIGIT            FULL STOP TWO'   ],
+          '3': [ '⒊', '0248A', 'DIGIT            FULL STOP THREE' ],
+          '4': [ '⒋', '0248B', 'DIGIT            FULL STOP FOUR'  ],
+          '5': [ '⒌', '0248C', 'DIGIT            FULL STOP FIVE'  ],
+          '6': [ '⒍', '0248D', 'DIGIT            FULL STOP SIX'   ],
+          '7': [ '⒎', '0248E', 'DIGIT            FULL STOP SEVEN' ],
+          '8': [ '⒏', '0248F', 'DIGIT            FULL STOP EIGHT' ],
+          '9': [ '⒐', '02490', 'DIGIT            FULL STOP NINE'  ],
+         '10': [ '⒑', '02491', 'NUMBER TEN       FULL STOP'       ],
+         '11': [ '⒒', '02492', 'NUMBER ELEVEN    FULL STOP'       ],
+         '12': [ '⒓', '02493', 'NUMBER TWELVE    FULL STOP'       ],
+         '13': [ '⒔', '02494', 'NUMBER THIRTEEN  FULL STOP'       ],
+         '14': [ '⒕', '02495', 'NUMBER FOURTEEN  FULL STOP'       ],
+         '15': [ '⒖', '02496', 'NUMBER FIFTEEN   FULL STOP'       ],
+         '16': [ '⒗', '02497', 'NUMBER SIXTEEN   FULL STOP'       ],
+         '17': [ '⒘', '02498', 'NUMBER SEVENTEEN FULL STOP'       ],
+         '18': [ '⒙', '02499', 'NUMBER EIGHTEEN  FULL STOP'       ],
+         '19': [ '⒚', '0249A', 'NUMBER NINETEEN  FULL STOP'       ],
+         '20': [ '⒛', '0249B', 'NUMBER TWENTY    FULL STOP'       ]
+
+       },
+
+
+
+       'circulado negativo':
+       {
+
+          '1': [ '❶' , '02776', 'DINGBAT NEGATIVE CIRCLED            DIGIT  ONE'       ],
+          '2': [ '❷' , '02777', 'DINGBAT NEGATIVE CIRCLED            DIGIT  TWO'       ],
+          '3': [ '❸' , '02778', 'DINGBAT NEGATIVE CIRCLED            DIGIT  THREE'     ],
+          '4': [ '❹' , '02779', 'DINGBAT NEGATIVE CIRCLED            DIGIT  FOUR'      ],
+          '5': [ '❺' , '0277A', 'DINGBAT NEGATIVE CIRCLED            DIGIT  FIVE'      ],
+          '6': [ '❻' , '0277B', 'DINGBAT NEGATIVE CIRCLED            DIGIT  SIX'       ],
+          '7': [ '❼' , '0277C', 'DINGBAT NEGATIVE CIRCLED            DIGIT  SEVEN'     ],
+          '8': [ '❽' , '0277D', 'DINGBAT NEGATIVE CIRCLED            DIGIT  EIGHT'     ],
+          '9': [ '❾' , '0277E', 'DINGBAT NEGATIVE CIRCLED            DIGIT  NINE'      ],
+         '10': [ '❿' , '0277F', 'DINGBAT NEGATIVE CIRCLED            NUMBER TEN'       ],
+         '11': [ '⓫' , '024EB', '        NEGATIVE CIRCLED            NUMBER ELEVEN'    ],
+         '12': [ '⓬' , '024EC', '        NEGATIVE CIRCLED            NUMBER TWELVE'    ],
+         '13': [ '⓭' , '024ED', '        NEGATIVE CIRCLED            NUMBER THIRTEEN'  ],
+         '14': [ '⓮' , '024EE', '        NEGATIVE CIRCLED            NUMBER FOURTEEN'  ],
+         '15': [ '⓯' , '024EF', '        NEGATIVE CIRCLED            NUMBER FIFTEEN'   ],
+         '16': [ '⓰' , '024F0', '        NEGATIVE CIRCLED            NUMBER SIXTEEN'   ],
+         '17': [ '⓱' , '024F1', '        NEGATIVE CIRCLED            NUMBER SEVENTEEN' ],
+         '18': [ '⓲' , '024F2', '        NEGATIVE CIRCLED            NUMBER EIGHTEEN'  ],
+         '19': [ '⓳' , '024F3', '        NEGATIVE CIRCLED            NUMBER NINETEEN'  ],
+         '20': [ '⓴' , '024F4', '        NEGATIVE CIRCLED            NUMBER TWENTY'    ]
+
+       },
+
+
+
+       'circulado sem serifa':
+       {
+
+          '1': [ '➀' , '02780', 'DINGBAT          CIRCLED SANS-SERIF DIGIT  ONE'    ],
+          '2': [ '➁' , '02781', 'DINGBAT          CIRCLED SANS-SERIF DIGIT  TWO'    ],
+          '3': [ '➂' , '02782', 'DINGBAT          CIRCLED SANS-SERIF DIGIT  THREE'  ],
+          '4': [ '➃' , '02783', 'DINGBAT          CIRCLED SANS-SERIF DIGIT  FOUR'   ],
+          '5': [ '➄' , '02784', 'DINGBAT          CIRCLED SANS-SERIF DIGIT  FIVE'   ],
+          '6': [ '➅' , '02785', 'DINGBAT          CIRCLED SANS-SERIF DIGIT  SIX'    ],
+          '7': [ '➆' , '02786', 'DINGBAT          CIRCLED SANS-SERIF DIGIT  SEVEN'  ],
+          '8': [ '➇' , '02787', 'DINGBAT          CIRCLED SANS-SERIF DIGIT  EIGHT'  ],
+          '9': [ '➈' , '02788', 'DINGBAT          CIRCLED SANS-SERIF DIGIT  NINE'   ],
+         '10': [ '➉' , '02789', 'DINGBAT          CIRCLED SANS-SERIF NUMBER TEN'    ]
+
+       },
+
+
+
+       'circulado negativo sem serifa':
+       {
+
+          '1': [ '➊' , '0278A', 'DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT  ONE'    ],
+          '2': [ '➋' , '0278B', 'DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT  TWO'    ],
+          '3': [ '➌' , '0278C', 'DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT  THREE'  ],
+          '4': [ '➍' , '0278D', 'DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT  FOUR'   ],
+          '5': [ '➎' , '0278E', 'DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT  FIVE'   ],
+          '6': [ '➏' , '0278F', 'DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT  SIX'    ],
+          '7': [ '➐' , '02790', 'DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT  SEVEN'  ],
+          '8': [ '➑' , '02791', 'DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT  EIGHT'  ],
+          '9': [ '➒' , '02792', 'DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT  NINE'   ],
+         '10': [ '➓' , '02793', 'DINGBAT NEGATIVE CIRCLED SANS-SERIF NUMBER TEN'    ]
+
+       },
+
+
+
+       'romanos':
+       {
+
+          '1': [ 'Ⅰ', '02160', '      ROMAN NUMERAL ONE'    ],
+          '2': [ 'Ⅱ', '02161', '      ROMAN NUMERAL TWO'    ],
+          '3': [ 'Ⅲ', '02162', '      ROMAN NUMERAL THREE'  ],
+          '4': [ 'Ⅳ', '02163', '      ROMAN NUMERAL FOUR'   ],
+          '5': [ 'Ⅴ', '02164', '      ROMAN NUMERAL FIVE'   ],
+          '6': [ 'Ⅵ', '02165', '      ROMAN NUMERAL SIX'    ],
+          '7': [ 'Ⅶ', '02166', '      ROMAN NUMERAL SEVEN'  ],
+          '8': [ 'Ⅷ', '02167', '      ROMAN NUMERAL EIGHT'  ],
+          '9': [ 'Ⅸ', '02168', '      ROMAN NUMERAL NINE'   ],
+         '10': [ 'Ⅹ', '02169', '      ROMAN NUMERAL TEN'    ],
+         '11': [ 'Ⅺ', '0216A', '      ROMAN NUMERAL ELEVEN' ],
+         '12': [ 'Ⅻ', '0216B', '      ROMAN NUMERAL TWELVE' ]
+
+       },
+
+
+
+       'romanos minusculo':
+       {
+
+          '1': [ 'ⅰ', '02170', 'SMALL ROMAN NUMERAL ONE'    ],
+          '2': [ 'ⅱ', '02171', 'SMALL ROMAN NUMERAL TWO'    ],
+          '3': [ 'ⅲ', '02172', 'SMALL ROMAN NUMERAL THREE'  ],
+          '4': [ 'ⅳ', '02173', 'SMALL ROMAN NUMERAL FOUR'   ],
+          '5': [ 'ⅴ', '02174', 'SMALL ROMAN NUMERAL FIVE'   ],
+          '6': [ 'ⅵ', '02175', 'SMALL ROMAN NUMERAL SIX'    ],
+          '7': [ 'ⅶ', '02176', 'SMALL ROMAN NUMERAL SEVEN'  ],
+          '8': [ 'ⅷ', '02177', 'SMALL ROMAN NUMERAL EIGHT'  ],
+          '9': [ 'ⅸ', '02178', 'SMALL ROMAN NUMERAL NINE'   ],
+         '10': [ 'ⅹ', '02179', 'SMALL ROMAN NUMERAL TEN'    ],
+         '11': [ 'ⅺ', '0217A', 'SMALL ROMAN NUMERAL ELEVEN' ],
+         '12': [ 'ⅻ', '0217B', 'SMALL ROMAN NUMERAL TWELVE' ]
+
+       }
+
+
+
+     }
+
+
+
+   };
+
+
+
+// EOF

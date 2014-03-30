@@ -21,6 +21,10 @@
         <menuitem id="unitext.00" label="&unitext.00.label;" oncommand="unitext.run('00')" />
         <menuitem id="unitext.01" label="&unitext.01.label;" oncommand="unitext.run('01')" />
         <menuitem id="unitext.02" label="&unitext.02.label;" oncommand="unitext.run('02')" />
+        <menuitem id="unitext.28" label="&unitext.28.label;" oncommand="unitext.run('28')" />
+        <menuitem id="unitext.29" label="&unitext.29.label;" oncommand="unitext.run('29')" />
+        <menuitem id="unitext.30" label="&unitext.30.label;" oncommand="unitext.run('30')" />
+        <menuitem id="unitext.31" label="&unitext.31.label;" oncommand="unitext.run('31')" />
         <menuseparator/>
         <menuseparator/>
         <menuseparator/>
@@ -49,6 +53,11 @@
         <menuitem id="unitext.25" label="&unitext.25.label;" oncommand="unitext.run('25')" />
         <menuitem id="unitext.26" label="&unitext.26.label;" oncommand="unitext.run('26')" />
         <menuitem id="unitext.27" label="&unitext.27.label;" oncommand="unitext.run('27')" />
+        <menuitem id="unitext.32" label="&unitext.32.label;" oncommand="unitext.run('32')" />
+        <menuitem id="unitext.33" label="&unitext.33.label;" oncommand="unitext.run('33')" />
+        <menuitem id="unitext.34" label="&unitext.34.label;" oncommand="unitext.run('34')" />
+        <menuitem id="unitext.35" label="&unitext.35.label;" oncommand="unitext.run('35')" />
+        <menuitem id="unitext.36" label="&unitext.36.label;" oncommand="unitext.run('36')" />
       </menupopup>
     </menu>
 
