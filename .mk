@@ -25,8 +25,11 @@
 
 # TODO
 
+#  -- não está gerando direito os labels pelo windows
+#
 #  -- não funciona na edição de arquivos do GitHub
 #  -- adicionar como submenu do menu Editar sem copiar todo o código XUL do menu
+#  -- adicionar como botões de ferramentas no campo textarea.
 #  -- mover 'fullwidth latin' para submenu 'latin'
 #
 #  -- palete unicode
