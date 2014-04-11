@@ -3,7 +3,7 @@
 # UniText Unicode Character Style Replacer MozillaApps/Chrome Extension
 #
 # Arkanon <arkanon@lsd.org.br>
-# 0.3.331 - 2014/04/11 (Fri) 10:35:25 (BRS)
+# 0.3.333 - 2014/04/11 (Fri) 11:49:52 (BRS)
 #           2014/03/30 (Sun) 01:34:17 (BRS)
 #           2014/03/30 (Dom) 00:13:45 (BRS)
 #           2014/03/29 (Sat) 14:44:38 (BRS)
@@ -25,6 +25,10 @@
 
 # TODO
 
+#  -- não funciona na edição de arquivos do GitHub
+#  -- adicionar como submenu do menu Editar sem copiar todo o código XUL do menu
+#  -- mover 'fullwidth latin' para submenu 'latin'
+#
 #  -- palete unicode
 #  -- permitir criar palete personalizada
 #
@@ -32,9 +36,7 @@
 #  -- tornar configurável o uso da seleção como exemplo no menu
 #  -- acrescentar opção de copiar a seleção convertida apresentada como exemplo no menu para a área de transferência
 #
-#  -- subir os sub-menus Latin e Greek
 #  -- tornar a extensão restarless <http://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions>
-#  -- adicionar como submenu do menu Editar sem copiar todo o código XUL do menu
 #  -- fazer acentos com caracteres de combinação
 #  -- converter do estilo aplicado novamente para latino
 #  -- tornar configurável a conversão dos diacríticos
@@ -44,7 +46,9 @@
 
 # HISTORY
 
-#  0.3.331
+#  0.3.333
+#  ok subir os sub-menus Latin e Greek
+#  ok remover opção inativa de 'grego sem serifa itálico'
 #  ok acrescentar os estilos leet básico, braille padrão, entre parênteses, circulado e fullwidth
 #  ok função invertido
 #  ok função trocar caixa
@@ -268,17 +272,6 @@ do
     <menu id="$EXT" label="$EXT_name" insertafter="context-selectall" class="menu-iconic" onpopupshowing="$EXT.onPopupShowing()">
       <menupopup>
 
-        <menuitem id="$EXT-00" oncommand="$EXT.run(this)" />
-        <menuitem id="$EXT-01" oncommand="$EXT.run(this)" />
-        <menuitem id="$EXT-02" oncommand="$EXT.run(this)" />
-        <menuitem id="$EXT-38" oncommand="$EXT.run(this)" />
-        <menuitem id="$EXT-39" oncommand="$EXT.run(this)" />
-
-        <menuitem id="$EXT-28" oncommand="$EXT.run(this)" />
-        <menuitem id="$EXT-29" oncommand="$EXT.run(this)" />
-        <menuitem id="$EXT-30" oncommand="$EXT.run(this)" />
-        <menuitem id="$EXT-31" oncommand="$EXT.run(this)" />
-
         <menu id="$EXT-03">
           <menupopup>
             <menuitem id="$EXT-03.1" oncommand="$EXT.run(this)" />
@@ -295,13 +288,33 @@ do
           <menupopup>
             <menuitem id="$EXT-11.1" oncommand="$EXT.run(this)" />
             <menuitem id="$EXT-11.2" oncommand="$EXT.run(this)" />
-            <menuitem id="$EXT-11.3" oncommand="$EXT.run(this)" />
+         <!--menuitem id="$EXT-11.3" oncommand="$EXT.run(this)" /-->
             <menuitem id="$EXT-11.4" oncommand="$EXT.run(this)" />
             <menuitem id="$EXT-11.5" oncommand="$EXT.run(this)" />
             <menuitem id="$EXT-11.6" oncommand="$EXT.run(this)" />
             <menuitem id="$EXT-11.7" oncommand="$EXT.run(this)" />
           </menupopup>
         </menu>
+
+        <menuseparator/>
+        <menuseparator/>
+
+        <menuitem id="$EXT-00" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-01" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-02" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-38" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-39" oncommand="$EXT.run(this)" />
+
+        <menuseparator/>
+        <menuseparator/>
+
+        <menuitem id="$EXT-28" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-29" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-30" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-31" oncommand="$EXT.run(this)" />
+
+        <menuseparator/>
+        <menuseparator/>
 
         <menuitem id="$EXT-17" oncommand="$EXT.run(this)" />
         <menuitem id="$EXT-18" oncommand="$EXT.run(this)" />
@@ -314,6 +327,9 @@ do
         <menuitem id="$EXT-24" oncommand="$EXT.run(this)" />
         <menuitem id="$EXT-25" oncommand="$EXT.run(this)" />
         <menuitem id="$EXT-26" oncommand="$EXT.run(this)" />
+
+        <menuseparator/>
+        <menuseparator/>
 
         <menuitem id="$EXT-32" oncommand="$EXT.run(this)" />
         <menuitem id="$EXT-33" oncommand="$EXT.run(this)" />

@@ -7,7 +7,7 @@
 
     <em:id          >unitext@lsd.org.br</em:id>
     <em:name        >UniText</em:name>
-    <em:version     >0.3.331</em:version>
+    <em:version     >0.3.333</em:version>
     <em:type        >2</em:type>
     <em:creator     >Arkanon</em:creator>
     <em:description >Unicode Character Style Replacer</em:description>

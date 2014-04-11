@@ -19,17 +19,6 @@
     <menu id="unitext" label="UniText" insertafter="context-selectall" class="menu-iconic" onpopupshowing="unitext.onPopupShowing()">
       <menupopup>
 
-        <menuitem id="unitext-00" oncommand="unitext.run(this)" />
-        <menuitem id="unitext-01" oncommand="unitext.run(this)" />
-        <menuitem id="unitext-02" oncommand="unitext.run(this)" />
-        <menuitem id="unitext-38" oncommand="unitext.run(this)" />
-        <menuitem id="unitext-39" oncommand="unitext.run(this)" />
-
-        <menuitem id="unitext-28" oncommand="unitext.run(this)" />
-        <menuitem id="unitext-29" oncommand="unitext.run(this)" />
-        <menuitem id="unitext-30" oncommand="unitext.run(this)" />
-        <menuitem id="unitext-31" oncommand="unitext.run(this)" />
-
         <menu id="unitext-03">
           <menupopup>
             <menuitem id="unitext-03.1" oncommand="unitext.run(this)" />
@@ -46,13 +35,33 @@
           <menupopup>
             <menuitem id="unitext-11.1" oncommand="unitext.run(this)" />
             <menuitem id="unitext-11.2" oncommand="unitext.run(this)" />
-            <menuitem id="unitext-11.3" oncommand="unitext.run(this)" />
+         <!--menuitem id="unitext-11.3" oncommand="unitext.run(this)" /-->
             <menuitem id="unitext-11.4" oncommand="unitext.run(this)" />
             <menuitem id="unitext-11.5" oncommand="unitext.run(this)" />
             <menuitem id="unitext-11.6" oncommand="unitext.run(this)" />
             <menuitem id="unitext-11.7" oncommand="unitext.run(this)" />
           </menupopup>
         </menu>
+
+        <menuseparator/>
+        <menuseparator/>
+
+        <menuitem id="unitext-00" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-01" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-02" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-38" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-39" oncommand="unitext.run(this)" />
+
+        <menuseparator/>
+        <menuseparator/>
+
+        <menuitem id="unitext-28" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-29" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-30" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-31" oncommand="unitext.run(this)" />
+
+        <menuseparator/>
+        <menuseparator/>
 
         <menuitem id="unitext-17" oncommand="unitext.run(this)" />
         <menuitem id="unitext-18" oncommand="unitext.run(this)" />
@@ -65,6 +74,9 @@
         <menuitem id="unitext-24" oncommand="unitext.run(this)" />
         <menuitem id="unitext-25" oncommand="unitext.run(this)" />
         <menuitem id="unitext-26" oncommand="unitext.run(this)" />
+
+        <menuseparator/>
+        <menuseparator/>
 
         <menuitem id="unitext-32" oncommand="unitext.run(this)" />
         <menuitem id="unitext-33" oncommand="unitext.run(this)" />
