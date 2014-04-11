@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/"?>
+<?xml-stylesheet type="text/css" href="chrome://unitext/skin/skin.css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://unitext/locale/translations.dtd">
+
+<overlay id="unitext-browser-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="chrome://unitext/content/engine.js" />
+  <script type="application/x-javascript" src="chrome://unitext/content/charmap.json" />
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="unitext-string-bundle" src="chrome://unitext/locale/translations.properties" />
+  </stringbundleset>
+
+  <popup id="msgComposeContext">
+
+    <menu id="unitext" label="UniText" insertafter="context-selectall" class="menu-iconic" onpopupshowing="unitext.onPopupShowing()">
+      <menupopup>
+
+        <menuitem id="unitext-00" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-01" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-02" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-38" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-39" oncommand="unitext.run(this)" />
+
+        <menuitem id="unitext-28" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-29" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-30" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-31" oncommand="unitext.run(this)" />
+
+        <menu id="unitext-03">
+          <menupopup>
+            <menuitem id="unitext-03.1" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-03.2" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-03.3" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-03.4" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-03.5" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-03.6" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-03.7" oncommand="unitext.run(this)" />
+          </menupopup>
+        </menu>
+
+        <menu id="unitext-11">
+          <menupopup>
+            <menuitem id="unitext-11.1" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-11.2" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-11.3" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-11.4" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-11.5" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-11.6" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-11.7" oncommand="unitext.run(this)" />
+          </menupopup>
+        </menu>
+
+        <menuitem id="unitext-17" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-18" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-19" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-20" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-21" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-37" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-22" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-23" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-24" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-25" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-26" oncommand="unitext.run(this)" />
+
+        <menuitem id="unitext-32" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-33" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-34" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-35" oncommand="unitext.run(this)" />
+        <menuitem id="unitext-36" oncommand="unitext.run(this)" />
+
+      </menupopup>
+    </menu>
+
+  </popup>
+
+</overlay>

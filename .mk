@@ -1,17 +1,18 @@
 #!/bin/bash
 
-# UniText Unicode Character Style Replacer Mozilla Applications/Chrome Extension
+# UniText Unicode Character Style Replacer MozillaApps/Chrome Extension
 #
 # Arkanon <arkanon@lsd.org.br>
-# 0.0.3 - 2014/03/30 (Sun) 01:34:17 (BRS)
-#         2014/03/30 (Dom) 00:13:45 (BRS)
-#         2014/03/29 (Sat) 14:44:38 (BRS)
-# 0.0.2 - 2014/03/27 (Thu) 13:31:29 (BRS)
-# 0.0.1 - 2014/03/27 (Thu) 10:13:37 (BRS)
-#         2014/03/25 (Tue) 06:37:14 (BRS)
-#         2014/03/25 (Tue) 02:49:55 (BRS)
-#
-#
+# 0.3.331 - 2014/04/11 (Fri) 10:35:25 (BRS)
+#           2014/03/30 (Sun) 01:34:17 (BRS)
+#           2014/03/30 (Dom) 00:13:45 (BRS)
+#           2014/03/29 (Sat) 14:44:38 (BRS)
+# 0.2.109 - 2014/03/27 (Thu) 13:31:37 (BRS)
+# 0.1.72  - 2014/03/27 (Thu) 10:13:37 (BRS)
+#           2014/03/25 (Tue) 06:37:14 (BRS)
+#           2014/03/25 (Tue) 02:49:55 (BRS)
+
+
 # Status e versões
 #   <http://addons.mozilla.org/developers/addon/unitext/versions>
 #
@@ -20,40 +21,62 @@
 #
 # Estatísticas de download
 #   <http://addons.mozilla.org/firefox/addon/unitext/statistics/?last=30>
-#
-#
+
+
 # TODO
+
+#  -- palete unicode
+#  -- permitir criar palete personalizada
 #
-#  ok acrescentar os estilos leet básico, braille padrão, entre parênteses, circulado e fullwidth
+#  -- usar a seleção como exemplo no menu
+#  -- tornar configurável o uso da seleção como exemplo no menu
+#  -- acrescentar opção de copiar a seleção convertida apresentada como exemplo no menu para a área de transferência
+#
+#  -- subir os sub-menus Latin e Greek
+#  -- tornar a extensão restarless <http://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions>
+#  -- adicionar como submenu do menu Editar sem copiar todo o código XUL do menu
+#  -- fazer acentos com caracteres de combinação
+#  -- converter do estilo aplicado novamente para latino
+#  -- tornar configurável a conversão dos diacríticos
+#  -- usar a estrutura do array de estilos para montar o menu da extensão
+#  -- versão para o Chrome/Chromium
 #  -- acrescentar os estilos leet intermediário e avançado
+
+# HISTORY
+
+#  0.3.331
+#  ok acrescentar os estilos leet básico, braille padrão, entre parênteses, circulado e fullwidth
+#  ok função invertido
+#  ok função trocar caixa
 #  ok juntar os dígitos às letras de mesmo estilo no array charmap, quando existirem
 #  ok na conversão de letras com diacríticos para estilos sem o caracter equivalente, substituir pelo equivalente ASCII
-#  -- tornar configurável a conversão dos diacríticos
-#  -- na conversão para o estilo monoespaçado, utilizar o espaço ideográfico (U+3000)
-#  -- usar a estrutura do array de estilos para montar o menu da extensão
-#  -- usar os índices simbólicos do array de caracteres para montar a lista de opções no menu
-#  -- usar um label simples no locale e convertê-lo usando o script para o estilo em questão
-#  -- converter do estilo aplicado novamente para latin
-#  ok minificar o código JS
-#  -- tornar a extensão restarless <http://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions>
-#  -- versão para o Chrome
+#  ok na conversão para o estilo monoespaçado, substituir os espaços pelo caracter U+3000 (IDEOGRAPHIC SPACE) <http://www.cs.tut.fi/~jkorpela/chars/spaces.html>
+#  ok adicionar automaticamente ao lado da opção do menu uma string de exemplo no estilo em questão no locale em questão
+#  ok minificar o código JS (desabilitado por enquanto)
+#  ok locale para en-US
+#
 #     tornar compatível com
-#      ok SeaMonkey Browser <http://developer.mozilla.org/en-US/Add-ons/SeaMonkey_2>
-#      ok SeaMonkey HTML Editor
-#      ok SeaMonkey Message Composer
-#      -- Thunderbird Message Composer <http://developer.mozilla.org/en-US/Add-ons/Thunderbird>
-#  -- efeitos com caracteres de combinação:
+#      o- aparece o menu certo, mas não aplica                               Thunderbird Message Composer <http://developer.mozilla.org/en-US/Add-ons/Thunderbird>
+#      ok                                                                    SeaMonkey Browser <http://developer.mozilla.org/en-US/Add-ons/SeaMonkey_2>
+#      o- só aplica se o browser estiver aberto sem foco em campo editavel   SeaMonkey Message Composer
+#      -- o menu aparece mas sem os labels                                   SeaMonkey HTML Editor
+#
+#  ok efeitos com caracteres de combinação:
 #       U+0305 (COMBINING OVERLINE)
 #       U+0332 (COMBINING LOW LINE)
 #       U+0333 (COMBINING DOUBLE LOW LINE)
 #       U+0336 (COMBINING LONG STROKE OVERLAY)
 
+
 # <http://blog.mozilla.org/addons/2009/01/28/how-to-develop-a-firefox-extension/>
 # <http://robertnyman.com/2009/01/24/how-to-develop-a-firefox-extension/#comment-521990>
 # <http://developer.mozilla.org/en-US/Add-ons/Overlay_Extensions/XUL_School>
 
-# firefox   -new-instance -p devel &
-# seamonkey -new-instance -p devel &
+# firefox     -p devel -new-instance &
+# thunderbird -p devel -compose &
+# seamonkey   -p devel -browser &
+# seamonkey   -p devel -compose &
+# seamonkey   -p devel -edit    &
 
 # about:config
 #
@@ -71,7 +94,6 @@ EXT="unitext"
 EXT_id="$EXT@lsd.org.br"
 EXT_name="UniText"
 EXT_key="U"
-EXT_version="0.0.3"
 EXT_type="2"  # Extension
        # "4"  # Theme
        # "8"  # Locale
@@ -80,22 +102,26 @@ EXT_type="2"  # Extension
 EXT_creator="Arkanon"
 EXT_descr="Unicode Character Style Replacer"
 EXT_home="http://github.com/arkanon/unitext"
-EXT_locale="pt-BR"
+
+EXT_build=$(($(cat .build-number)+1)) # update build number
+EXT_major="0.3"
+EXT_version="$EXT_major.$EXT_build"
+echo $EXT_build >| .build-number
 
 
 
 # <http://addons.mozilla.org/firefox/pages/appversions/>
 
 EXT_ff_tgtApp_id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}" # Firefox
-EXT_ff_tgtApp_minVersion="3.0"
+EXT_ff_tgtApp_minVersion="20.0"
 EXT_ff_tgtApp_maxVersion="31.0"
 
 EXT_sm_tgtApp_id="{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}" # SeaMonkey
-EXT_sm_tgtApp_minVersion="1.0"
+EXT_sm_tgtApp_minVersion="2.0"
 EXT_sm_tgtApp_maxVersion="2.28"
 
 EXT_tb_tgtApp_id="{3550f703-e582-4d05-9a08-453d09bdfdc6}" # Thunderbird
-EXT_tb_tgtApp_minVersion="1.0"
+EXT_tb_tgtApp_minVersion="20.0"
 EXT_tb_tgtApp_maxVersion="31.0"
 
 # "{aa3c5121-dab2-40e2-81ca-7ea25febc110}" # Firefox for Android
@@ -103,12 +129,18 @@ EXT_tb_tgtApp_maxVersion="31.0"
 
 
 
-MINIFIER="java -jar .more/yuicompressor-2.4.8.jar --type"
+MINIFIER="java -jar ../more/yuicompressor-2.4.8.jar --type"
+
+
+
+mkdir -p src
+cd src
 
 
 
 mkdir -p content/
-mkdir -p locale/$EXT_locale/
+mkdir -p locale/pt-BR/
+mkdir -p locale/en-US/
 mkdir -p skin/
 
 
@@ -124,7 +156,8 @@ mkdir -p skin/
 cat << EOT >| chrome.manifest
 content   $EXT   content/
 content   $EXT   content/          contentaccessible=yes
-locale    $EXT   $EXT_locale             locale/$EXT_locale/
+locale    $EXT   pt-BR             locale/pt-BR/
+locale    $EXT   en-US             locale/en-US/
 skin      $EXT   classic/1.0       skin/
 
 style     chrome://global/content/customizeToolbar.xul                       chrome://$EXT/skin/skin.css
@@ -136,13 +169,13 @@ overlay   chrome://browser/content/browser.xul                               chr
 overlay   chrome://navigator/content/navigator.xul                           chrome://$EXT/content/firefox+seamonkey.xul   application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
 
 # SeaMonkey HTML Editor
-overlay   chrome://editor/content/editor.xul                                 chrome://$EXT/content/firefox+seamonkey.xul   application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+#overlay   chrome://editor/content/editor.xul                                 chrome://$EXT/content/firefox+seamonkey.xul   application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
 
 # Seamonkey Message Composer
-overlay   chrome://messenger/content/messengercompose/messengercompose.xul   chrome://$EXT/content/firefox+seamonkey.xul   application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+#overlay   chrome://messenger/content/messengercompose/messengercompose.xul   chrome://$EXT/content/firefox+seamonkey.xul   application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
 
 # Thunderbird Message Composer
-overlay   chrome://messenger/content/messengercompose/messengercompose.xul   chrome://$EXT/content/thunderbird.xul         application={3550f703-e582-4d05-9a08-453d09bdfdc6}
+#overlay   chrome://messenger/content/messengercompose/messengercompose.xul   chrome://$EXT/content/thunderbird.xul         application={3550f703-e582-4d05-9a08-453d09bdfdc6}
 
 # Thunderbird and Seamonkey Mail Main
 #overlay   chrome://messenger/content/messenger.xul                           chrome://$EXT/content/browser.xul
@@ -194,6 +227,7 @@ cat << EOT >| install.rdf
     </em:targetApplication>
 
     <!-- Thunderbird -->
+<!--
     <em:targetApplication>
       <Description>
         <em:id         >$EXT_tb_tgtApp_id</em:id>
@@ -201,6 +235,7 @@ cat << EOT >| install.rdf
         <em:maxVersion >$EXT_tb_tgtApp_maxVersion</em:maxVersion>
       </Description>
     </em:targetApplication>
+-->
 
   </Description>
 
@@ -230,48 +265,62 @@ do
 
   <popup id="$(echo $app | cut -d: -f2)">
 
-    <menu id="$EXT" label="&$EXT.label;" insertafter="context-selectall" class="menu-iconic">
+    <menu id="$EXT" label="$EXT_name" insertafter="context-selectall" class="menu-iconic" onpopupshowing="$EXT.onPopupShowing()">
       <menupopup>
-        <menuitem id="$EXT.00" label="&$EXT.00.label;" oncommand="$EXT.run('00')" />
-        <menuitem id="$EXT.01" label="&$EXT.01.label;" oncommand="$EXT.run('01')" />
-        <menuitem id="$EXT.02" label="&$EXT.02.label;" oncommand="$EXT.run('02')" />
-        <menuitem id="$EXT.28" label="&$EXT.28.label;" oncommand="$EXT.run('28')" />
-        <menuitem id="$EXT.29" label="&$EXT.29.label;" oncommand="$EXT.run('29')" />
-        <menuitem id="$EXT.30" label="&$EXT.30.label;" oncommand="$EXT.run('30')" />
-        <menuitem id="$EXT.31" label="&$EXT.31.label;" oncommand="$EXT.run('31')" />
-        <menuseparator/>
-        <menuseparator/>
-        <menuseparator/>
-    <!-- menuitem id="$EXT.03" label="&$EXT.03.label;" oncommand="$EXT.run('03')" / -->
-        <menuitem id="$EXT.04" label="&$EXT.04.label;" oncommand="$EXT.run('04')" />
-        <menuitem id="$EXT.05" label="&$EXT.05.label;" oncommand="$EXT.run('05')" />
-        <menuitem id="$EXT.06" label="&$EXT.06.label;" oncommand="$EXT.run('06')" />
-        <menuitem id="$EXT.07" label="&$EXT.07.label;" oncommand="$EXT.run('07')" />
-        <menuitem id="$EXT.08" label="&$EXT.08.label;" oncommand="$EXT.run('08')" />
-        <menuitem id="$EXT.09" label="&$EXT.09.label;" oncommand="$EXT.run('09')" />
-        <menuitem id="$EXT.10" label="&$EXT.10.label;" oncommand="$EXT.run('10')" />
-        <menuitem id="$EXT.11" label="&$EXT.11.label;" oncommand="$EXT.run('11')" />
-        <menuitem id="$EXT.12" label="&$EXT.12.label;" oncommand="$EXT.run('12')" />
-        <menuitem id="$EXT.13" label="&$EXT.13.label;" oncommand="$EXT.run('13')" />
-        <menuitem id="$EXT.14" label="&$EXT.14.label;" oncommand="$EXT.run('14')" />
-        <menuitem id="$EXT.15" label="&$EXT.15.label;" oncommand="$EXT.run('15')" />
-        <menuitem id="$EXT.16" label="&$EXT.16.label;" oncommand="$EXT.run('16')" />
-        <menuitem id="$EXT.17" label="&$EXT.17.label;" oncommand="$EXT.run('17')" />
-        <menuitem id="$EXT.18" label="&$EXT.18.label;" oncommand="$EXT.run('18')" />
-        <menuitem id="$EXT.19" label="&$EXT.19.label;" oncommand="$EXT.run('19')" />
-        <menuitem id="$EXT.20" label="&$EXT.20.label;" oncommand="$EXT.run('20')" />
-        <menuitem id="$EXT.21" label="&$EXT.21.label;" oncommand="$EXT.run('21')" />
-        <menuitem id="$EXT.22" label="&$EXT.22.label;" oncommand="$EXT.run('22')" />
-        <menuitem id="$EXT.23" label="&$EXT.23.label;" oncommand="$EXT.run('23')" />
-        <menuitem id="$EXT.24" label="&$EXT.24.label;" oncommand="$EXT.run('24')" />
-        <menuitem id="$EXT.25" label="&$EXT.25.label;" oncommand="$EXT.run('25')" />
-        <menuitem id="$EXT.26" label="&$EXT.26.label;" oncommand="$EXT.run('26')" />
-        <menuitem id="$EXT.27" label="&$EXT.27.label;" oncommand="$EXT.run('27')" />
-        <menuitem id="$EXT.32" label="&$EXT.32.label;" oncommand="$EXT.run('32')" />
-        <menuitem id="$EXT.33" label="&$EXT.33.label;" oncommand="$EXT.run('33')" />
-        <menuitem id="$EXT.34" label="&$EXT.34.label;" oncommand="$EXT.run('34')" />
-        <menuitem id="$EXT.35" label="&$EXT.35.label;" oncommand="$EXT.run('35')" />
-        <menuitem id="$EXT.36" label="&$EXT.36.label;" oncommand="$EXT.run('36')" />
+
+        <menuitem id="$EXT-00" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-01" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-02" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-38" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-39" oncommand="$EXT.run(this)" />
+
+        <menuitem id="$EXT-28" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-29" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-30" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-31" oncommand="$EXT.run(this)" />
+
+        <menu id="$EXT-03">
+          <menupopup>
+            <menuitem id="$EXT-03.1" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-03.2" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-03.3" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-03.4" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-03.5" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-03.6" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-03.7" oncommand="$EXT.run(this)" />
+          </menupopup>
+        </menu>
+
+        <menu id="$EXT-11">
+          <menupopup>
+            <menuitem id="$EXT-11.1" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-11.2" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-11.3" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-11.4" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-11.5" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-11.6" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-11.7" oncommand="$EXT.run(this)" />
+          </menupopup>
+        </menu>
+
+        <menuitem id="$EXT-17" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-18" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-19" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-20" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-21" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-37" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-22" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-23" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-24" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-25" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-26" oncommand="$EXT.run(this)" />
+
+        <menuitem id="$EXT-32" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-33" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-34" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-35" oncommand="$EXT.run(this)" />
+        <menuitem id="$EXT-36" oncommand="$EXT.run(this)" />
+
       </menupopup>
     </menu>
 
@@ -283,14 +332,31 @@ done
 
 
 
-cat << EOT >| .more/engine.js
+cat << EOT >| ../more/engine.js
 
-// $EXT_name namespace
-if ("undefined" == typeof($EXT_name)) var $EXT = {};
+if (typeof $EXT == 'undefined') var $EXT = {}; // $EXT_name namespace
 
 // Controls the browser overlay for the extension
 $EXT =
 {
+
+
+
+  \$ : function(id)
+  {
+    return document.getElementById(id);
+  },
+
+
+
+  onPopupShowing : function()
+  {
+    var strings = this.\$('$EXT-string-bundle');
+    var arr1    = Array.prototype.slice.call(this.\$('$EXT').getElementsByTagName('menuitem')); // <http://stackoverflow.com/a/222847>
+    var arr2    = Array.prototype.slice.call(this.\$('$EXT').getElementsByTagName('menu'    ));
+    for (var i in arr1) arr1[i].label = strings.getString(arr1[i].id) + ' (' + this.change(arr1[i].id.split('-')[1],strings.getString('$EXT-exemplo')) + ')';
+    for (var i in arr2) arr2[i].label = strings.getString(arr2[i].id);
+  },
 
 
 
@@ -299,7 +365,7 @@ $EXT =
     window.removeEventListener('load', this.onLoad, false);
     for (var i=0; i<this.defaultDiacriticsRemovalap.length; i++)
     {
-      var letters = this.defaultDiacriticsRemovalap[i][1].split("");
+      var letters = this.defaultDiacriticsRemovalap[i][1].split('');
       for (var j=0; j<letters.length; j++) this.diacriticsMap[letters[j]] = this.defaultDiacriticsRemovalap[i][0];
     }
   },
@@ -307,9 +373,18 @@ $EXT =
 
 
   removeDiacritics : function(str)
-  // "what?" version ... <http://jsperf.com/diacritics/12>
+  // 'what?' version ... <http://jsperf.com/diacritics/12>
   {
-    return str.replace( /[^\u0000-\u007E]/g, function(a) { return this.diacriticsMap[a] || a } );
+    return str.replace( /[^\u0000-\u007E]/g, function(a) { return $EXT.diacriticsMap[a] || a } );
+  },
+
+
+
+  addChar : function(str,char)
+  {
+    var newstr = '';
+    for (var i in str) newstr += str[i] + char;
+    return newstr;
   },
 
 
@@ -321,74 +396,132 @@ $EXT =
 
 
 
-  change : function(action, str)
+  swapCase : function(str)
+  {
+    var newstr = '';
+    for (var i in str) newstr += str[i] == str[i].toUpperCase() ? str[i].toLowerCase() : str[i].toUpperCase();
+    return newstr;
+  },
+
+
+
+  reverse : function(str)
+  // <http://stackoverflow.com/a/16776621>
+  // <http://mths.be/esrever> v0.1.0 by @mathias
+  // teste com 'foo 𝌆 bar mañana mañana'
+  // via [ str.split('').reverse().join('') ]: anãnam anañam rab �� oof
+  {
+
+    var regexSymbolWithCombiningMarks = /([\0-\u02FF\u0370-\u1DBF\u1E00-\u20CF\u2100-\uD7FF\uDC00-\uFE1F\uFE30-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF])([\u0300-\u036F\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F]+)/g;
+    var regexSurrogatePair            = /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g;
+
+    // step 1: deal with combining marks and astral symbols (surrogate pairs)
+    str = str
+      .replace // swap symbols with their combining marks so the combining marks go first
+      (
+        regexSymbolWithCombiningMarks,
+        function(\$0, \$1, \$2) { return $EXT.reverse(\$2) + \$1 } // reverse the combining marks so they will end up in the same order later on (after another round of reversing)
+      )
+      .replace(regexSurrogatePair, '\$2\$1'); // Swap high and low surrogates so the low surrogates go first
+
+    // step 2: reverse the code units in the string
+    var result = '';
+    var index  = str.length;
+    while (index--) result += str.charAt(index);
+    return result;
+
+  },
+
+
+
+  change : function(action,str)
   {
 
     var styles =
     {
-      '00' : 'MAIÚSCULO',
-      '01' : 'minúsculo',
-      '02' : 'Capital',
-      '28' : 'Sobrelinhado',
-      '29' : 'Sublinhado',
-      '30' : 'Sublinhado Duplo',
-      '31' : 'Tachado',
 
-      '03' : 'latin',
-      '04' : 'sem serifa',
-      '05' : 'sem serifa negrito',
-      '06' : 'sem serifa italico',
-      '07' : 'sem serifa negrito italico',
-      '08' : 'com serifa negrito',
-      '09' : 'com serifa italico',
-      '10' : 'com serifa negrito italico',
-      '11' : 'grego sem serifa',
-      '12' : 'grego sem serifa negrito',
-      '13' : 'grego sem serifa negrito italico',
-      '14' : 'grego com serifa negrito',
-      '15' : 'grego com serifa italico',
-      '16' : 'grego com serifa negrito italico',
-      '17' : 'gotico',
-      '18' : 'gotico negrito',
-      '19' : 'script',
-      '20' : 'script negrito',
-      '21' : 'virado',
-      '22' : 'duplo',
-      '23' : 'monoespacado',
-      '24' : 'superescrito',
-      '25' : 'subscrito',
-      '26' : 'small caps',
-      '27' : 'sublinhado',
-      '32' : 'braille padrao',
-      '33' : 'circulado',
-      '34' : 'entre parenteses',
-      '35' : 'fullwidth latin',
-      '36' : 'leet basico'
+      '00'   : 'maiusculo',
+      '01'   : 'minusculo',
+      '02'   : 'capital',
+      '38'   : 'invertido',
+      '39'   : 'trocar caixa',
+
+      '28'   : 'sobrelinhado',
+      '29'   : 'sublinhado',
+      '30'   : 'sublinhado duplo',
+      '31'   : 'tachado',
+
+      '03'   : 'latino',
+      '03.1' : 'sem serifa',
+      '03.2' : 'sem serifa negrito',
+      '03.3' : 'sem serifa italico',
+      '03.4' : 'sem serifa negrito italico',
+      '03.5' : 'com serifa negrito',
+      '03.6' : 'com serifa italico',
+      '03.7' : 'com serifa negrito italico',
+
+      '11'   : 'grego',
+      '11.1' : 'sem serifa',
+      '11.2' : 'sem serifa negrito',
+      '11.3' : 'sem serifa italico',
+      '11.4' : 'sem serifa negrito italico',
+      '11.5' : 'com serifa negrito',
+      '11.6' : 'com serifa italico',
+      '11.7' : 'com serifa negrito italico',
+
+      '17'   : 'gotico',
+      '18'   : 'gotico negrito',
+      '19'   : 'script',
+      '20'   : 'script negrito',
+      '21'   : 'virado',
+      '37'   : 'virado', // invertido
+      '22'   : 'duplo',
+      '23'   : 'monoespacado',
+      '24'   : 'superescrito',
+      '25'   : 'subscrito',
+      '26'   : 'small caps',
+
+      '32'   : 'braille padrao',
+      '33'   : 'circulado',
+      '34'   : 'entre parenteses',
+      '35'   : 'fullwidth latin',
+      '36'   : 'leet basico'
 
     }
 
     var newstr = '';
 
+         if (action=='37')    str = this.reverse(str);
+         if (action=='23')    str = str.replace(/ /g,'\u3000');
          if (action=='00') newstr = str.toUpperCase();
     else if (action=='01') newstr = str.toLowerCase();
     else if (action=='02') newstr = this.toTitleCase(str);
-    else if (action=='28') newstr = this.addChar(''); // sobrelinhado
-    else if (action=='29') newstr = this.addChar(''); // sublinhado
-    else if (action=='30') newstr = this.addChar(''); // sublinhado duplo
-    else if (action=='31') newstr = this.addChar(''); // tachado
+    else if (action=='38') newstr = this.reverse(str);
+    else if (action=='39') newstr = this.swapCase(str);
+    else if (action=='28') newstr = this.addChar(str,'\u0305'); // combining overline
+    else if (action=='29') newstr = this.addChar(str,'\u0332'); // combining low line
+    else if (action=='30') newstr = this.addChar(str,'\u0333'); // combining double low line
+    else if (action=='31') newstr = this.addChar(str,'\u0336'); // combining long stroke overlay
     else
     {
 
    // alert(JSON.stringify(this.diacriticsMap)); // só como exemplo. Pau no Firefox ao tentar mostrar string tão grande.
       str = this.removeDiacritics(str);
 
-      var style, chr;
-      var i = str.length;
-      while (i--)
+      var parent     = this.charmap[ 'letras' ];
+      var action_arr = action.split('.');
+      if ( action_arr.length > 1 ) parent = parent[ styles[action_arr[0]] ];
+
+      if ( Object.keys(parent).indexOf(styles[action]) > -1 )
       {
-        style  = this.charmap[ 'letras' ][ styles[action] ];
-        chr    = typeof  style[ str[i] ] != "undefined" ? style[ str[i] ][ 0 ] : str[i];
-        newstr = chr + newstr;
+        var chr;
+        var style = parent[ styles[action] ];
+        var i     = str.length;
+        while (i--)
+        {
+          chr    = typeof  style[ str[i] ] != "undefined" ? style[ str[i] ][ 0 ] : str[i];
+          newstr = chr + newstr;
+        }
       }
 
     }
@@ -399,22 +532,24 @@ $EXT =
 
 
 
-  run : function (action)
+  run : function(obj)
   {
 
-    var strings      = document.getElementById("$EXT-string-bundle");
+    var action       = obj.id.split('-')[1];
 
-    var wm           = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-    var mainWindow   = wm.getMostRecentWindow("navigator:browser");
+    var strings      = this.\$('$EXT-string-bundle');
+
+    var wm           = Components.classes['@mozilla.org/appshell/window-mediator;1'].getService(Components.interfaces.nsIWindowMediator);
+    var mainWindow   = wm.getMostRecentWindow('navigator:browser');
 
     var tabBrowser   = mainWindow.getBrowser();
     var doc          = tabBrowser.contentWindow.document;
 
     var el           = doc.activeElement;
 
-    alert(el.tagName);
+//  alert(el.tagName);
 
-    if ( el.tagName.toLowerCase() == "textarea" || el.tagName.toLowerCase() == "input" )
+    if ( el.tagName.toLowerCase() == 'textarea' || el.tagName.toLowerCase() == 'input' )
     {
       if (el.selectionStart != el.selectionEnd)
       {
@@ -432,14 +567,14 @@ $EXT =
       var editor = GetCurrentEditor();
       editor.beginTransaction();
 
-//    alert(strings.getString("$EXT.naoeditavel"));
+//    alert(strings.getString('$EXT-naoeditavel'));
 
-      let span         = doc.createElement("span");
-      var selectedtext = this.IsSelection();
-      alert(selectedtext);
+      let span         = doc.createElement('span');
+      var selectedtext = this.isSelection();
+//    alert(selectedtext);
 
       span.textContent = this.change(action, selectedtext);
-      alert(span.textContent);
+//    alert(span.textContent);
 
       // <https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/nsIHTMLEditor#insertElementAtSelection%28%29>
       editor.insertElementAtSelection(span, true);
@@ -450,8 +585,8 @@ $EXT =
 
 
 
-  //return the selected text if there is any
-  IsSelection: function()
+  isSelection : function()
+  // return selected text if there is any
   {
     var thisselection = document.commandDispatcher.focusedWindow.getSelection();
     var thistext = thisselection.toString();
@@ -463,63 +598,120 @@ $EXT =
 
 }
 
-window.addEventListener("load", function(e){ this.onLoad(e); }, false);
+window.addEventListener('load', function(e){ $EXT.onLoad(e); }, false);
 
 EOT
 
 
 
-cat << EOT >| locale/$EXT_locale/translations.dtd
+cat << EOT >| locale/pt-BR/translations.properties
 
-<!ENTITY $EXT.label    "$EXT_name"                        >
+$EXT-00   = Maiúsculo
+$EXT-01   = Minúsculo
+$EXT-02   = Capital
+$EXT-38   = Invertido
+$EXT-39   = Trocar Caixa
 
-<!ENTITY $EXT.00.label "MAIÚSCULO"                        >
-<!ENTITY $EXT.01.label "minúsculo"                        >
-<!ENTITY $EXT.02.label "Capital"                          >
+$EXT-28   = Sobrelinhado
+$EXT-29   = Sublinhado
+$EXT-30   = Sublinhado Duplo
+$EXT-31   = Tachado
 
-<!ENTITY $EXT.28.label "Sobrelinhado"                     >
-<!ENTITY $EXT.29.label "Sublinhado"                       >
-<!ENTITY $EXT.30.label "Sublinhado Duplo"                 >
-<!ENTITY $EXT.31.label "Tachado"                          >
+$EXT-03   = Latino
+$EXT-03.1 = Sem Serifa
+$EXT-03.2 = Sem Serifa Negrito
+$EXT-03.3 = Sem Serifa Itálico
+$EXT-03.4 = Sem Serifa Negrito Itálico
+$EXT-03.5 = Com Serifa Negrito
+$EXT-03.6 = Com Serifa Itálico
+$EXT-03.7 = Com Serifa Negrito Itálico
 
-<!ENTITY $EXT.03.label "Latin"                            >
-<!ENTITY $EXT.04.label "𝖲𝖾𝗆 𝖲𝖾𝗋𝗂𝖿𝖺"                       >
-<!ENTITY $EXT.05.label "𝗦𝗲𝗺 𝗦𝗲𝗿𝗶𝗳𝗮 𝗡𝗲𝗴𝗿𝗶𝘁𝗼"               >
-<!ENTITY $EXT.06.label "𝘚𝘦𝘮 𝘚𝘦𝘳𝘪𝘧𝘢 𝘐𝘵𝘢𝘭𝘪𝘤𝘰"               >
-<!ENTITY $EXT.07.label "𝙎𝙚𝙢 𝙎𝙚𝙧𝙞𝙛𝙖 𝙉𝙚𝙜𝙧𝙞𝙩𝙤 𝙄𝙩𝙖𝙡𝙞𝙘𝙤"       >
-<!ENTITY $EXT.08.label "𝐂𝐨𝐦 𝐒𝐞𝐫𝐢𝐟𝐚 𝐍𝐞𝐠𝐫𝐢𝐭𝐨"               >
-<!ENTITY $EXT.09.label "𝐶𝑜𝑚 𝑆𝑒𝑟𝑖𝑓𝑎 𝐼𝑡𝑎𝑙𝑖𝑐𝑜"               >
-<!ENTITY $EXT.10.label "𝑪𝒐𝒎 𝑺𝒆𝒓𝒊𝒇𝒂 𝑵𝒆𝒈𝒓𝒊𝒕𝒐 𝑰𝒕𝒂𝒍𝒊𝒄𝒐"       >
-<!ENTITY $EXT.11.label "Γρεγο Sem Serifa"                 >
-<!ENTITY $EXT.12.label "𝝘𝞀𝝴𝝲𝝾 Sem Serifa Negrito"         >
-<!ENTITY $EXT.13.label "𝞒𝞺𝞮𝞬𝞸 Sem Serifa Negrito Italico" >
-<!ENTITY $EXT.14.label "𝚪𝛒𝛆𝛄𝛐 Com Serifa Negrito"         >
-<!ENTITY $EXT.15.label "𝛤𝜌𝜀𝛾𝜊 Com Serifa Italico"         >
-<!ENTITY $EXT.16.label "𝜞𝝆𝜺𝜸𝝄 Com Serifa Negrito Italico" >
-<!ENTITY $EXT.17.label "𝔊𝔬𝔱𝔦𝔠𝔬"                           >
-<!ENTITY $EXT.18.label "𝕲𝖔𝖙𝖎𝖈𝖔 𝕹𝖊𝖌𝖗𝖎𝖙𝖔"                   >
-<!ENTITY $EXT.19.label "𝒮𝒸𝓇𝒾𝓅𝓉"                           >
-<!ENTITY $EXT.20.label "𝓢𝓬𝓻𝓲𝓹𝓽 𝓝𝓮𝓰𝓻𝓲𝓽𝓸"                   >
-<!ENTITY $EXT.21.label "Ʌᴉɹɐpo"                           >
-<!ENTITY $EXT.22.label "𝔻𝕦𝕡𝕝𝕠"                            >
-<!ENTITY $EXT.23.label "𝙼𝚘𝚗𝚘𝚎𝚜𝚙𝚊𝚌𝚊𝚍𝚊"                     >
-<!ENTITY $EXT.24.label "ˢᵘᵖᵉʳᵉˢᶜʳⁱᵗᵒ"                     >
-<!ENTITY $EXT.25.label "Sᵤ ₛ ᵣᵢₜₒ"                        >
-<!ENTITY $EXT.26.label "Sᴍᴀʟʟ Cᴀᴘꜱ"                       >
-<!ENTITY $EXT.27.label "Suḇḻiṉẖaḏo"                       >
+$EXT-11   = Grego
+$EXT-11.1 = Sem Serifa
+$EXT-11.2 = Sem Serifa Negrito
+$EXT-11.3 = Sem Serifa Itálico
+$EXT-11.4 = Sem Serifa Negrito Itálico
+$EXT-11.5 = Com Serifa Negrito
+$EXT-11.6 = Com Serifa Itálico
+$EXT-11.7 = Com Serifa Negrito Itálico
 
-<!ENTITY $EXT.32.label "⠠⠃⠗⠁⠊⠇⠇⠑ Padrao"                  >
-<!ENTITY $EXT.33.label "Ⓒⓘⓡⓒⓤⓛⓐⓓⓞ"                        >
-<!ENTITY $EXT.34.label "E⒩⒯⒭⒠ P⒜⒭⒠⒩⒯⒠⒮⒠⒮"                 >
-<!ENTITY $EXT.35.label "Ｆｕｌｌｗｉｄｔｈ Ｌａｔｉｎ"    >
-<!ENTITY $EXT.36.label "Leet 845!(0"                      >
+$EXT-17   = Gótico
+$EXT-18   = Gótico Negrito
+$EXT-19   = Script
+$EXT-20   = Script Negrito
+$EXT-21   = Virado
+$EXT-37   = Virado Invertido
+$EXT-22   = Duplo
+$EXT-23   = Monoespaçada
+$EXT-24   = Superescrito
+$EXT-25   = Subscrito
+$EXT-26   = Versalete
+
+$EXT-32   = Braille Padrão
+$EXT-33   = Circulado
+$EXT-34   = Entre Parênteses
+$EXT-35   = Latino Largura Completa
+$EXT-36   = Leet Básico
+
+$EXT-exemplo     = Exemplo
+$EXT-naoeditavel = Selecione texto em algum campo editável.
 
 EOT
 
 
 
-cat << EOT >| locale/$EXT_locale/translations.properties
-$EXT.naoeditavel = Selecione texto em algum campo editável.
+cat << EOT >| locale/en-US/translations.properties
+
+$EXT-00   = Upper Case
+$EXT-01   = Lower Case
+$EXT-02   = Capital
+$EXT-38   = Reversed
+$EXT-39   = Swap Case
+
+$EXT-28   = Overlined
+$EXT-29   = Underlined
+$EXT-30   = Double Underlined
+$EXT-31   = Strikeout
+
+$EXT-03   = Latin
+$EXT-03.1 = Sans Serif
+$EXT-03.2 = Sans Serif Bold
+$EXT-03.3 = Sans Serif Italic
+$EXT-03.4 = Sans Serif Bold Italic
+$EXT-03.5 = With Serif Bold
+$EXT-03.6 = With Serif Italic
+$EXT-03.7 = With Serif Bold Italic
+
+$EXT-11   = Greek
+$EXT-11.1 = Sans Serif
+$EXT-11.2 = Sans Serif Bold
+$EXT-11.3 = Sans Serif Italic
+$EXT-11.4 = Sans Serif Bold Italic
+$EXT-11.5 = With Serif Bold
+$EXT-11.6 = With Serif Italic
+$EXT-11.7 = With Serif Bold Italic
+
+$EXT-17   = Fraktur
+$EXT-18   = Bold Fraktur
+$EXT-19   = Script
+$EXT-20   = Bold Script
+$EXT-21   = Turned
+$EXT-37   = Reverse Turned
+$EXT-22   = Double-Struck
+$EXT-23   = Monospace
+$EXT-24   = Superscript
+$EXT-25   = Subscript
+$EXT-26   = Small Caps
+
+$EXT-32   = Standard Braille
+$EXT-33   = Circled
+$EXT-34   = Parenthesized
+$EXT-35   = Fullwidth Latin
+$EXT-36   = Basic Leet
+
+$EXT-exemplo     = Example
+$EXT-naoeditavel = Select text in some editable field.
+
 EOT
 
 
@@ -536,16 +728,16 @@ EOT
 
 
 # por enquanto, os campos índice 1 e 2 do mapa de caracteres não estão sendo usados
-cat .more/charmap.json | sed -r "s/(: *\[ *'[^']+') *, *'[^]]*]/\1 ]/g" >| .more/charmap0.json
+cat ../more/charmap.json | sed -r "s/(: *\[ *'[^']+') *, *'[^]]*]/\1 ]/g" >| ../more/charmap0.json
 
 echo
 
 for f in engine.js charmap0.json
 do
-  cp -a .more/$f content/$f
-# cat .more/$f | $MINIFIER js >| content/$f
+  cp -a ../more/$f content/$f
+# cat ../more/$f | $MINIFIER js >| content/$f
 # ft=%\'6d
-# s1=$(stat -c %s   .more/$f)
+# s1=$(stat -c %s ../more/$f)
 # s2=$(stat -c %s content/$f)
 # df=$(bc<<<"scale=9;100*(1-$s2/$s1)" | tr . ,)
 # export LC_NUMERIC=
@@ -553,27 +745,29 @@ do
 done
 
 mv content/charmap0.json content/charmap.json
-rm .more/charmap0.json
+rm ../more/charmap0.json
 
 
 
-rm      .extension/$EXT_name-$EXT_version.xpi
-zip -qr .extension/$EXT_name-$EXT_version.xpi *
-ln -fs             $EXT_name-$EXT_version.xpi .extension/$EXT_name.xpi
+rm      ../extension/$EXT_name-$EXT_major*
+zip -qr ../extension/$EXT_name-$EXT_version.xpi *
+ln -fs               $EXT_name-$EXT_version.xpi ../extension/$EXT_name.xpi
 
 ln -nfs ../.thunderbird $HOME/.mozilla/thunderbird
 for app in firefox seamonkey thunderbird
 do
-  mkdir -p                               $HOME/.mozilla/$app/devel/extensions/
-# echo   "$PWD/"                      >| $HOME/.mozilla/$app/devel/extensions/$EXT_id
-# ln -fs "$PWD/.extension/$EXT_name.xpi" $HOME/.mozilla/$app/devel/extensions/$EXT_id.xpi
-  cp -aL       .extension/$EXT_name.xpi  $HOME/.mozilla/$app/devel/extensions/$EXT_id.xpi
+  extdir=$HOME/.mozilla/$app/devel/extensions
+  mkdir -p                                 $extdir/
+  [ "$EXT_id" ] && rm $extdir/$EXT_id*
+# [ -e $extdir/$EXT_id ] || echo $PWD/ >|  $extdir/$EXT_id
+# ln -fs "$PWD/../extension/$EXT_name.xpi" $extdir/$EXT_id.xpi
+  cp -aL       ../extension/$EXT_name.xpi  $extdir/$EXT_id.xpi
 done
 
 
 
 f=$EXT_name-$EXT_version.xpi
-echo -e "\n$f: $(printf $ft $(stat -c %s .extension/$f))\n"
+echo -e "\n$f: $(printf $ft $(stat -c %s ../extension/$f))\n"
 
 
 

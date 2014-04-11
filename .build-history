@@ -1,0 +1,326 @@
+	2014/03/25 Ter 07:19:21 BRS  ./.mk
+	2014/03/25 Ter 07:25:41 BRS  ./.mk
+	2014/03/25 Ter 07:27:30 BRS  ./.mk
+	2014/03/25 Ter 07:30:44 BRS  ./.mk
+	2014/03/25 Ter 07:32:37 BRS  ./.mk
+	2014/03/25 Ter 07:33:12 BRS  ./.mk
+	2014/03/25 Ter 07:43:00 BRS  skin//.mk
+	2014/03/25 Ter 07:43:05 BRS  ./.mk
+	2014/03/25 Ter 07:45:14 BRS  ./.mk
+	2014/03/25 Ter 07:51:04 BRS  ./.mk
+	2014/03/25 Ter 08:01:52 BRS  ./.mk
+	2014/03/25 Ter 08:01:56 BRS  ./.mk
+	2014/03/25 Ter 08:02:03 BRS  ./.mk
+	2014/03/25 Ter 08:08:27 BRS  ./.mk
+	2014/03/25 Ter 08:12:37 BRS  ./.mk
+	2014/03/25 Ter 08:24:11 BRS  ./.mk
+	2014/03/25 Ter 08:25:40 BRS  ./.mk
+	2014/03/25 Ter 08:30:01 BRS  ./.mk
+	2014/03/25 Ter 08:31:11 BRS  ./.mk
+	2014/03/25 Ter 08:32:11 BRS  ./.mk
+	2014/03/25 Ter 08:40:50 BRS  ./.mk
+	2014/03/25 Ter 08:44:47 BRS  ./.mk
+	2014/03/25 Ter 08:48:50 BRS  ./.mk
+	2014/03/25 Ter 08:50:43 BRS  ./.mk
+	2014/03/25 Ter 08:51:48 BRS  ./.mk
+	2014/03/25 Ter 09:05:35 BRS  ./.mk
+	2014/03/25 Ter 09:07:31 BRS  ./.mk
+	2014/03/25 Ter 09:08:39 BRS  ./.mk
+	2014/03/25 Ter 09:13:39 BRS  ./.mk
+	2014/03/25 Ter 09:14:41 BRS  ./.mk
+	2014/03/25 Ter 09:19:44 BRS  ./.mk
+	2014/03/25 Ter 10:16:05 BRS  ./.mk
+	2014/03/25 Ter 10:17:15 BRS  ./.mk
+	2014/03/25 Ter 10:18:12 BRS  ./.mk
+	2014/03/25 Ter 10:22:44 BRS  ./.mk
+	2014/03/25 Ter 10:28:12 BRS  ./.mk
+	2014/03/25 Ter 10:28:59 BRS  ./.mk
+	2014/03/25 Ter 10:58:51 BRS  ./.mk
+	2014/03/25 Ter 10:59:54 BRS  ./.mk
+	2014/03/25 Ter 11:00:51 BRS  ./.mk
+	2014/03/25 Ter 11:01:14 BRS  ./.mk
+	2014/03/25 Ter 11:03:57 BRS  ./.mk
+	2014/03/27 Qui 07:47:43 BRS  ./.mk
+	2014/03/27 Qui 07:52:08 BRS  ./.mk
+	2014/03/27 Qui 07:53:33 BRS  ./.mk
+	2014/03/27 Qui 08:17:17 BRS  ./.mk
+	2014/03/27 Qui 08:51:03 BRS  ./.mk
+	2014/03/27 Qui 08:52:07 BRS  ./.mk
+	2014/03/27 Qui 08:52:32 BRS  ./.mk
+	2014/03/27 Qui 08:54:53 BRS  ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:00:28 BRS  ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:01:14 BRS  ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:03:14 BRS  ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:04:08 BRS  ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:05:41 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:07:27 BRS  ./.mk
+	2014/03/27 Qui 09:08:24 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:11:15 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:12:16 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:12:24 BRS  clear; ./.mk; firefox -new-instance -p devel &ç
+	2014/03/27 Qui 09:24:02 BRS  clear; ./.mk; firefox -new-instance -p devel &ç
+	2014/03/27 Qui 09:26:56 BRS  clear; ./.mk; firefox -new-instance -p devel &ç
+	2014/03/27 Qui 09:29:22 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:41:53 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:46:14 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:47:50 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:52:16 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:54:44 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 09:58:12 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 10:00:23 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 10:05:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
+0.1.72	2014/03/27 Qui 10:10:56 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 10:17:10 BRS  ./.mk
+	2014/03/27 Qui 10:17:20 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 10:30:04 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 10:32:24 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 10:34:44 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 10:38:48 BRS  ./.mk
+	2014/03/27 Qui 10:39:52 BRS  ./.mk
+	2014/03/27 Qui 10:39:56 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 10:41:33 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 10:50:16 BRS  ./.mk
+	2014/03/27 Qui 11:06:57 BRS  ./.mk
+	2014/03/27 Qui 11:08:13 BRS  ./.mk
+	2014/03/27 Qui 11:09:32 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:20:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:22:47 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:25:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:26:46 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:32:22 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:33:56 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:34:01 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:35:36 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:38:05 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:46:17 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:47:31 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 11:49:19 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 12:03:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 12:04:50 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 12:07:35 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 12:07:58 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 12:08:54 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 12:10:35 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 12:12:08 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/27 Qui 12:23:45 BRS  ./.mk
+	2014/03/27 Qui 13:06:08 BRS  ./.mk
+	2014/03/27 Qui 13:06:15 BRS  ./.mk
+	2014/03/27 Qui 13:30:51 BRS  ./.mk
+0.2.109	2014/03/27 Qui 13:31:37 BRS  ./.mk
+	2014/03/29 Sáb 05:48:32 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 05:49:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 05:49:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 05:57:57 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 06:10:37 BRS  ./.mk
+	2014/03/29 Sáb 06:11:18 BRS  ./.mk
+	2014/03/29 Sáb 06:12:26 BRS  ./.mk
+	2014/03/29 Sáb 06:12:50 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 06:14:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 06:15:50 BRS  ./.mk
+	2014/03/29 Sáb 06:16:56 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 06:17:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 06:55:37 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 06:58:50 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 07:04:44 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 07:54:26 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 08:09:33 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 09:41:27 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 10:34:10 BRS  ./.mk
+	2014/03/29 Sáb 10:51:51 BRS  .mk
+	2014/03/29 Sáb 10:52:13 BRS  .mk
+	2014/03/29 Sáb 10:52:31 BRS  .mk
+	2014/03/29 Sáb 10:52:56 BRS  .mk
+	2014/03/29 Sáb 10:54:33 BRS  .mk
+	2014/03/29 Sáb 10:55:15 BRS  .mk
+	2014/03/29 Sáb 10:59:59 BRS  .mk
+	2014/03/29 Sáb 11:00:27 BRS  .mk
+	2014/03/29 Sáb 11:01:09 BRS  .mk
+	2014/03/29 Sáb 11:01:41 BRS  .mk
+	2014/03/29 Sáb 11:01:58 BRS  .mk
+	2014/03/29 Sáb 11:02:21 BRS  .mk
+	2014/03/29 Sáb 11:02:34 BRS  .mk
+	2014/03/29 Sáb 11:03:25 BRS  .mk
+	2014/03/29 Sáb 11:04:18 BRS  .mk
+	2014/03/29 Sáb 11:04:34 BRS  .mk
+	2014/03/29 Sáb 11:08:44 BRS  .mk
+	2014/03/29 Sáb 11:08:59 BRS  .mk
+	2014/03/29 Sáb 11:09:40 BRS  .mk
+	2014/03/29 Sáb 11:10:09 BRS  .mk
+	2014/03/29 Sáb 11:12:42 BRS  .mk
+	2014/03/29 Sáb 11:14:42 BRS  .mk
+	2014/03/29 Sáb 11:15:07 BRS  .mk
+	2014/03/29 Sáb 11:16:02 BRS  .mk
+	2014/03/29 Sáb 11:26:29 BRS  ./.mk
+	2014/03/29 Sáb 11:27:33 BRS  ./.mk
+	2014/03/29 Sáb 11:27:47 BRS  ./.mk
+	2014/03/29 Sáb 11:28:10 BRS  ./.mk
+	2014/03/29 Sáb 11:28:26 BRS  ./.mk
+	2014/03/29 Sáb 11:28:56 BRS  ./.mk
+	2014/03/29 Sáb 11:45:06 BRS  ./.mk
+	2014/03/29 Sáb 11:46:44 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 11:50:14 BRS  ./.mk
+	2014/03/29 Sáb 11:50:41 BRS  ./.mk
+	2014/03/29 Sáb 11:51:03 BRS  ./.mk
+	2014/03/29 Sáb 11:52:17 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 12:30:22 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 12:36:59 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 12:40:01 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 12:42:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 12:44:52 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 12:47:40 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 12:51:46 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 12:52:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 12:53:58 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 14:04:53 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 14:12:19 BRS  clear; ./.mk; seamonkey &
+	2014/03/29 Sáb 14:16:43 BRS  clear; ./.mk; seamonkey &
+	2014/03/29 Sáb 14:23:41 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 14:28:02 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 14:31:54 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 14:38:24 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 14:50:29 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 15:05:12 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 15:07:54 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 15:12:39 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 15:17:29 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 15:19:20 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 16:07:23 BRS  ./.mk
+	2014/03/29 Sáb 16:08:10 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 16:15:03 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 16:24:02 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 16:37:55 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 16:40:43 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 16:41:22 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 16:43:06 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 16:46:03 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 16:47:54 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 16:49:22 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 16:53:28 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/03/29 Sáb 16:55:45 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/29 Sáb 17:05:49 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 17:06:52 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 17:10:38 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 17:18:22 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 18:49:46 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 18:54:28 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 19:31:04 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 19:39:56 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 20:01:13 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 20:29:09 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 20:34:28 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 21:45:13 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 21:48:02 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 22:06:56 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 22:07:30 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 22:08:52 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 22:09:22 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 23:29:07 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 23:32:59 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 23:50:36 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 23:57:09 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/29 Sáb 23:59:04 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/30 Dom 00:01:30 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/30 Dom 00:06:43 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/30 Dom 00:13:47 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
+	2014/03/30 Dom 00:33:58 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
+	2014/03/30 Dom 01:35:12 BRS  ./.mk
+	2014/04/10 Qui 20:39:54 BRS  ./.mk
+	2014/04/10 Qui 20:41:33 BRS  ./.mk
+	2014/04/10 Qui 20:43:14 BRS  ./.mk
+	2014/04/10 Qui 20:44:00 BRS  ./.mk
+	2014/04/10 Qui 21:20:32 BRS  ./.mk
+	2014/04/10 Qui 22:35:24 BRS  ./.mk
+	2014/04/10 Qui 22:37:59 BRS  ./.mk
+	2014/04/10 Qui 22:54:01 BRS  ./.mk
+	2014/04/10 Qui 23:02:06 BRS  ./.mk
+	2014/04/10 Qui 23:15:42 BRS  ./.mk
+	2014/04/10 Qui 23:18:59 BRS  ./.mk
+	2014/04/10 Qui 23:25:08 BRS  ./.mk
+	2014/04/10 Qui 23:25:18 BRS  ./.mk
+	2014/04/10 Qui 23:32:42 BRS  ./.mk
+	2014/04/10 Qui 23:39:09 BRS  ./.mk
+	2014/04/10 Qui 23:48:21 BRS  ./.mk
+	2014/04/10 Qui 23:54:54 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 00:03:30 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 00:09:48 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 00:39:34 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 00:41:52 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 00:46:14 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 01:04:06 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 01:05:11 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 01:33:57 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 01:35:18 BRS  ./.mk
+	2014/04/11 Sex 01:35:24 BRS  ./.mk
+	2014/04/11 Sex 01:36:43 BRS  ./.mk
+	2014/04/11 Sex 01:36:47 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 01:38:47 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 01:43:22 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 01:47:15 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 02:31:04 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 02:34:28 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 02:36:33 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 02:37:51 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 02:38:05 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 02:43:47 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 02:50:38 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 02:53:26 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 02:57:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:01:41 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:03:19 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:03:29 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:08:03 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:15:53 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:18:35 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:20:46 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:23:45 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:25:37 BRS  clear; ./.mk; firefox -silent -new-instance -p devel &
+	2014/04/11 Sex 03:26:14 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:31:44 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:34:10 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:38:37 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 03:43:07 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 04:22:19 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 04:24:33 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 04:37:27 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 04:39:47 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 04:41:58 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 04:46:07 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 04:50:24 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 04:51:30 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 04:59:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 05:05:53 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 05:09:09 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 05:12:54 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 05:33:58 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 05:38:08 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 05:38:26 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 05:45:18 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 06:18:51 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 06:21:05 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 06:24:54 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 06:26:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 06:29:30 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 06:32:05 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 06:35:24 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 06:41:09 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 06:43:46 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 07:24:02 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 07:28:35 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 07:31:05 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 07:32:51 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 07:33:41 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 07:35:35 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 07:36:56 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 07:37:03 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 07:45:15 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 07:49:18 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 08:14:29 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 08:15:36 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 08:16:41 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 08:19:34 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 08:23:02 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 08:37:37 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 09:16:27 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 09:41:18 BRS  clear; ./.mk; firefox -new-instance -p devel &
+	2014/04/11 Sex 09:46:06 BRS  clear; ./.mk; firefox -new-instance -p devel &
+0.3.326	2014/04/11 Sex 09:48:06 BRS  clear; ./.mk; firefox -new-instance -p devel &
