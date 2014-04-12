@@ -121,18 +121,22 @@ unitext =
       '03.2' : 'sem serifa negrito',
       '03.3' : 'sem serifa italico',
       '03.4' : 'sem serifa negrito italico',
-      '03.5' : 'com serifa negrito',
-      '03.6' : 'com serifa italico',
-      '03.7' : 'com serifa negrito italico',
+      '03.5' : 'com serifa',
+      '03.6' : 'com serifa negrito',
+      '03.7' : 'com serifa italico',
+      '03.8' : 'com serifa negrito italico',
+      '03.9' : 'fullwidth',
 
       '11'   : 'grego',
       '11.1' : 'sem serifa',
       '11.2' : 'sem serifa negrito',
       '11.3' : 'sem serifa italico',
       '11.4' : 'sem serifa negrito italico',
-      '11.5' : 'com serifa negrito',
-      '11.6' : 'com serifa italico',
-      '11.7' : 'com serifa negrito italico',
+      '11.5' : 'com serifa',
+      '11.6' : 'com serifa negrito',
+      '11.7' : 'com serifa italico',
+      '11.8' : 'com serifa negrito italico',
+      '11.9' : 'fullwidth',
 
       '17'   : 'gotico',
       '18'   : 'gotico negrito',
@@ -149,7 +153,6 @@ unitext =
       '32'   : 'braille padrao',
       '33'   : 'circulado',
       '34'   : 'entre parenteses',
-      '35'   : 'fullwidth latin',
       '36'   : 'leet basico'
 
     }

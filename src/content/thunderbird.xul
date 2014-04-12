@@ -25,9 +25,11 @@
             <menuitem id="unitext-03.2" oncommand="unitext.run(this)" />
             <menuitem id="unitext-03.3" oncommand="unitext.run(this)" />
             <menuitem id="unitext-03.4" oncommand="unitext.run(this)" />
-            <menuitem id="unitext-03.5" oncommand="unitext.run(this)" />
+         <!--menuitem id="unitext-03.5" oncommand="unitext.run(this)" /-->
             <menuitem id="unitext-03.6" oncommand="unitext.run(this)" />
             <menuitem id="unitext-03.7" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-03.8" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-03.9" oncommand="unitext.run(this)" />
           </menupopup>
         </menu>
 
@@ -37,13 +39,14 @@
             <menuitem id="unitext-11.2" oncommand="unitext.run(this)" />
          <!--menuitem id="unitext-11.3" oncommand="unitext.run(this)" /-->
             <menuitem id="unitext-11.4" oncommand="unitext.run(this)" />
-            <menuitem id="unitext-11.5" oncommand="unitext.run(this)" />
+         <!--menuitem id="unitext-11.5" oncommand="unitext.run(this)" /-->
             <menuitem id="unitext-11.6" oncommand="unitext.run(this)" />
             <menuitem id="unitext-11.7" oncommand="unitext.run(this)" />
+            <menuitem id="unitext-11.8" oncommand="unitext.run(this)" />
+         <!--menuitem id="unitext-11.9" oncommand="unitext.run(this)" /-->
           </menupopup>
         </menu>
 
-        <menuseparator/>
         <menuseparator/>
 
         <menuitem id="unitext-00" oncommand="unitext.run(this)" />
@@ -53,14 +56,12 @@
         <menuitem id="unitext-39" oncommand="unitext.run(this)" />
 
         <menuseparator/>
-        <menuseparator/>
 
         <menuitem id="unitext-28" oncommand="unitext.run(this)" />
         <menuitem id="unitext-29" oncommand="unitext.run(this)" />
         <menuitem id="unitext-30" oncommand="unitext.run(this)" />
         <menuitem id="unitext-31" oncommand="unitext.run(this)" />
 
-        <menuseparator/>
         <menuseparator/>
 
         <menuitem id="unitext-17" oncommand="unitext.run(this)" />
@@ -76,12 +77,10 @@
         <menuitem id="unitext-26" oncommand="unitext.run(this)" />
 
         <menuseparator/>
-        <menuseparator/>
 
         <menuitem id="unitext-32" oncommand="unitext.run(this)" />
         <menuitem id="unitext-33" oncommand="unitext.run(this)" />
         <menuitem id="unitext-34" oncommand="unitext.run(this)" />
-        <menuitem id="unitext-35" oncommand="unitext.run(this)" />
         <menuitem id="unitext-36" oncommand="unitext.run(this)" />
 
       </menupopup>

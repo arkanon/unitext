@@ -3,6 +3,7 @@
 # UniText Unicode Character Style Replacer MozillaApps/Chrome Extension
 #
 # Arkanon <arkanon@lsd.org.br>
+# 0.3.335 - 2014/04/11 (Fri) 23:55:09 (BRS)
 # 0.3.333 - 2014/04/11 (Fri) 11:49:52 (BRS)
 #           2014/03/30 (Sun) 01:34:17 (BRS)
 #           2014/03/30 (Dom) 00:13:45 (BRS)
@@ -25,13 +26,17 @@
 
 # TODO
 
-#  -- deixar apenas uma tag separadora no menu
-#  -- não está gerando direito os labels pelo windows
-#
+#  -- caracteres unicode totalmente incompletos no xp (mesmo com fontes com suporte a leste asiático instaladas)
+#  -- não gera direito os labels no windows 8
 #  -- não funciona na edição de arquivos do GitHub
+#
+#     tornar compatível com
+#     o- aparece o menu certo, mas não aplica                               Thunderbird Message Composer <http://developer.mozilla.org/en-US/Add-ons/Thunderbird>
+#     o- só aplica se o browser estiver aberto sem foco em campo editavel   SeaMonkey Message Composer
+#     -- o menu aparece mas sem os labels                                   SeaMonkey HTML Editor
+#
 #  -- adicionar como submenu do menu Editar sem copiar todo o código XUL do menu
 #  -- adicionar como botões de ferramentas no campo textarea.
-#  -- mover 'fullwidth latin' para submenu 'latin'
 #
 #  -- palete unicode
 #  -- permitir criar palete personalizada
@@ -50,6 +55,10 @@
 
 # HISTORY
 
+#  0.3.335
+#  ok deixar apenas uma tag separando os grupos no menu
+#  ok mover 'fullwidth latin' para submenu 'latin'
+
 #  0.3.333
 #  ok subir os sub-menus Latin e Greek
 #  ok remover opção inativa de 'grego sem serifa itálico'
@@ -62,13 +71,7 @@
 #  ok adicionar automaticamente ao lado da opção do menu uma string de exemplo no estilo em questão no locale em questão
 #  ok minificar o código JS (desabilitado por enquanto)
 #  ok locale para en-US
-#
-#     tornar compatível com
-#      o- aparece o menu certo, mas não aplica                               Thunderbird Message Composer <http://developer.mozilla.org/en-US/Add-ons/Thunderbird>
-#      ok                                                                    SeaMonkey Browser <http://developer.mozilla.org/en-US/Add-ons/SeaMonkey_2>
-#      o- só aplica se o browser estiver aberto sem foco em campo editavel   SeaMonkey Message Composer
-#      -- o menu aparece mas sem os labels                                   SeaMonkey HTML Editor
-#
+#  ok compatível com SeaMonkey Browser <http://developer.mozilla.org/en-US/Add-ons/SeaMonkey_2>
 #  ok efeitos com caracteres de combinação:
 #       U+0305 (COMBINING OVERLINE)
 #       U+0332 (COMBINING LOW LINE)
@@ -282,9 +285,11 @@ do
             <menuitem id="$EXT-03.2" oncommand="$EXT.run(this)" />
             <menuitem id="$EXT-03.3" oncommand="$EXT.run(this)" />
             <menuitem id="$EXT-03.4" oncommand="$EXT.run(this)" />
-            <menuitem id="$EXT-03.5" oncommand="$EXT.run(this)" />
+         <!--menuitem id="$EXT-03.5" oncommand="$EXT.run(this)" /-->
             <menuitem id="$EXT-03.6" oncommand="$EXT.run(this)" />
             <menuitem id="$EXT-03.7" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-03.8" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-03.9" oncommand="$EXT.run(this)" />
           </menupopup>
         </menu>
 
@@ -294,13 +299,14 @@ do
             <menuitem id="$EXT-11.2" oncommand="$EXT.run(this)" />
          <!--menuitem id="$EXT-11.3" oncommand="$EXT.run(this)" /-->
             <menuitem id="$EXT-11.4" oncommand="$EXT.run(this)" />
-            <menuitem id="$EXT-11.5" oncommand="$EXT.run(this)" />
+         <!--menuitem id="$EXT-11.5" oncommand="$EXT.run(this)" /-->
             <menuitem id="$EXT-11.6" oncommand="$EXT.run(this)" />
             <menuitem id="$EXT-11.7" oncommand="$EXT.run(this)" />
+            <menuitem id="$EXT-11.8" oncommand="$EXT.run(this)" />
+         <!--menuitem id="$EXT-11.9" oncommand="$EXT.run(this)" /-->
           </menupopup>
         </menu>
 
-        <menuseparator/>
         <menuseparator/>
 
         <menuitem id="$EXT-00" oncommand="$EXT.run(this)" />
@@ -310,14 +316,12 @@ do
         <menuitem id="$EXT-39" oncommand="$EXT.run(this)" />
 
         <menuseparator/>
-        <menuseparator/>
 
         <menuitem id="$EXT-28" oncommand="$EXT.run(this)" />
         <menuitem id="$EXT-29" oncommand="$EXT.run(this)" />
         <menuitem id="$EXT-30" oncommand="$EXT.run(this)" />
         <menuitem id="$EXT-31" oncommand="$EXT.run(this)" />
 
-        <menuseparator/>
         <menuseparator/>
 
         <menuitem id="$EXT-17" oncommand="$EXT.run(this)" />
@@ -333,12 +337,10 @@ do
         <menuitem id="$EXT-26" oncommand="$EXT.run(this)" />
 
         <menuseparator/>
-        <menuseparator/>
 
         <menuitem id="$EXT-32" oncommand="$EXT.run(this)" />
         <menuitem id="$EXT-33" oncommand="$EXT.run(this)" />
         <menuitem id="$EXT-34" oncommand="$EXT.run(this)" />
-        <menuitem id="$EXT-35" oncommand="$EXT.run(this)" />
         <menuitem id="$EXT-36" oncommand="$EXT.run(this)" />
 
       </menupopup>
@@ -476,18 +478,22 @@ $EXT =
       '03.2' : 'sem serifa negrito',
       '03.3' : 'sem serifa italico',
       '03.4' : 'sem serifa negrito italico',
-      '03.5' : 'com serifa negrito',
-      '03.6' : 'com serifa italico',
-      '03.7' : 'com serifa negrito italico',
+      '03.5' : 'com serifa',
+      '03.6' : 'com serifa negrito',
+      '03.7' : 'com serifa italico',
+      '03.8' : 'com serifa negrito italico',
+      '03.9' : 'fullwidth',
 
       '11'   : 'grego',
       '11.1' : 'sem serifa',
       '11.2' : 'sem serifa negrito',
       '11.3' : 'sem serifa italico',
       '11.4' : 'sem serifa negrito italico',
-      '11.5' : 'com serifa negrito',
-      '11.6' : 'com serifa italico',
-      '11.7' : 'com serifa negrito italico',
+      '11.5' : 'com serifa',
+      '11.6' : 'com serifa negrito',
+      '11.7' : 'com serifa italico',
+      '11.8' : 'com serifa negrito italico',
+      '11.9' : 'fullwidth',
 
       '17'   : 'gotico',
       '18'   : 'gotico negrito',
@@ -504,7 +510,6 @@ $EXT =
       '32'   : 'braille padrao',
       '33'   : 'circulado',
       '34'   : 'entre parenteses',
-      '35'   : 'fullwidth latin',
       '36'   : 'leet basico'
 
     }
@@ -642,18 +647,22 @@ $EXT-03.1 = Sem Serifa
 $EXT-03.2 = Sem Serifa Negrito
 $EXT-03.3 = Sem Serifa Itálico
 $EXT-03.4 = Sem Serifa Negrito Itálico
-$EXT-03.5 = Com Serifa Negrito
-$EXT-03.6 = Com Serifa Itálico
-$EXT-03.7 = Com Serifa Negrito Itálico
+$EXT-03.5 = Com Serifa
+$EXT-03.6 = Com Serifa Negrito
+$EXT-03.7 = Com Serifa Itálico
+$EXT-03.8 = Com Serifa Negrito Itálico
+$EXT-03.9 = Largura Completa
 
 $EXT-11   = Grego
 $EXT-11.1 = Sem Serifa
 $EXT-11.2 = Sem Serifa Negrito
 $EXT-11.3 = Sem Serifa Itálico
 $EXT-11.4 = Sem Serifa Negrito Itálico
-$EXT-11.5 = Com Serifa Negrito
-$EXT-11.6 = Com Serifa Itálico
-$EXT-11.7 = Com Serifa Negrito Itálico
+$EXT-11.5 = Com Serifa
+$EXT-11.6 = Com Serifa Negrito
+$EXT-11.7 = Com Serifa Itálico
+$EXT-11.8 = Com Serifa Negrito Itálico
+$EXT-11.9 = Largura Completa
 
 $EXT-17   = Gótico
 $EXT-18   = Gótico Negrito
@@ -670,7 +679,6 @@ $EXT-26   = Versalete
 $EXT-32   = Braille Padrão
 $EXT-33   = Circulado
 $EXT-34   = Entre Parênteses
-$EXT-35   = Latino Largura Completa
 $EXT-36   = Leet Básico
 
 $EXT-exemplo     = Exemplo
@@ -698,18 +706,22 @@ $EXT-03.1 = Sans Serif
 $EXT-03.2 = Sans Serif Bold
 $EXT-03.3 = Sans Serif Italic
 $EXT-03.4 = Sans Serif Bold Italic
-$EXT-03.5 = With Serif Bold
-$EXT-03.6 = With Serif Italic
-$EXT-03.7 = With Serif Bold Italic
+$EXT-03.5 = With Serif
+$EXT-03.6 = With Serif Bold
+$EXT-03.7 = With Serif Italic
+$EXT-03.8 = With Serif Bold Italic
+$EXT-03.9 = Fullwidth
 
 $EXT-11   = Greek
 $EXT-11.1 = Sans Serif
 $EXT-11.2 = Sans Serif Bold
 $EXT-11.3 = Sans Serif Italic
 $EXT-11.4 = Sans Serif Bold Italic
-$EXT-11.5 = With Serif Bold
-$EXT-11.6 = With Serif Italic
-$EXT-11.7 = With Serif Bold Italic
+$EXT-11.5 = With Serif
+$EXT-11.6 = With Serif Bold
+$EXT-11.7 = With Serif Italic
+$EXT-11.8 = With Serif Bold Italic
+$EXT-11.9 = Fullwidth
 
 $EXT-17   = Fraktur
 $EXT-18   = Bold Fraktur
@@ -726,7 +738,6 @@ $EXT-26   = Small Caps
 $EXT-32   = Standard Braille
 $EXT-33   = Circled
 $EXT-34   = Parenthesized
-$EXT-35   = Fullwidth Latin
 $EXT-36   = Basic Leet
 
 $EXT-exemplo     = Example
