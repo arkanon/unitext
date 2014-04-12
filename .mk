@@ -25,6 +25,7 @@
 
 # TODO
 
+#  -- deixar apenas uma tag separadora no menu
 #  -- não está gerando direito os labels pelo windows
 #
 #  -- não funciona na edição de arquivos do GitHub
