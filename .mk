@@ -172,6 +172,7 @@ mkdir -p skin/
 # <http://developer.mozilla.org/en-US/Add-ons/Performance_best_practices_in_extensions>
 # <http://developer.mozilla.org/en-US/Add-ons/Security_best_practices_in_extensions>
 # <http://adblockplus.org/blog/web-pages-accessing-chrome-is-forbidden>
+# <http://flagfox.wordpress.com/2014/01/19/writing-restartless-addons/>
 
 
 
@@ -232,7 +233,7 @@ cat << EOT >| install.rdf
     <em:homepageURL >$EXT_home</em:homepageURL>
     <em:iconURL     >chrome://$EXT/skin/icon-48x48.png</em:iconURL>
     <em:icon64URL   >chrome://$EXT/skin/icon-64x64.png</em:icon64URL>
-    <em:bootstrap   >false</em:bootstrap>
+    <em:bootstrap   >true</em:bootstrap>
 
     <!-- Firefox -->
     <em:targetApplication>
@@ -284,6 +285,159 @@ cat << EOT >| install.rdf
   </Description>
 
 </RDF>
+EOT
+
+
+
+# <http://developer.mozilla.org/en-US/docs/Extensions/bootstrap.js>
+cat << EOT >| bootstrap.js
+
+// <http://www.oxymoronical.com/blog/2011/01/Playing-with-windows-in-restartless-bootstrapped-extensions>
+
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+
+var WindowListener =
+{
+
+  setupBrowserUI : function(window)
+  {
+    let document = window.document;
+    // Take any steps to add UI or anything to the browser window
+    // document.getElementById() etc. will work here
+  },
+
+  tearDownBrowserUI : function(window)
+  {
+    let document = window.document;
+    // Take any steps to remove UI or anything from the browser window
+    // document.getElementById() etc. will work here
+  },
+
+  onOpenWindow : function(xulWindow)
+  // nsIWindowMediatorListener functions
+  {
+    // A new window has opened
+    let domWindow = xulWindow.QueryInterface(Ci.nsIInterfaceRequestor).getInterface(Ci.nsIDOMWindow);
+    // Wait for it to finish loading
+    domWindow.addEventListener
+    (
+      'load',
+      function listener()
+      {
+        domWindow.removeEventListener('load', listener, false);
+        // If this is a browser window then setup its UI
+        if ( domWindow.document.documentElement.getAttribute('windowtype') == 'navigator:browser' ) WindowListener.setupBrowserUI(domWindow);
+      },
+      false
+    );
+  },
+
+  onCloseWindow : function(xulWindow)
+  {
+  },
+
+  onWindowTitleChange : function(xulWindow, newTitle)
+  {
+  }
+
+}
+
+function startup(data, reason)
+{
+  // <summary>
+  // Bootstrap data structure <http://developer.mozilla.org/en-US/docs/Extensions/Bootstrapped_extensions#Bootstrap_data>
+  // - string id
+  // - string version
+  // - nsIFile installPath
+  // - nsIURI resourceURI
+  //
+  // Reason types:
+  // - APP_STARTUP
+  // - ADDON_ENABLE
+  // - ADDON_INSTALL
+  // - ADDON_UPGRADE
+  // - ADDON_DOWNGRADE
+  // </summary>
+  let wm = Cc['@mozilla.org/appshell/window-mediator;1'].getService(Ci.nsIWindowMediator);
+
+  // Get the list of browser windows already open
+  let windows = wm.getEnumerator('navigator:browser');
+  while (windows.hasMoreElements())
+  {
+    let domWindow = windows.getNext().QueryInterface(Ci.nsIDOMWindow);
+    WindowListener.setupBrowserUI(domWindow);
+  }
+
+  // Wait for any new browser windows to open
+  wm.addListener(WindowListener);
+}
+
+function shutdown(data, reason)
+{
+  // <summary>
+  // Bootstrap data structure <http://developer.mozilla.org/en-US/docs/Extensions/Bootstrapped_extensions#Bootstrap_data>
+  // - string id
+  // - string version
+  // - nsIFile installPath
+  // - nsIURI resourceURI
+  //
+  // Reason types:
+  // - APP_SHUTDOWN
+  // - ADDON_DISABLE
+  // - ADDON_UNINSTALL
+  // - ADDON_UPGRADE
+  // - ADDON_DOWNGRADE
+  // </summary>
+  // When the application is shutting down we normally don't have to clean up any UI changes made
+  if (reason == APP_SHUTDOWN) return;
+
+  let wm = Cc['@mozilla.org/appshell/window-mediator;1'].getService(Ci.nsIWindowMediator);
+
+  // Get the list of browser windows already open
+  let windows = wm.getEnumerator('navigator:browser');
+  while (windows.hasMoreElements())
+  {
+    let domWindow = windows.getNext().QueryInterface(Ci.nsIDOMWindow);
+    WindowListener.tearDownBrowserUI(domWindow);
+  }
+
+  // Stop listening for any new browser windows to open
+  wm.removeListener(WindowListener);
+}
+
+function install(data, reason)
+{
+  // <summary>
+  // Bootstrap data structure <http://developer.mozilla.org/en-US/docs/Extensions/Bootstrapped_extensions#Bootstrap_data>
+  // - string id
+  // - string version
+  // - nsIFile installPath
+  // - nsIURI resourceURI
+  //
+  // Reason types:
+  // - ADDON_INSTALL
+  // - ADDON_UPGRADE
+  // - ADDON_DOWNGRADE
+  // </summary>
+}
+
+function uninstall(data, reason)
+{
+  // <summary>
+  // Bootstrap data structure <http://developer.mozilla.org/en-US/docs/Extensions/Bootstrapped_extensions#Bootstrap_data>
+  // - string id
+  // - string version
+  // - nsIFile installPath
+  // - nsIURI resourceURI
+  //
+  // Reason types:
+  // - ADDON_UNINSTALL
+  // - ADDON_UPGRADE
+  // - ADDON_DOWNGRADE
+  // </summary>
+}
+
 EOT
 
 
