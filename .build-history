@@ -1,326 +1,338 @@
-	2014/03/25 Ter 07:19:21 BRS  ./.mk
-	2014/03/25 Ter 07:25:41 BRS  ./.mk
-	2014/03/25 Ter 07:27:30 BRS  ./.mk
-	2014/03/25 Ter 07:30:44 BRS  ./.mk
-	2014/03/25 Ter 07:32:37 BRS  ./.mk
-	2014/03/25 Ter 07:33:12 BRS  ./.mk
-	2014/03/25 Ter 07:43:00 BRS  skin//.mk
-	2014/03/25 Ter 07:43:05 BRS  ./.mk
-	2014/03/25 Ter 07:45:14 BRS  ./.mk
-	2014/03/25 Ter 07:51:04 BRS  ./.mk
-	2014/03/25 Ter 08:01:52 BRS  ./.mk
-	2014/03/25 Ter 08:01:56 BRS  ./.mk
-	2014/03/25 Ter 08:02:03 BRS  ./.mk
-	2014/03/25 Ter 08:08:27 BRS  ./.mk
-	2014/03/25 Ter 08:12:37 BRS  ./.mk
-	2014/03/25 Ter 08:24:11 BRS  ./.mk
-	2014/03/25 Ter 08:25:40 BRS  ./.mk
-	2014/03/25 Ter 08:30:01 BRS  ./.mk
-	2014/03/25 Ter 08:31:11 BRS  ./.mk
-	2014/03/25 Ter 08:32:11 BRS  ./.mk
-	2014/03/25 Ter 08:40:50 BRS  ./.mk
-	2014/03/25 Ter 08:44:47 BRS  ./.mk
-	2014/03/25 Ter 08:48:50 BRS  ./.mk
-	2014/03/25 Ter 08:50:43 BRS  ./.mk
-	2014/03/25 Ter 08:51:48 BRS  ./.mk
-	2014/03/25 Ter 09:05:35 BRS  ./.mk
-	2014/03/25 Ter 09:07:31 BRS  ./.mk
-	2014/03/25 Ter 09:08:39 BRS  ./.mk
-	2014/03/25 Ter 09:13:39 BRS  ./.mk
-	2014/03/25 Ter 09:14:41 BRS  ./.mk
-	2014/03/25 Ter 09:19:44 BRS  ./.mk
-	2014/03/25 Ter 10:16:05 BRS  ./.mk
-	2014/03/25 Ter 10:17:15 BRS  ./.mk
-	2014/03/25 Ter 10:18:12 BRS  ./.mk
-	2014/03/25 Ter 10:22:44 BRS  ./.mk
-	2014/03/25 Ter 10:28:12 BRS  ./.mk
-	2014/03/25 Ter 10:28:59 BRS  ./.mk
-	2014/03/25 Ter 10:58:51 BRS  ./.mk
-	2014/03/25 Ter 10:59:54 BRS  ./.mk
-	2014/03/25 Ter 11:00:51 BRS  ./.mk
-	2014/03/25 Ter 11:01:14 BRS  ./.mk
-	2014/03/25 Ter 11:03:57 BRS  ./.mk
-	2014/03/27 Qui 07:47:43 BRS  ./.mk
-	2014/03/27 Qui 07:52:08 BRS  ./.mk
-	2014/03/27 Qui 07:53:33 BRS  ./.mk
-	2014/03/27 Qui 08:17:17 BRS  ./.mk
-	2014/03/27 Qui 08:51:03 BRS  ./.mk
-	2014/03/27 Qui 08:52:07 BRS  ./.mk
-	2014/03/27 Qui 08:52:32 BRS  ./.mk
-	2014/03/27 Qui 08:54:53 BRS  ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:00:28 BRS  ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:01:14 BRS  ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:03:14 BRS  ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:04:08 BRS  ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:05:41 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:07:27 BRS  ./.mk
-	2014/03/27 Qui 09:08:24 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:11:15 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:12:16 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:12:24 BRS  clear; ./.mk; firefox -new-instance -p devel &ç
-	2014/03/27 Qui 09:24:02 BRS  clear; ./.mk; firefox -new-instance -p devel &ç
-	2014/03/27 Qui 09:26:56 BRS  clear; ./.mk; firefox -new-instance -p devel &ç
-	2014/03/27 Qui 09:29:22 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:41:53 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:46:14 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:47:50 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:52:16 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:54:44 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 09:58:12 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 10:00:23 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 10:05:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
-0.1.72	2014/03/27 Qui 10:10:56 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 10:17:10 BRS  ./.mk
-	2014/03/27 Qui 10:17:20 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 10:30:04 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 10:32:24 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 10:34:44 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 10:38:48 BRS  ./.mk
-	2014/03/27 Qui 10:39:52 BRS  ./.mk
-	2014/03/27 Qui 10:39:56 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 10:41:33 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 10:50:16 BRS  ./.mk
-	2014/03/27 Qui 11:06:57 BRS  ./.mk
-	2014/03/27 Qui 11:08:13 BRS  ./.mk
-	2014/03/27 Qui 11:09:32 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:20:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:22:47 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:25:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:26:46 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:32:22 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:33:56 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:34:01 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:35:36 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:38:05 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:46:17 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:47:31 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 11:49:19 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 12:03:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 12:04:50 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 12:07:35 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 12:07:58 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 12:08:54 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 12:10:35 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 12:12:08 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/27 Qui 12:23:45 BRS  ./.mk
-	2014/03/27 Qui 13:06:08 BRS  ./.mk
-	2014/03/27 Qui 13:06:15 BRS  ./.mk
-	2014/03/27 Qui 13:30:51 BRS  ./.mk
-0.2.109	2014/03/27 Qui 13:31:37 BRS  ./.mk
-	2014/03/29 Sáb 05:48:32 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 05:49:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 05:49:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 05:57:57 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 06:10:37 BRS  ./.mk
-	2014/03/29 Sáb 06:11:18 BRS  ./.mk
-	2014/03/29 Sáb 06:12:26 BRS  ./.mk
-	2014/03/29 Sáb 06:12:50 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 06:14:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 06:15:50 BRS  ./.mk
-	2014/03/29 Sáb 06:16:56 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 06:17:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 06:55:37 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 06:58:50 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 07:04:44 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 07:54:26 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 08:09:33 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 09:41:27 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 10:34:10 BRS  ./.mk
-	2014/03/29 Sáb 10:51:51 BRS  .mk
-	2014/03/29 Sáb 10:52:13 BRS  .mk
-	2014/03/29 Sáb 10:52:31 BRS  .mk
-	2014/03/29 Sáb 10:52:56 BRS  .mk
-	2014/03/29 Sáb 10:54:33 BRS  .mk
-	2014/03/29 Sáb 10:55:15 BRS  .mk
-	2014/03/29 Sáb 10:59:59 BRS  .mk
-	2014/03/29 Sáb 11:00:27 BRS  .mk
-	2014/03/29 Sáb 11:01:09 BRS  .mk
-	2014/03/29 Sáb 11:01:41 BRS  .mk
-	2014/03/29 Sáb 11:01:58 BRS  .mk
-	2014/03/29 Sáb 11:02:21 BRS  .mk
-	2014/03/29 Sáb 11:02:34 BRS  .mk
-	2014/03/29 Sáb 11:03:25 BRS  .mk
-	2014/03/29 Sáb 11:04:18 BRS  .mk
-	2014/03/29 Sáb 11:04:34 BRS  .mk
-	2014/03/29 Sáb 11:08:44 BRS  .mk
-	2014/03/29 Sáb 11:08:59 BRS  .mk
-	2014/03/29 Sáb 11:09:40 BRS  .mk
-	2014/03/29 Sáb 11:10:09 BRS  .mk
-	2014/03/29 Sáb 11:12:42 BRS  .mk
-	2014/03/29 Sáb 11:14:42 BRS  .mk
-	2014/03/29 Sáb 11:15:07 BRS  .mk
-	2014/03/29 Sáb 11:16:02 BRS  .mk
-	2014/03/29 Sáb 11:26:29 BRS  ./.mk
-	2014/03/29 Sáb 11:27:33 BRS  ./.mk
-	2014/03/29 Sáb 11:27:47 BRS  ./.mk
-	2014/03/29 Sáb 11:28:10 BRS  ./.mk
-	2014/03/29 Sáb 11:28:26 BRS  ./.mk
-	2014/03/29 Sáb 11:28:56 BRS  ./.mk
-	2014/03/29 Sáb 11:45:06 BRS  ./.mk
-	2014/03/29 Sáb 11:46:44 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 11:50:14 BRS  ./.mk
-	2014/03/29 Sáb 11:50:41 BRS  ./.mk
-	2014/03/29 Sáb 11:51:03 BRS  ./.mk
-	2014/03/29 Sáb 11:52:17 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 12:30:22 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 12:36:59 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 12:40:01 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 12:42:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 12:44:52 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 12:47:40 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 12:51:46 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 12:52:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 12:53:58 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 14:04:53 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 14:12:19 BRS  clear; ./.mk; seamonkey &
-	2014/03/29 Sáb 14:16:43 BRS  clear; ./.mk; seamonkey &
-	2014/03/29 Sáb 14:23:41 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 14:28:02 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 14:31:54 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 14:38:24 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 14:50:29 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 15:05:12 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 15:07:54 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 15:12:39 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 15:17:29 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 15:19:20 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 16:07:23 BRS  ./.mk
-	2014/03/29 Sáb 16:08:10 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 16:15:03 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 16:24:02 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 16:37:55 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 16:40:43 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 16:41:22 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 16:43:06 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 16:46:03 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 16:47:54 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 16:49:22 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 16:53:28 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/03/29 Sáb 16:55:45 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/29 Sáb 17:05:49 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 17:06:52 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 17:10:38 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 17:18:22 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 18:49:46 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 18:54:28 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 19:31:04 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 19:39:56 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 20:01:13 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 20:29:09 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 20:34:28 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 21:45:13 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 21:48:02 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 22:06:56 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 22:07:30 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 22:08:52 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 22:09:22 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 23:29:07 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 23:32:59 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 23:50:36 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 23:57:09 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/29 Sáb 23:59:04 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/30 Dom 00:01:30 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/30 Dom 00:06:43 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/30 Dom 00:13:47 BRS  clear; ./.mk; seamonkey -new-instance -p devel &
-	2014/03/30 Dom 00:33:58 BRS  clear; ./.mk; thunderbird -new-instance -p devel &
-	2014/03/30 Dom 01:35:12 BRS  ./.mk
-	2014/04/10 Qui 20:39:54 BRS  ./.mk
-	2014/04/10 Qui 20:41:33 BRS  ./.mk
-	2014/04/10 Qui 20:43:14 BRS  ./.mk
-	2014/04/10 Qui 20:44:00 BRS  ./.mk
-	2014/04/10 Qui 21:20:32 BRS  ./.mk
-	2014/04/10 Qui 22:35:24 BRS  ./.mk
-	2014/04/10 Qui 22:37:59 BRS  ./.mk
-	2014/04/10 Qui 22:54:01 BRS  ./.mk
-	2014/04/10 Qui 23:02:06 BRS  ./.mk
-	2014/04/10 Qui 23:15:42 BRS  ./.mk
-	2014/04/10 Qui 23:18:59 BRS  ./.mk
-	2014/04/10 Qui 23:25:08 BRS  ./.mk
-	2014/04/10 Qui 23:25:18 BRS  ./.mk
-	2014/04/10 Qui 23:32:42 BRS  ./.mk
-	2014/04/10 Qui 23:39:09 BRS  ./.mk
-	2014/04/10 Qui 23:48:21 BRS  ./.mk
-	2014/04/10 Qui 23:54:54 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 00:03:30 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 00:09:48 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 00:39:34 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 00:41:52 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 00:46:14 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 01:04:06 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 01:05:11 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 01:33:57 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 01:35:18 BRS  ./.mk
-	2014/04/11 Sex 01:35:24 BRS  ./.mk
-	2014/04/11 Sex 01:36:43 BRS  ./.mk
-	2014/04/11 Sex 01:36:47 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 01:38:47 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 01:43:22 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 01:47:15 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 02:31:04 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 02:34:28 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 02:36:33 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 02:37:51 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 02:38:05 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 02:43:47 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 02:50:38 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 02:53:26 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 02:57:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:01:41 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:03:19 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:03:29 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:08:03 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:15:53 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:18:35 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:20:46 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:23:45 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:25:37 BRS  clear; ./.mk; firefox -silent -new-instance -p devel &
-	2014/04/11 Sex 03:26:14 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:31:44 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:34:10 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:38:37 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 03:43:07 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 04:22:19 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 04:24:33 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 04:37:27 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 04:39:47 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 04:41:58 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 04:46:07 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 04:50:24 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 04:51:30 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 04:59:55 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 05:05:53 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 05:09:09 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 05:12:54 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 05:33:58 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 05:38:08 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 05:38:26 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 05:45:18 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 06:18:51 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 06:21:05 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 06:24:54 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 06:26:21 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 06:29:30 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 06:32:05 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 06:35:24 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 06:41:09 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 06:43:46 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 07:24:02 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 07:28:35 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 07:31:05 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 07:32:51 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 07:33:41 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 07:35:35 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 07:36:56 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 07:37:03 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 07:45:15 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 07:49:18 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 08:14:29 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 08:15:36 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 08:16:41 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 08:19:34 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 08:23:02 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 08:37:37 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 09:16:27 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 09:41:18 BRS  clear; ./.mk; firefox -new-instance -p devel &
-	2014/04/11 Sex 09:46:06 BRS  clear; ./.mk; firefox -new-instance -p devel &
-0.3.326	2014/04/11 Sex 09:48:06 BRS  clear; ./.mk; firefox -new-instance -p devel &
+0	2014/03/25 (Tue) 02:49:55 (BRS)
+1 	2014/03/25 (Tue) 07:19:21 (BRS)
+2 	2014/03/25 (Tue) 07:25:41 (BRS)
+3 	2014/03/25 (Tue) 07:27:30 (BRS)
+4 	2014/03/25 (Tue) 07:30:44 (BRS)
+5 	2014/03/25 (Tue) 07:32:37 (BRS)
+6 	2014/03/25 (Tue) 07:33:12 (BRS)
+7 	2014/03/25 (Tue) 07:43:00 (BRS)
+8 	2014/03/25 (Tue) 07:43:05 (BRS)
+9 	2014/03/25 (Tue) 07:45:14 (BRS)
+10	2014/03/25 (Tue) 07:51:04 (BRS)
+11	2014/03/25 (Tue) 08:01:52 (BRS)
+12	2014/03/25 (Tue) 08:01:56 (BRS)
+13	2014/03/25 (Tue) 08:02:03 (BRS)
+14	2014/03/25 (Tue) 08:08:27 (BRS)
+15	2014/03/25 (Tue) 08:12:37 (BRS)
+16	2014/03/25 (Tue) 08:24:11 (BRS)
+17	2014/03/25 (Tue) 08:25:40 (BRS)
+18	2014/03/25 (Tue) 08:30:01 (BRS)
+19	2014/03/25 (Tue) 08:31:11 (BRS)
+20	2014/03/25 (Tue) 08:32:11 (BRS)
+21	2014/03/25 (Tue) 08:40:50 (BRS)
+22	2014/03/25 (Tue) 08:44:47 (BRS)
+23	2014/03/25 (Tue) 08:48:50 (BRS)
+24	2014/03/25 (Tue) 08:50:43 (BRS)
+25	2014/03/25 (Tue) 08:51:48 (BRS)
+26	2014/03/25 (Tue) 09:05:35 (BRS)
+27	2014/03/25 (Tue) 09:07:31 (BRS)
+28	2014/03/25 (Tue) 09:08:39 (BRS)
+29	2014/03/25 (Tue) 09:13:39 (BRS)
+30	2014/03/25 (Tue) 09:14:41 (BRS)
+31	2014/03/25 (Tue) 09:19:44 (BRS)
+32	2014/03/25 (Tue) 10:16:05 (BRS)
+33	2014/03/25 (Tue) 10:17:15 (BRS)
+34	2014/03/25 (Tue) 10:18:12 (BRS)
+35	2014/03/25 (Tue) 10:22:44 (BRS)
+36	2014/03/25 (Tue) 10:28:12 (BRS)
+37	2014/03/25 (Tue) 10:28:59 (BRS)
+38	2014/03/25 (Tue) 10:58:51 (BRS)
+39	2014/03/25 (Tue) 10:59:54 (BRS)
+40	2014/03/25 (Tue) 11:00:51 (BRS)
+41	2014/03/25 (Tue) 11:01:14 (BRS)
+42	2014/03/25 (Tue) 11:03:57 (BRS)
+43	2014/03/27 (Thu) 07:47:43 (BRS)
+44	2014/03/27 (Thu) 07:52:08 (BRS)
+45	2014/03/27 (Thu) 07:53:33 (BRS)
+46	2014/03/27 (Thu) 08:17:17 (BRS)
+47	2014/03/27 (Thu) 08:51:03 (BRS)
+48	2014/03/27 (Thu) 08:52:07 (BRS)
+49	2014/03/27 (Thu) 08:52:32 (BRS)
+50	2014/03/27 (Thu) 08:54:53 (BRS)
+51	2014/03/27 (Thu) 09:00:28 (BRS)
+52	2014/03/27 (Thu) 09:01:14 (BRS)
+53	2014/03/27 (Thu) 09:03:14 (BRS)
+54	2014/03/27 (Thu) 09:04:08 (BRS)
+55	2014/03/27 (Thu) 09:05:41 (BRS)
+56	2014/03/27 (Thu) 09:07:27 (BRS)
+57	2014/03/27 (Thu) 09:08:24 (BRS)
+58	2014/03/27 (Thu) 09:11:15 (BRS)
+59	2014/03/27 (Thu) 09:12:16 (BRS)
+60	2014/03/27 (Thu) 09:12:24 (BRS)
+61	2014/03/27 (Thu) 09:24:02 (BRS)
+62	2014/03/27 (Thu) 09:26:56 (BRS)
+63	2014/03/27 (Thu) 09:29:22 (BRS)
+64	2014/03/27 (Thu) 09:41:53 (BRS)
+65	2014/03/27 (Thu) 09:46:14 (BRS)
+66	2014/03/27 (Thu) 09:47:50 (BRS)
+67	2014/03/27 (Thu) 09:52:16 (BRS)
+68	2014/03/27 (Thu) 09:54:44 (BRS)
+69	2014/03/27 (Thu) 09:58:12 (BRS)
+70	2014/03/27 (Thu) 10:00:23 (BRS)
+71	2014/03/27 (Thu) 10:05:55 (BRS)
+72 	2014/03/27 (Thu) 10:10:56 (BRS)	0.1
+73 	2014/03/27 (Thu) 10:17:10 (BRS)
+74 	2014/03/27 (Thu) 10:17:20 (BRS)
+75 	2014/03/27 (Thu) 10:30:04 (BRS)
+76 	2014/03/27 (Thu) 10:32:24 (BRS)
+77 	2014/03/27 (Thu) 10:34:44 (BRS)
+78 	2014/03/27 (Thu) 10:38:48 (BRS)
+79 	2014/03/27 (Thu) 10:39:52 (BRS)
+80 	2014/03/27 (Thu) 10:39:56 (BRS)
+81 	2014/03/27 (Thu) 10:41:33 (BRS)
+82 	2014/03/27 (Thu) 10:50:16 (BRS)
+83 	2014/03/27 (Thu) 11:06:57 (BRS)
+84 	2014/03/27 (Thu) 11:08:13 (BRS)
+85 	2014/03/27 (Thu) 11:09:32 (BRS)
+86 	2014/03/27 (Thu) 11:20:21 (BRS)
+87 	2014/03/27 (Thu) 11:22:47 (BRS)
+88 	2014/03/27 (Thu) 11:25:55 (BRS)
+89 	2014/03/27 (Thu) 11:26:46 (BRS)
+90 	2014/03/27 (Thu) 11:32:22 (BRS)
+91 	2014/03/27 (Thu) 11:33:56 (BRS)
+92 	2014/03/27 (Thu) 11:34:01 (BRS)
+93 	2014/03/27 (Thu) 11:35:36 (BRS)
+94 	2014/03/27 (Thu) 11:38:05 (BRS)
+95 	2014/03/27 (Thu) 11:46:17 (BRS)
+96 	2014/03/27 (Thu) 11:47:31 (BRS)
+97 	2014/03/27 (Thu) 11:49:19 (BRS)
+98 	2014/03/27 (Thu) 12:03:55 (BRS)
+99 	2014/03/27 (Thu) 12:04:50 (BRS)
+100	2014/03/27 (Thu) 12:07:35 (BRS)
+101	2014/03/27 (Thu) 12:07:58 (BRS)
+102	2014/03/27 (Thu) 12:08:54 (BRS)
+103	2014/03/27 (Thu) 12:10:35 (BRS)
+104	2014/03/27 (Thu) 12:12:08 (BRS)
+105	2014/03/27 (Thu) 12:23:45 (BRS)
+106	2014/03/27 (Thu) 13:06:08 (BRS)
+107	2014/03/27 (Thu) 13:06:15 (BRS)
+108	2014/03/27 (Thu) 13:30:51 (BRS)
+109	2014/03/27 (Thu) 13:31:37 (BRS)	0.2
+110	2014/03/29 (Sat) 05:48:32 (BRS)
+111	2014/03/29 (Sat) 05:49:21 (BRS)
+112	2014/03/29 (Sat) 05:49:55 (BRS)
+113	2014/03/29 (Sat) 05:57:57 (BRS)
+114	2014/03/29 (Sat) 06:10:37 (BRS)
+115	2014/03/29 (Sat) 06:11:18 (BRS)
+116	2014/03/29 (Sat) 06:12:26 (BRS)
+117	2014/03/29 (Sat) 06:12:50 (BRS)
+118	2014/03/29 (Sat) 06:14:21 (BRS)
+119	2014/03/29 (Sat) 06:15:50 (BRS)
+120	2014/03/29 (Sat) 06:16:56 (BRS)
+121	2014/03/29 (Sat) 06:17:55 (BRS)
+122	2014/03/29 (Sat) 06:55:37 (BRS)
+123	2014/03/29 (Sat) 06:58:50 (BRS)
+124	2014/03/29 (Sat) 07:04:44 (BRS)
+125	2014/03/29 (Sat) 07:54:26 (BRS)
+126	2014/03/29 (Sat) 08:09:33 (BRS)
+127	2014/03/29 (Sat) 09:41:27 (BRS)
+128	2014/03/29 (Sat) 10:34:10 (BRS)
+129	2014/03/29 (Sat) 10:51:51 (BRS)
+130	2014/03/29 (Sat) 10:52:13 (BRS)
+131	2014/03/29 (Sat) 10:52:31 (BRS)
+132	2014/03/29 (Sat) 10:52:56 (BRS)
+133	2014/03/29 (Sat) 10:54:33 (BRS)
+134	2014/03/29 (Sat) 10:55:15 (BRS)
+135	2014/03/29 (Sat) 10:59:59 (BRS)
+136	2014/03/29 (Sat) 11:00:27 (BRS)
+137	2014/03/29 (Sat) 11:01:09 (BRS)
+138	2014/03/29 (Sat) 11:01:41 (BRS)
+139	2014/03/29 (Sat) 11:01:58 (BRS)
+140	2014/03/29 (Sat) 11:02:21 (BRS)
+141	2014/03/29 (Sat) 11:02:34 (BRS)
+142	2014/03/29 (Sat) 11:03:25 (BRS)
+143	2014/03/29 (Sat) 11:04:18 (BRS)
+144	2014/03/29 (Sat) 11:04:34 (BRS)
+145	2014/03/29 (Sat) 11:08:44 (BRS)
+146	2014/03/29 (Sat) 11:08:59 (BRS)
+147	2014/03/29 (Sat) 11:09:40 (BRS)
+148	2014/03/29 (Sat) 11:10:09 (BRS)
+149	2014/03/29 (Sat) 11:12:42 (BRS)
+150	2014/03/29 (Sat) 11:14:42 (BRS)
+151	2014/03/29 (Sat) 11:15:07 (BRS)
+152	2014/03/29 (Sat) 11:16:02 (BRS)
+153	2014/03/29 (Sat) 11:26:29 (BRS)
+154	2014/03/29 (Sat) 11:27:33 (BRS)
+155	2014/03/29 (Sat) 11:27:47 (BRS)
+156	2014/03/29 (Sat) 11:28:10 (BRS)
+157	2014/03/29 (Sat) 11:28:26 (BRS)
+158	2014/03/29 (Sat) 11:28:56 (BRS)
+159	2014/03/29 (Sat) 11:45:06 (BRS)
+160	2014/03/29 (Sat) 11:46:44 (BRS)
+161	2014/03/29 (Sat) 11:50:14 (BRS)
+162	2014/03/29 (Sat) 11:50:41 (BRS)
+163	2014/03/29 (Sat) 11:51:03 (BRS)
+164	2014/03/29 (Sat) 11:52:17 (BRS)
+165	2014/03/29 (Sat) 12:30:22 (BRS)
+166	2014/03/29 (Sat) 12:36:59 (BRS)
+167	2014/03/29 (Sat) 12:40:01 (BRS)
+168	2014/03/29 (Sat) 12:42:21 (BRS)
+169	2014/03/29 (Sat) 12:44:52 (BRS)
+170	2014/03/29 (Sat) 12:47:40 (BRS)
+171	2014/03/29 (Sat) 12:51:46 (BRS)
+172	2014/03/29 (Sat) 12:52:21 (BRS)
+173	2014/03/29 (Sat) 12:53:58 (BRS)
+174	2014/03/29 (Sat) 14:04:53 (BRS)
+175	2014/03/29 (Sat) 14:12:19 (BRS)
+176	2014/03/29 (Sat) 14:16:43 (BRS)
+177	2014/03/29 (Sat) 14:23:41 (BRS)
+178	2014/03/29 (Sat) 14:28:02 (BRS)
+179	2014/03/29 (Sat) 14:31:54 (BRS)
+180	2014/03/29 (Sat) 14:38:24 (BRS)
+181	2014/03/29 (Sat) 14:50:29 (BRS)
+182	2014/03/29 (Sat) 15:05:12 (BRS)
+183	2014/03/29 (Sat) 15:07:54 (BRS)
+184	2014/03/29 (Sat) 15:12:39 (BRS)
+185	2014/03/29 (Sat) 15:17:29 (BRS)
+186	2014/03/29 (Sat) 15:19:20 (BRS)
+187	2014/03/29 (Sat) 16:07:23 (BRS)
+188	2014/03/29 (Sat) 16:08:10 (BRS)
+189	2014/03/29 (Sat) 16:15:03 (BRS)
+190	2014/03/29 (Sat) 16:24:02 (BRS)
+191	2014/03/29 (Sat) 16:37:55 (BRS)
+192	2014/03/29 (Sat) 16:40:43 (BRS)
+193	2014/03/29 (Sat) 16:41:22 (BRS)
+194	2014/03/29 (Sat) 16:43:06 (BRS)
+195	2014/03/29 (Sat) 16:46:03 (BRS)
+196	2014/03/29 (Sat) 16:47:54 (BRS)
+197	2014/03/29 (Sat) 16:49:22 (BRS)
+198	2014/03/29 (Sat) 16:53:28 (BRS)
+199	2014/03/29 (Sat) 16:55:45 (BRS)
+200	2014/03/29 (Sat) 17:05:49 (BRS)
+201	2014/03/29 (Sat) 17:06:52 (BRS)
+202	2014/03/29 (Sat) 17:10:38 (BRS)
+203	2014/03/29 (Sat) 17:18:22 (BRS)
+204	2014/03/29 (Sat) 18:49:46 (BRS)
+205	2014/03/29 (Sat) 18:54:28 (BRS)
+206	2014/03/29 (Sat) 19:31:04 (BRS)
+207	2014/03/29 (Sat) 19:39:56 (BRS)
+208	2014/03/29 (Sat) 20:01:13 (BRS)
+209	2014/03/29 (Sat) 20:29:09 (BRS)
+210	2014/03/29 (Sat) 20:34:28 (BRS)
+211	2014/03/29 (Sat) 21:45:13 (BRS)
+212	2014/03/29 (Sat) 21:48:02 (BRS)
+213	2014/03/29 (Sat) 22:06:56 (BRS)
+214	2014/03/29 (Sat) 22:07:30 (BRS)
+215	2014/03/29 (Sat) 22:08:52 (BRS)
+216	2014/03/29 (Sat) 22:09:22 (BRS)
+217	2014/03/29 (Sat) 23:29:07 (BRS)
+218	2014/03/29 (Sat) 23:32:59 (BRS)
+219	2014/03/29 (Sat) 23:50:36 (BRS)
+220	2014/03/29 (Sat) 23:57:09 (BRS)
+221	2014/03/29 (Sat) 23:59:04 (BRS)
+222	2014/03/30 (Sun) 00:01:30 (BRS)
+223	2014/03/30 (Sun) 00:06:43 (BRS)
+224	2014/03/30 (Sun) 00:13:47 (BRS)
+225	2014/03/30 (Sun) 00:33:58 (BRS)
+226	2014/03/30 (Sun) 01:35:12 (BRS)
+227	2014/04/10 (Thu) 20:39:54 (BRS)
+228	2014/04/10 (Thu) 20:41:33 (BRS)
+229	2014/04/10 (Thu) 20:43:14 (BRS)
+230	2014/04/10 (Thu) 20:44:00 (BRS)
+231	2014/04/10 (Thu) 21:20:32 (BRS)
+232	2014/04/10 (Thu) 22:35:24 (BRS)
+233	2014/04/10 (Thu) 22:37:59 (BRS)
+234	2014/04/10 (Thu) 22:54:01 (BRS)
+235	2014/04/10 (Thu) 23:02:06 (BRS)
+236	2014/04/10 (Thu) 23:15:42 (BRS)
+237	2014/04/10 (Thu) 23:18:59 (BRS)
+238	2014/04/10 (Thu) 23:25:08 (BRS)
+239	2014/04/10 (Thu) 23:25:18 (BRS)
+240	2014/04/10 (Thu) 23:32:42 (BRS)
+241	2014/04/10 (Thu) 23:39:09 (BRS)
+242	2014/04/10 (Thu) 23:48:21 (BRS)
+243	2014/04/10 (Thu) 23:54:54 (BRS)
+244	2014/04/11 (Fri) 00:03:30 (BRS)
+245	2014/04/11 (Fri) 00:09:48 (BRS)
+246	2014/04/11 (Fri) 00:39:34 (BRS)
+247	2014/04/11 (Fri) 00:41:52 (BRS)
+248	2014/04/11 (Fri) 00:46:14 (BRS)
+249	2014/04/11 (Fri) 01:04:06 (BRS)
+250	2014/04/11 (Fri) 01:05:11 (BRS)
+251	2014/04/11 (Fri) 01:33:57 (BRS)
+252	2014/04/11 (Fri) 01:35:18 (BRS)
+253	2014/04/11 (Fri) 01:35:24 (BRS)
+254	2014/04/11 (Fri) 01:36:43 (BRS)
+255	2014/04/11 (Fri) 01:36:47 (BRS)
+256	2014/04/11 (Fri) 01:38:47 (BRS)
+257	2014/04/11 (Fri) 01:43:22 (BRS)
+258	2014/04/11 (Fri) 01:47:15 (BRS)
+259	2014/04/11 (Fri) 02:31:04 (BRS)
+260	2014/04/11 (Fri) 02:34:28 (BRS)
+261	2014/04/11 (Fri) 02:36:33 (BRS)
+262	2014/04/11 (Fri) 02:37:51 (BRS)
+263	2014/04/11 (Fri) 02:38:05 (BRS)
+264	2014/04/11 (Fri) 02:43:47 (BRS)
+265	2014/04/11 (Fri) 02:50:38 (BRS)
+266	2014/04/11 (Fri) 02:53:26 (BRS)
+267	2014/04/11 (Fri) 02:57:55 (BRS)
+268	2014/04/11 (Fri) 03:01:41 (BRS)
+269	2014/04/11 (Fri) 03:03:19 (BRS)
+270	2014/04/11 (Fri) 03:03:29 (BRS)
+271	2014/04/11 (Fri) 03:08:03 (BRS)
+272	2014/04/11 (Fri) 03:15:53 (BRS)
+273	2014/04/11 (Fri) 03:18:35 (BRS)
+274	2014/04/11 (Fri) 03:20:46 (BRS)
+275	2014/04/11 (Fri) 03:23:45 (BRS)
+276	2014/04/11 (Fri) 03:25:37 (BRS)
+277	2014/04/11 (Fri) 03:26:14 (BRS)
+278	2014/04/11 (Fri) 03:31:44 (BRS)
+279	2014/04/11 (Fri) 03:34:10 (BRS)
+280	2014/04/11 (Fri) 03:38:37 (BRS)
+281	2014/04/11 (Fri) 03:43:07 (BRS)
+282	2014/04/11 (Fri) 04:22:19 (BRS)
+283	2014/04/11 (Fri) 04:24:33 (BRS)
+284	2014/04/11 (Fri) 04:37:27 (BRS)
+285	2014/04/11 (Fri) 04:39:47 (BRS)
+286	2014/04/11 (Fri) 04:41:58 (BRS)
+287	2014/04/11 (Fri) 04:46:07 (BRS)
+288	2014/04/11 (Fri) 04:50:24 (BRS)
+289	2014/04/11 (Fri) 04:51:30 (BRS)
+290	2014/04/11 (Fri) 04:59:55 (BRS)
+291	2014/04/11 (Fri) 05:05:53 (BRS)
+292	2014/04/11 (Fri) 05:09:09 (BRS)
+293	2014/04/11 (Fri) 05:12:54 (BRS)
+294	2014/04/11 (Fri) 05:33:58 (BRS)
+295	2014/04/11 (Fri) 05:38:08 (BRS)
+296	2014/04/11 (Fri) 05:38:26 (BRS)
+297	2014/04/11 (Fri) 05:45:18 (BRS)
+298	2014/04/11 (Fri) 06:18:51 (BRS)
+299	2014/04/11 (Fri) 06:21:05 (BRS)
+300	2014/04/11 (Fri) 06:24:54 (BRS)
+301	2014/04/11 (Fri) 06:26:21 (BRS)
+302	2014/04/11 (Fri) 06:29:30 (BRS)
+303	2014/04/11 (Fri) 06:32:05 (BRS)
+304	2014/04/11 (Fri) 06:35:24 (BRS)
+305	2014/04/11 (Fri) 06:41:09 (BRS)
+306	2014/04/11 (Fri) 06:43:46 (BRS)
+307	2014/04/11 (Fri) 07:24:02 (BRS)
+308	2014/04/11 (Fri) 07:28:35 (BRS)
+309	2014/04/11 (Fri) 07:31:05 (BRS)
+310	2014/04/11 (Fri) 07:32:51 (BRS)
+311	2014/04/11 (Fri) 07:33:41 (BRS)
+312	2014/04/11 (Fri) 07:35:35 (BRS)
+313	2014/04/11 (Fri) 07:36:56 (BRS)
+314	2014/04/11 (Fri) 07:37:03 (BRS)
+315	2014/04/11 (Fri) 07:45:15 (BRS)
+316	2014/04/11 (Fri) 07:49:18 (BRS)
+317	2014/04/11 (Fri) 08:14:29 (BRS)
+318	2014/04/11 (Fri) 08:15:36 (BRS)
+319	2014/04/11 (Fri) 08:16:41 (BRS)
+320	2014/04/11 (Fri) 08:19:34 (BRS)
+321	2014/04/11 (Fri) 08:23:02 (BRS)
+322	2014/04/11 (Fri) 08:37:37 (BRS)
+323	2014/04/11 (Fri) 09:16:27 (BRS)
+324	2014/04/11 (Fri) 09:41:18 (BRS)
+325	2014/04/11 (Fri) 09:46:06 (BRS)
+326	2014/04/11 (Fri) 09:48:06 (BRS)
+327	2014/04/11 (Fri) 10:12:46 (BRS)
+328	2014/04/11 (Fri) 10:14:33 (BRS)
+329	2014/04/11 (Fri) 10:19:45 (BRS)
+330	2014/04/11 (Fri) 10:24:55 (BRS)
+331	2014/04/11 (Fri) 10:36:27 (BRS)
+332	2014/04/11 (Fri) 11:48:20 (BRS)
+333	2014/04/11 (Fri) 11:49:59 (BRS)	0.3
+334	2014/04/11 (Fri) 23:47:13 (BRS)
+335	2014/04/11 (Fri) 23:49:57 (BRS)
+336	2014/04/13 (Sun) 14:34:04 (BRS)
+337	2014/04/13 (Sun) 15:53:53 (BRS)

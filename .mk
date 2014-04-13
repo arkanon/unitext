@@ -3,15 +3,10 @@
 # UniText Unicode Character Style Replacer MozillaApps/Chrome Extension
 #
 # Arkanon <arkanon@lsd.org.br>
-# 0.3.335 - 2014/04/11 (Fri) 23:55:09 (BRS)
 # 0.3.333 - 2014/04/11 (Fri) 11:49:52 (BRS)
-#           2014/03/30 (Sun) 01:34:17 (BRS)
-#           2014/03/30 (Dom) 00:13:45 (BRS)
-#           2014/03/29 (Sat) 14:44:38 (BRS)
 # 0.2.109 - 2014/03/27 (Thu) 13:31:37 (BRS)
 # 0.1.72  - 2014/03/27 (Thu) 10:13:37 (BRS)
-#           2014/03/25 (Tue) 06:37:14 (BRS)
-#           2014/03/25 (Tue) 02:49:55 (BRS)
+# 0.0.0   - 2014/03/25 (Tue) 02:49:55 (BRS)
 
 
 # Status e versões
@@ -24,13 +19,17 @@
 #   <http://addons.mozilla.org/firefox/addon/unitext/statistics/?last=30>
 
 
-# TODO
-
+# BUGS
+#
 #  -- caracteres unicode totalmente incompletos no xp (mesmo com fontes com suporte a leste asiático instaladas)
 #  -- não gera direito os labels no windows 8
-#  -- não funciona na edição de arquivos do GitHub
+#  PERFEITO NO XP do Eduardo E NO W7 DA Tais
 #
-#     tornar compatível com
+#  -- não funciona na edição de arquivos do GitHub
+
+# TODO
+
+#  tornar compatível com
 #     o- aparece o menu certo, mas não aplica                               Thunderbird Message Composer <http://developer.mozilla.org/en-US/Add-ons/Thunderbird>
 #     o- só aplica se o browser estiver aberto sem foco em campo editavel   SeaMonkey Message Composer
 #     -- o menu aparece mas sem os labels                                   SeaMonkey HTML Editor
@@ -55,7 +54,13 @@
 
 # HISTORY
 
-#  0.3.335
+#  0.4.337
+#  ok incluir a compatibilidade com o Firefox for Android e Mobile Firefox
+
+#  0.4.336
+#  ok configurar a compatibilidade para partir do Firefox 10.0
+
+#  0.4.335
 #  ok deixar apenas uma tag separando os grupos no menu
 #  ok mover 'fullwidth latin' para submenu 'latin'
 
@@ -83,11 +88,12 @@
 # <http://robertnyman.com/2009/01/24/how-to-develop-a-firefox-extension/#comment-521990>
 # <http://developer.mozilla.org/en-US/Add-ons/Overlay_Extensions/XUL_School>
 
-# firefox     -p devel -new-instance &
-# thunderbird -p devel -compose &
-# seamonkey   -p devel -browser &
-# seamonkey   -p devel -compose &
-# seamonkey   -p devel -edit    &
+# LD_LIBRARY_PATH=firefox-10.0 firefox-10.0/firefox -p devel -no-remote & # <http://oldapps.com/linux/firefox.php?system=ubuntu>
+# firefox     -p devel -no-remote &
+# thunderbird -p devel -compose   &
+# seamonkey   -p devel -browser   &
+# seamonkey   -p devel -compose   &
+# seamonkey   -p devel -edit      &
 
 # about:config
 #
@@ -114,29 +120,35 @@ EXT_creator="Arkanon"
 EXT_descr="Unicode Character Style Replacer"
 EXT_home="http://github.com/arkanon/unitext"
 
-EXT_build=$(($(cat .build-number)+1)) # update build number
-EXT_major="0.3"
+EXT_major="0.4"
+
+EXT_build=$(($(tail -n1 .build-history | cut -f1)+1)) # update build number
 EXT_version="$EXT_major.$EXT_build"
-echo $EXT_build >| .build-number
+echo -e "$EXT_build\t$(LC_TIME=C date +'%Y/%m/%d (%a) %H:%M:%S (%Z)')" >> .build-history
 
 
 
 # <http://addons.mozilla.org/firefox/pages/appversions/>
 
 EXT_ff_tgtApp_id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}" # Firefox
-EXT_ff_tgtApp_minVersion="20.0"
-EXT_ff_tgtApp_maxVersion="31.0"
+EXT_ff_tgtApp_minVersion="10.0"
+EXT_ff_tgtApp_maxVersion="32.0"
+
+EXT_fa_tgtApp_id="{aa3c5121-dab2-40e2-81ca-7ea25febc110}" # Firefox for Android
+EXT_fa_tgtApp_minVersion="10.0"
+EXT_fa_tgtApp_maxVersion="32.0"
+
+EXT_fm_tgtApp_id="{a23983c0-fd0e-11dc-95ff-0800200c9a66}" # Mobile Firefox
+EXT_fm_tgtApp_minVersion="10.0"
+EXT_fm_tgtApp_maxVersion="31.0"
 
 EXT_sm_tgtApp_id="{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}" # SeaMonkey
 EXT_sm_tgtApp_minVersion="2.0"
-EXT_sm_tgtApp_maxVersion="2.28"
+EXT_sm_tgtApp_maxVersion="2.29"
 
 EXT_tb_tgtApp_id="{3550f703-e582-4d05-9a08-453d09bdfdc6}" # Thunderbird
-EXT_tb_tgtApp_minVersion="20.0"
-EXT_tb_tgtApp_maxVersion="31.0"
-
-# "{aa3c5121-dab2-40e2-81ca-7ea25febc110}" # Firefox for Android
-# "{a23983c0-fd0e-11dc-95ff-0800200c9a66}" # Mobile
+EXT_tb_tgtApp_minVersion="10.0"
+EXT_tb_tgtApp_maxVersion="32.0"
 
 
 
@@ -174,19 +186,21 @@ skin      $EXT   classic/1.0       skin/
 style     chrome://global/content/customizeToolbar.xul                       chrome://$EXT/skin/skin.css
 
 # Firefox
-overlay   chrome://browser/content/browser.xul                               chrome://$EXT/content/firefox+seamonkey.xul   application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+overlay   chrome://browser/content/browser.xul                               chrome://$EXT/content/firefox+seamonkey.xul   application=$EXT_ff_tgtApp_id
+overlay   chrome://browser/content/browser.xul                               chrome://$EXT/content/firefox+seamonkey.xul   application=$EXT_fa_tgtApp_id
+overlay   chrome://browser/content/browser.xul                               chrome://$EXT/content/firefox+seamonkey.xul   application=$EXT_fm_tgtApp_id
 
 # SeaMonkey Browser
-overlay   chrome://navigator/content/navigator.xul                           chrome://$EXT/content/firefox+seamonkey.xul   application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+overlay   chrome://navigator/content/navigator.xul                           chrome://$EXT/content/firefox+seamonkey.xul   application=$EXT_sm_tgtApp_id
 
 # SeaMonkey HTML Editor
-#overlay   chrome://editor/content/editor.xul                                 chrome://$EXT/content/firefox+seamonkey.xul   application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+#overlay   chrome://editor/content/editor.xul                                 chrome://$EXT/content/firefox+seamonkey.xul   application=$EXT_sm_tgtApp_id
 
 # Seamonkey Message Composer
-#overlay   chrome://messenger/content/messengercompose/messengercompose.xul   chrome://$EXT/content/firefox+seamonkey.xul   application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+#overlay   chrome://messenger/content/messengercompose/messengercompose.xul   chrome://$EXT/content/firefox+seamonkey.xul   application=$EXT_sm_tgtApp_id
 
 # Thunderbird Message Composer
-#overlay   chrome://messenger/content/messengercompose/messengercompose.xul   chrome://$EXT/content/thunderbird.xul         application={3550f703-e582-4d05-9a08-453d09bdfdc6}
+#overlay   chrome://messenger/content/messengercompose/messengercompose.xul   chrome://$EXT/content/thunderbird.xul         application=$EXT_tb_tgtApp_id
 
 # Thunderbird and Seamonkey Mail Main
 #overlay   chrome://messenger/content/messenger.xul                           chrome://$EXT/content/browser.xul
@@ -218,6 +232,7 @@ cat << EOT >| install.rdf
     <em:homepageURL >$EXT_home</em:homepageURL>
     <em:iconURL     >chrome://$EXT/skin/icon-48x48.png</em:iconURL>
     <em:icon64URL   >chrome://$EXT/skin/icon-64x64.png</em:icon64URL>
+    <em:bootstrap   >false</em:bootstrap>
 
     <!-- Firefox -->
     <em:targetApplication>
@@ -225,6 +240,24 @@ cat << EOT >| install.rdf
         <em:id         >$EXT_ff_tgtApp_id</em:id>
         <em:minVersion >$EXT_ff_tgtApp_minVersion</em:minVersion>
         <em:maxVersion >$EXT_ff_tgtApp_maxVersion</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+    <!-- Firefox for Android -->
+    <em:targetApplication>
+      <Description>
+        <em:id         >$EXT_fa_tgtApp_id</em:id>
+        <em:minVersion >$EXT_fa_tgtApp_minVersion</em:minVersion>
+        <em:maxVersion >$EXT_fa_tgtApp_maxVersion</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+    <!-- Mobile Firefox -->
+    <em:targetApplication>
+      <Description>
+        <em:id         >$EXT_fm_tgtApp_id</em:id>
+        <em:minVersion >$EXT_fm_tgtApp_minVersion</em:minVersion>
+        <em:maxVersion >$EXT_fm_tgtApp_maxVersion</em:maxVersion>
       </Description>
     </em:targetApplication>
 
@@ -237,8 +270,8 @@ cat << EOT >| install.rdf
       </Description>
     </em:targetApplication>
 
-    <!-- Thunderbird -->
 <!--
+    <!-- Thunderbird -->
     <em:targetApplication>
       <Description>
         <em:id         >$EXT_tb_tgtApp_id</em:id>
